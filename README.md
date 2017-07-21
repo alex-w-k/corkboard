@@ -1,6 +1,6 @@
 # README
 
-Start by cloning down: git@github.com:NicholasJacques/corkboard.git
+Original Repo: git@github.com:NicholasJacques/corkboard.git
 
 Navigate into the Corkboard directory in your terminal
 
@@ -46,9 +46,9 @@ Pro_Services is utilized to deliniate the user type between a Requester(user) an
 
 In Pro_Services there is a SET data type in the schema diagram (array w/integer in the DB). This is a non-indexed, unique value only array type that we are using to store an array of the service id's that are essentially tags noting what services that professional provides.   
 
-----------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
 
-Keys:
+Keys: 
 
 Twilio
 
