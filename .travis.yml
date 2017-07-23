@@ -15,5 +15,5 @@ deploy:
   app:
     master: corkboard-services
   run:
-  - "rake db:migrate"
-  - "rake cleanup"
+    - "rake db:migrate"
+    - "rake db:seed"
