@@ -15,7 +15,6 @@ class ProDashboard::OpenProjectsController < ApplicationController
       else
       end
     end
-    # request_location = Geokit::Geocoders::GoogleGeocoder.geocode(@pro.zipcode)
   end
 
   def show

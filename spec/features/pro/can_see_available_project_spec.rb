@@ -19,12 +19,12 @@ RSpec.describe 'a logged pro can see available projects that match its services'
     click_link 'Find Projects'
 
     expect(current_path).to eq('/pro_dashboard/open_projects')
-
     expect(page).to have_content(project_1_email)
     expect(page).to have_content(project_1.service.name)
-    expect(page).to have_content(project_1.created_at)
     expect(page).to have_content(project_1.timeline)
     expect(page).to have_content(project_1.recurring)
+    expect(page).to have_content(project_1.zipcode)
+    expect(page).to have_content(project_1.created_at)
 
     expect(page).to_not have_content(project_2_email)
     expect(page).to_not have_content(project_2.service.name)

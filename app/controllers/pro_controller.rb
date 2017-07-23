@@ -6,8 +6,8 @@ class ProController < ApplicationController
   def new
     @oauth_info = OauthParse.new(session[:omniauth_info])
     @services = Service.where(id: params[:service_id])
-    @radius = params[:radius]
-    session[:radius] = params[:radius]
+    @radius = params[:radius].empty? ? "10" : params[:radius]
+    session[:radius] = @radius
     session[:service_ids] = Service.pro_service_ids(params[:service_id])
     @pro = Pro.new
   end

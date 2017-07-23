@@ -12,6 +12,7 @@
     <% @to_bid_on.each do |project| %>
       <tr>
         <td><%= link_to "View", pro_dashboard_open_project_path(project) %></td>
+        <td><%= project.service.created_at %></td>
         <td><%= project.service.name %></td>
         <td><%= project.timeline %></td>
         <td><%= project.recurring %></td>

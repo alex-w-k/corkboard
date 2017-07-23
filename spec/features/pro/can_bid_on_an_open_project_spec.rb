@@ -10,9 +10,7 @@ RSpec.describe 'a logged-in pro can place a bid on an open project' do
 
   it "will let the pro place a bid" do
     page.set_rack_session(user_id: pro.id, authenticated: true)
-
     visit pro_dashboard_open_projects_path
-
     click_on "View"
 
     expect(current_path).to eq(pro_dashboard_open_project_path(project))

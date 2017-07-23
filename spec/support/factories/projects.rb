@@ -2,7 +2,7 @@ FactoryGirl.define do
 
   factory :project do
     status 0
-    zipcode { Faker::Address.zip_code }
+    zipcode 80210
     recurring { Faker::Boolean.boolean }
     timeline 0
     description { Faker::Hipster.paragraph(2) }
