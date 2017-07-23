@@ -14544,6 +14544,23 @@ return t.dispatch("turbolinks:before-render",{data:{newBody:e}})},r.prototype.no
   App.cable = ActionCable.createConsumer();
 
 }).call(this);
+
+
+
+
+this.App = {};
+
+App.cable = ActionCable.createConsumer();
+App.messages = App.cable.subscriptions.create('MessagesChannel', {
+  received: function(data) {
+    $("#messages").removeClass('hidden')
+    return $('#messages').append(this.renderMessage(data));
+  },
+
+  renderMessage: function(data) {
+    return "<p> <b>" + data.user + ": </b>" + data.message + "</p>";
+  }
+});
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -14556,6 +14573,7 @@ return t.dispatch("turbolinks:before-render",{data:{newBody:e}})},r.prototype.no
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 
 
 
