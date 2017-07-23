@@ -9,5 +9,5 @@ class Category < ApplicationRecord
                    uniqueness: true
 
   belongs_to :industry
-  has_many :services
+  has_many :services, dependent: :destroy
 end

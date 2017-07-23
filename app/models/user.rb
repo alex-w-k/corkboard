@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :phone_number, presence: true
   has_secure_password validations: false
 
-  has_many :user_roles
+  has_many :user_roles, dependent: :destroy
   has_many :roles, through: :user_roles
   has_many :requested_projects, :class_name => 'Project', :foreign_key => 'requester_id'
 

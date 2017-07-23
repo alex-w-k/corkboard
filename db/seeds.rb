@@ -3,6 +3,13 @@ require 'csv'
 class Seed
 
   def initialize
+    Bid.destroy_all
+    Category.destroy_all
+    Industry.destroy_all
+    Pro.destroy_all
+    User.destroy_all
+    Service.destroy_all
+    Project.destroy_all
     generate_industries
     generate_categories
     generate_services

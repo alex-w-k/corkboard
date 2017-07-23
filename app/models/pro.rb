@@ -1,5 +1,5 @@
 class Pro < User
-  has_one :pro_service, foreign_key: :user_id
+  has_one :pro_service, foreign_key: :user_id, dependent: :destroy
   has_many :bids
 
   def services
