@@ -33,4 +33,13 @@ RSpec.describe "As a guest" do
     expect(current_path).to eq(new_hire_project_path(service))
   end
 
+  it "is redirected if no search matches" do
+    visit root_path
+    fill_in :service_search, with: ""
+    click_on "Get Started"
+
+    expect(current_path).to eq(home_search_index_path)
+    expect(page).to have_content("Sorry we couldn't find what you were looking for")
+    expect(page).to have_link("Please try your search again")
+  end
 end
