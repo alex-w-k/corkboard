@@ -17,4 +17,3 @@ deploy:
     master: corkboard-services
   run:
     - "rake db:migrate"
-    - "rake db:seed"
