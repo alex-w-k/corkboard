@@ -13,12 +13,9 @@
       <a class="navbar-brand" href="/">
         <img src="http://imgur.com/GmY1Fzr.png" width="175" height="35" alt="brand">
       </a>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <%= navbar_service_search %>
-        </div>
-          <%= navbar_search_button %>
-      </form>
+      
+          <%= render "shared/navbar_service_search" if logged_in? %>
+
       <ul class="nav navbar-nav navbar-right">
         <li><%= sign_up_button %></li>
         <li><%= login_button %></li>
