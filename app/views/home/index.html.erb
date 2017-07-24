@@ -1,31 +1,36 @@
-
 <div class="jumbotron">
-  <div class="container text-center">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3"><h1>Consider it done.</h1></div>
-      <div class="col-md-6 col-md-offset-3"><h3>From house painting to personal training, we bring you the right pros for every project on your list.</h3></div>
-    </div>
-    <form role="form" method="post">
-      <div class="col-md-6 col-md-offset-3 form-group">
-      	<div class="input-group input-group-lg">
-          <input type="text" class="form-control" placeholder="What service do you need?">
-          <div class="input-group-btn">
-            <button class="btn btn-primary" type="submit">Get Started</button>
-          </div>
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h1>Consider it done.</h1>
+            </div>
+            <div class="col-md-6 col-md-offset-3">
+                <h3>From house painting to personal training, we bring you the right pros for every project on your list.</h3>
+            </div>
         </div>
-      </div>
-    </form>
-  </div>
+        <%= form_tag("/home/search", method: :get) do%>
+            <div class="col-md-6 col-md-offset-3 form-group">
+                <div class="input-group input-group-lg">
+                    <%= text_area_tag :service_search, "What service do you need?", class: "form-control"%>
+                    <div class="input-group-btn">
+                    <%= submit_tag "Get Started", class: "btn btn-primary" %>
+                    </div>
+                </div>
+            </div>
+        <%end%>
+    </div>
 </div>
+
+
 <div class="icons icons-container">
-  <div class="icons-row">
-    <div class="icon"><a href="hire/home-improvement" id="home-link"><i class="fa fa-home"></i></a></div>
-    <div class="icon"><a href="hire/events" id="events-link"><i class="fa fa-calendar"></i></a></div>
-    <div class="icon"><a href="hire/lessons" id="lessons-link"><i class="fa fa-graduation-cap"></i></a></div>
-    <div class="icon"><a href="hire/wellness" id="wellness-link"><i class="fa fa-heartbeat"></i></a></div>
-    <div class="icon"><a href="hire/more/business" id="business-link"><i class="fa fa-briefcase"></i></a></div>
-    <div class="icon"><a href="hire/more/crafts" id="crafts-link"><i class="fa fa-paint-brush"></i></a></div>
-    <div class="icon"><a href="hire/more/design-web" id="design-web-link"><i class="fa fa-desktop"></i></a></div>
-    <div class="icon"><a href="hire/more/pets" id="pets-link"><i class="fa fa-paw"></i></a></div>
-  </div>
+    <div class="icons-row">
+        <div class="icon"><a href="hire/home-improvement" id="home-link"><i class="fa fa-home"></i></a></div>
+        <div class="icon"><a href="hire/events" id="events-link"><i class="fa fa-calendar"></i></a></div>
+        <div class="icon"><a href="hire/lessons" id="lessons-link"><i class="fa fa-graduation-cap"></i></a></div>
+        <div class="icon"><a href="hire/wellness" id="wellness-link"><i class="fa fa-heartbeat"></i></a></div>
+        <div class="icon"><a href="hire/more/business" id="business-link"><i class="fa fa-briefcase"></i></a></div>
+        <div class="icon"><a href="hire/more/crafts" id="crafts-link"><i class="fa fa-paint-brush"></i></a></div>
+        <div class="icon"><a href="hire/more/design-web" id="design-web-link"><i class="fa fa-desktop"></i></a></div>
+        <div class="icon"><a href="hire/more/pets" id="pets-link"><i class="fa fa-paw"></i></a></div>
+    </div>
 </div>
