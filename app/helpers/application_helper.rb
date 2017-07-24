@@ -12,5 +12,11 @@ module ApplicationHelper
       link_to 'Sign Up', choose_account_path
     end
   end
+
+  def dashboard_button
+    if logged_in?
+      link_to 'Dashboard', profile_dashboard_path
+    end
+  end
   
 end
