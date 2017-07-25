@@ -17,11 +17,11 @@ class Seed
   end
 
   def generate_bids_with_conversations
-    pro = Pro.create(first_name: "Bob", last_name: "Ross", zipcode: "80203", phone_number: "5555555", email: "bross@gmail.com", password: "password")
+    pro = Pro.create!(first_name: "Bob", last_name: "Ross", zipcode: "80203", phone_number: "5555555", email: "bross@gmail.com", password: "password", country_code: "+1")
 
-    pro_service = pro.pro_services.create(service: Service.first, radius: 100)
+    pro_service = pro.pro_services.create(service_id: 1, radius: 100)
 
-    requester = User.create(first_name: "Burt", last_name: "Reynolds", zipcode: "80203", phone_number: "5555554", email: "turdferguson@gmail.com", password: "password")
+    requester = User.create(first_name: "Burt", last_name: "Reynolds", zipcode: "80203", phone_number: "5555554", email: "turdferguson@gmail.com", password: "password", country_code: "+1")
 
     project = Project.create(status: "open", zipcode: "80203", recurring: false, description: "Help me.", timeline: "ASAP", requester_id: 2, service_id: 1)
 
@@ -32,7 +32,7 @@ class Seed
     industries.each do |industry|
       new_industry = Industry.create!(name: industry[:name])
 
-      puts "Created #{new_industry.name}"
+      puts "Created Industry: #{new_industry.name}"
     end
   end
 
@@ -41,7 +41,7 @@ class Seed
       new_category = Category.create!(name: category[:name],
                                       industry: Industry.find_by(name: category[:industry_name]))
 
-    puts "Created #{new_category.name}"
+    puts "Created Category: #{new_category.name}"
     end
   end
 
@@ -50,7 +50,7 @@ class Seed
       new_service = Service.create!(name: service[:name],
                       category: Category.find_by(name: service[:category_name]))
 
-      puts "Created #{new_service.name}"
+      puts "Created Service: #{new_service.name}"
     end
   end
 
