@@ -21,12 +21,12 @@ class ProController < ApplicationController
       end
       session[:user_id] = @pro.id
       authy = Authy::API.register_user(
-        email: @user.email,
-        cellphone: @user.phone_number,
-        country_code: @user.country_code
+        email: @pro.email,
+        cellphone: @pro.phone_number,
+        country_code: @pro.country_code
       )
       @user.update(authy_id: authy.id)
-      Authy::API.request_sms(id: @user.authy_id)
+      Authy::API.request_sms(id: @pro.authy_id)
       session.delete(:service_ids)
       session.delete(:radius)
       session.delete(:omniauth_info)
