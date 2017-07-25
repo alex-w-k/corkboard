@@ -25,7 +25,7 @@ class ProController < ApplicationController
         cellphone: @pro.phone_number,
         country_code: @pro.country_code
       )
-      @user.update(authy_id: authy.id)
+      @pro.update(authy_id: authy.id)
       Authy::API.request_sms(id: @pro.authy_id)
       session.delete(:service_ids)
       session.delete(:radius)
