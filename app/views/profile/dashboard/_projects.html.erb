@@ -1,0 +1,42 @@
+<div class='open'>
+    <h3>Open Projects</h3>
+    <% current_user.open_projects.each do |project| %>
+        <ul>
+            <%=project.service.name%>
+        </ul>
+        <ul>
+            <%=project.description%>
+        </ul>
+        <ul>
+            <%=project.timeline%>
+        </ul>
+        <%end%>
+</div>
+<div class='accepted'>
+    <h3>Accepted Projects</h3>
+    <% current_user.accepted_projects.each do |project| %>
+        <ul>
+            <%=project.service.name%>
+        </ul>
+        <ul>
+            <%=project.description%>
+        </ul>
+        <ul>
+            <%=project.timeline%>
+        </ul>
+        <%end%>
+</div>
+<div class='closed'>
+    <h3>Closed Projects</h3>
+    <% current_user.closed_projects.each do |project| %>
+        <ul>
+            <%=project.service.name%>
+        </ul>
+        <ul>
+            <%=project.description%>
+        </ul>
+        <ul>
+            <%=project.timeline%>
+        </ul>
+        <%end%>
+</div>
