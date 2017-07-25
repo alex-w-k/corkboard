@@ -1,6 +1,8 @@
 class Service < ApplicationRecord
   include Sluggable
 
+  has_many :pro_services
+  has_many :pros, through: :pro_services, foreign_key: "user_id"
   before_validation :generate_slug
 
   validates :name, presence: true
