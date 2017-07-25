@@ -19,7 +19,7 @@ class Seed
   def generate_bids_with_conversations
     pro = Pro.create(first_name: "Bob", last_name: "Ross", zipcode: "80203", phone_number: "5555555", email: "bross@gmail.com", password: "password")
 
-    pro_service = pro.create_pro_service(service_ids: [1])
+    pro_service = pro.pro_services.create(service: Service.first, radius: 100)
 
     requester = User.create(first_name: "Burt", last_name: "Reynolds", zipcode: "80203", phone_number: "5555554", email: "turdferguson@gmail.com", password: "password")
 
