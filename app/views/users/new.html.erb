@@ -10,7 +10,6 @@
     <%= f.text_field :last_name, placeholder: "Last Name", id: "last_name", value: @oauth_info.last_name || "" %><br>
     <%= f.text_field :zipcode, placeholder: 'Enter Zip Code', id: "zip_code"%><br>
     <%= f.text_field :country_code, placeholder: 'Enter Country Code', id: 'country_code' %><br>
-    <% binding.pry %>
     <%= f.telephone_field :phone_number, placeholder: 'Enter Phone Number', id: "phone_number" %><br>
     <%= f.text_field :email, placeholder: "Email", id: "email", value: @oauth_info.email || "" %><br>
     <%= f.password_field :password, placeholder: "Password" %><br>
