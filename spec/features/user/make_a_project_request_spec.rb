@@ -40,13 +40,15 @@ RSpec.describe 'user creates a project' do
     expect(Project.count).to eq(1)
     expect(Attachment.count).to eq(1)
     expect(current_path).to eq(new_project_confirmation_path(new_project))
-    expect(new_project.status).to eq("open")
-    expect(new_project.zipcode).to eq("80210")  
-    expect(new_project.recurring).to be true
-    expect(new_project.description).to eq("This is a project that I need done right away")
-    expect(new_project.requester).to eq(user)
     expect(attachment.upload_file_name).to eq('image.png')
     expect(attachment.upload_content_type).to eq('image/png')
     expect(attachment.upload_file_size).to eq(6773)
+
+    expect(page).to have_content(new_project.status)
+    expect(page).to have_content(new_project.zipcode)  
+    expect(page).to have_content(new_project.recurring)
+    expect(page).to have_content(new_project.description)
+    expect(page).to have_content(new_project.requester.name)
+    expect(page).to have_css('img')
   end
 end
