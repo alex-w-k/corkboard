@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates :zipcode, presence: true
   validates :email, presence: true, uniqueness: true
   validates :phone_number, presence: true
+  validates :country_code, presence: true
   has_secure_password validations: false
 
   has_many :user_roles, dependent: :destroy

@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       @user.update(authy_id: authy.id)
       Authy::API.request_sms(id: @user.authy_id)
       session.delete(:omniauth_info)
-      redirect_to twilio_confirmation_path
+      redirect_to verify_path
     else
       flash.now[:danger] = @user.errors.full_messages
       render :new
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
       @user.update(verified: true)
       flash[:success] = "You successfully verified your account!"
       send_message('You successfully verified your account!')
-      redirect_to user_path(@user.id)
+      user_redirect(current_user)
     else
       flash.now[:danger] = "Incorrect code, please try again"
       render :show_verify
@@ -46,7 +46,10 @@ class UsersController < ApplicationController
     flash[:notice] = 'Verification code re-sent'
     redirect_to verify_path
   end
-
+  
+  def show_verify
+    return redirect_to new_user_path unless session[:user_id]
+  end
 
   private
 

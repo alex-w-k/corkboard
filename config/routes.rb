@@ -21,8 +21,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   get '/pro/dashboard', to: 'pro#show'
-  get '/twilio-confirmation', to:'twilio_confirmation#new'
-  post 'twilio-confirmation', to: 'twilio_confirmation#create'
+  get "users/verify", to: 'users#show_verify', as: 'verify'
+  post "users/verify"
+  post "users/resend"
   get '/hire/new-project-confirmation/:id', to: 'hire/project#confirmation', as: 'new_project_confirmation'
 
   resources :pro, only: [:new, :create]
