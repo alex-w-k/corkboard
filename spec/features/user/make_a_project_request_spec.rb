@@ -48,7 +48,6 @@ RSpec.describe 'user creates a project' do
     expect(page).to have_content(new_project.zipcode)  
     expect(page).to have_content(new_project.recurring)
     expect(page).to have_content(new_project.description)
-    expect(page).to have_content(new_project.requester.name)
     expect(page).to have_css('img')
   end
 end
