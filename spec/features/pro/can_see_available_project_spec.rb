@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe 'a logged pro can see available projects that match its services' do
   let!(:project_2_email) { project_2.requester.email }
   let!(:project_1_email) { project_1.requester.email }
-  let!(:pro) { create(:pro_user, pro_service: pro_service) }
-  let!(:pro_service) { create(:pro_service, service_ids: [service_1.id]) }
+  let!(:pro) { create(:pro_user) }
+  let!(:pro_service) { pro.pro_services.create(service: service_1, pro: pro, radius: 100) }
   let!(:project_1) { create(:project, service: service_1) }
   let!(:project_2) { create(:project, service: service_2) }
   let!(:service_1) { create(:service, category: category) }

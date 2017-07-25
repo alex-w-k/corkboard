@@ -9,10 +9,11 @@ RSpec.describe ProService, type: :model do
   let(:pro_service) { build(:pro_service) }
 
   describe 'Attributes' do
-    it { expect(pro_service).to respond_to(:service_ids)}
+    it { expect(pro_service).to respond_to(:service)}
+    it { expect(pro_service).to respond_to(:pro)}
   end
 
   describe 'ActiveRecord Associations' do
-    it { expect(pro_service).to belong_to(:pro).with_foreign_key(:user) }
+    it { expect(pro_service).to belong_to(:pro).with_foreign_key(:user_id) }
   end
 end

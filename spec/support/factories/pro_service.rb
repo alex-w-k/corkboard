@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :pro_service do
-    service_ids [1]
+    service
     radius '100'
+    pro
   end
 end
