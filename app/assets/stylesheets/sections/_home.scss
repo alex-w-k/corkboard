@@ -4,17 +4,31 @@ h3 {
 }
 
 .icon {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    margin-top: 15px;
     align-items: center;
-    width: 90px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
 }
 
 .icon-label {
     display: none;
     width: 90px;
     height: 20px;
-    font-size: 10px;
+    font-size: 14px;
+    font-weight: 800;
+    text-align: center;
+}
+
+span {
+    margin: 10px auto;
+    text-align: center;
+    display: block
+}
+
+a {
+    text-align: center;
+    display: block;
 }
