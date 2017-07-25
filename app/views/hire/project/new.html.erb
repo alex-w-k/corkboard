@@ -1,45 +1,59 @@
 <%= form_for @project, url: hire_project_index_path, html: {multipart: true, class: "project-form"} do |f| %>
-  <%= f.hidden_field :service_id, :value => @service.id %>
+    <%= f.hidden_field :service_id, :value => @service.id %>
 
-  <div class="form-group" id="zipcode-form">
-    <%= f.label "Project Zipcode" %></br>
-    <%= f.text_field :zipcode %> </br>
-  </div>
+        <div class="form-group" id="zipcode-form">
+            <%= f.label "Project Zipcode" %>
+                </br>
+                <%= f.text_field :zipcode %>
+                    </br>
+        </div>
 
-  <div class="form-group" id="recurring-form">
-    <%= f.label "Is this a one time Project or a Recurring Project?" %></br>
-    <%= f.radio_button :recurring, false %>
-    <%= f.label :recurring, "Just Once", :value => false %></br>
-    <%= f.radio_button :recurring, true %>
-    <%= f.label :recurring, "Recurring", :value => true %></br>
-  </div>
+        <div class="form-group" id="recurring-form">
+            <%= f.label "Is this a one time Project or a Recurring Project?" %>
+                </br>
+                <%= f.radio_button :recurring, false %>
+                    <%= f.label :recurring, "Just Once", :value => false %>
+                        </br>
+                        <%= f.radio_button :recurring, true %>
+                            <%= f.label :recurring, "Recurring", :value => true %>
+                                </br>
+        </div>
 
-  <div class="form-group" id="timeline-form">
-    <%= f.label "How soon do you need this done?" %></br>
-    <%= f.radio_button :timeline, "ASAP", :checked => true %>
-    <%= f.label :timeline, "ASAP", :value => "ASAP" %></br>
-    <%= f.radio_button :timeline, "Within 2 Weeks" %>
-    <%= f.label :timeline, "Within 2 Weeks", :value => "Within 2 Weeks" %></br>
-    <%= f.radio_button :timeline, "Within 2 Months" %>
-    <%= f.label :timeline, "Within 2 Months", :value => "Within 2 Months" %></br>
-    <%= f.radio_button :timeline, "Whenever" %>
-    <%= f.label :timeline, "Whenever", :value => "Whenever" %></br>
-  </div>
+        <div class="form-group" id="timeline-form">
+            <%= f.label "How soon do you need this done?" %>
+                </br>
+                <%= f.radio_button :timeline, "ASAP", :checked => true %>
+                    <%= f.label :timeline, "ASAP", :value => "ASAP" %>
+                        </br>
+                        <%= f.radio_button :timeline, "Within 2 Weeks" %>
+                            <%= f.label :timeline, "Within 2 Weeks", :value => "Within 2 Weeks" %>
+                                </br>
+                                <%= f.radio_button :timeline, "Within 2 Months" %>
+                                    <%= f.label :timeline, "Within 2 Months", :value => "Within 2 Months" %>
+                                        </br>
+                                        <%= f.radio_button :timeline, "Whenever" %>
+                                            <%= f.label :timeline, "Whenever", :value => "Whenever" %>
+                                                </br>
+        </div>
 
-  <div class="form-group" id="description-form">
-    <%= f.label "Tell us about your project" %></br>
-    <%= f.text_area :description, placeholder: "The more details you provide here, the more accurately contracters will be able to provide bid for his project", cols: 40, rows: 7 %></br>
-  </div>
+        <div class="form-group" id="description-form">
+            <%= f.label "Tell us about your project" %>
+                </br>
+                <%= f.text_area :description, placeholder: "The more details you provide here, the more accurately contracters will be able to provide bid for his project", cols: 40, rows: 7 %>
+                    </br>
+        </div>
 
-  <div class="form-group" id="upload">
-    <%= f.fields_for :attachments, @project.attachments.build do |attachment| %>
-      <%= attachment.file_field :upload %><br>
-    <% end %>
-  </div>
+        <div class="form-group" id="upload">
+            <%= f.fields_for :attachments, @project.attachments.build do |attachment| %>
+                <%= attachment.file_field :upload %><br>
+                    <% end %>
+        </div>
 
-  <% if logged_in? %>
-    <%= f.submit "Submit" %>
-  <% else %>
-    <p><%=link_to "Login", login_path %> or <%= link_to "Sign Up", choose_account_path %> to request this project</p>
-  <% end %>
-<% end %>
+        <% if logged_in? %>
+            <%= f.submit "Submit" %>
+                <% else %>
+                    <p>
+                        <%=link_to "Login", login_path %> or
+                            <%= link_to "Sign Up", choose_account_path %> to request this project</p>
+                    <% end %>
+                        <% end %>
