@@ -28,10 +28,6 @@ RSpec.describe "Guest Bcrypt Authentication Process" do
 
     click_on "Verify Token"
 
-    expect(current_path).to eq(profile_dashboard_path)
-
-
-
     latest_user = User.last
 
     expect(latest_user.first_name).to eq("Arnold")

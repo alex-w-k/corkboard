@@ -16,22 +16,13 @@ RSpec.describe "Guest Facebook OAuth Process" do
     expect(page).to have_field('user[email]', with: 'rileyt_111@hotmail.com')
 
     fill_in "user[zipcode]", with: "79720"
+    fill_in "user[country_code]", with: '1'
     fill_in "user[phone_number]", with: "3944568"
 
 
     click_on "Create Account"
 
-    expect(current_path).to eq(twilio_confirmation_path)
-
-    last_message = FakeSMS.messages.last
-
-    fill_in "code_verification[code]", with: last_message.body
-
-    click_on "Verify"
-
-    expect(current_path).to eq(profile_dashboard_path)
-
-    expect(current_path).to eq('/profile/dashboard')
+    expect(current_path).to eq(verify_path)
 
     latest_user = User.last
 
