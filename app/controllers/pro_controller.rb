@@ -24,7 +24,7 @@ class ProController < ApplicationController
       session.delete(:service_ids)
       session.delete(:radius)
       session.delete(:omniauth_info)
-      redirect_to twilio_confirmation_path
+      redirect_to verify_path
     else
       flash.now[:danger] = @pro.errors.full_messages
       render :new
@@ -38,6 +38,7 @@ class ProController < ApplicationController
     params.require(:pro).permit(:first_name,
                                  :last_name,
                                  :zipcode,
+                                 :country_code,
                                  :phone_number,
                                  :email,
                                  :uid,

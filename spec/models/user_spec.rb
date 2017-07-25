@@ -22,6 +22,7 @@ RSpec.describe User, type: :model do
     it { expect(@user).to validate_presence_of(:first_name) }
     it { expect(@user).to validate_presence_of(:last_name) }
     it { expect(@user).to validate_presence_of(:zipcode) }
+    it { expect(@user).to validate_presence_of(:country_code) }
     it { expect(@user).to validate_presence_of(:phone_number) }
     it { expect(@user).to validate_presence_of(:email) }
     it { expect(@user).to validate_uniqueness_of(:email) }
@@ -31,6 +32,7 @@ RSpec.describe User, type: :model do
     it { expect(@user).to respond_to(:first_name) }
     it { expect(@user).to respond_to(:last_name) }
     it { expect(@user).to respond_to(:zipcode) }
+    it { expect(@user).to respond_to(:country_code) }
     it { expect(@user).to respond_to(:phone_number) }
     it { expect(@user).to respond_to(:email) }
     it { expect(@user).to respond_to(:type) }
