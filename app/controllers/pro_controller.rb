@@ -15,7 +15,7 @@ class ProController < ApplicationController
   def create
     @pro = Pro.new(pro_params)
     @pro.uid = session[:omniauth_info]['uid'] if omniauth_user
-    @pro.create_pro_service(service_ids: session[:service_ids], radius: session[:radius])
+    # @pro.create_pro_service(service_ids: session[:service_ids], radius: session[:radius])
     if @pro.save
       ConfirmationSender.send_confirmation_to(@pro)
       session[:user_id] = @pro.id
