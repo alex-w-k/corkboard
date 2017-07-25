@@ -1,5 +1,0 @@
-*.gem
-.bundle
-Gemfile.lock
-Gemfile.rails4.lock
-pkg/*
