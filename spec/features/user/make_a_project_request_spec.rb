@@ -29,11 +29,24 @@ RSpec.describe 'user creates a project' do
     choose('ASAP')
 
     expect(page).to_not have_content('Login or Sign Up to request this project')
+        # save_and_open_page
+    page.attach_file("project[attachments_attributes][0][upload]", Rails.root + "spec/support/fixtures/image.png") 
+    # binding.pry
     click_on 'Submit'
 
     new_project = Project.last
+    attachment = Attachment.first
 
     expect(Project.count).to eq(1)
+    expect(Attachment.count).to eq(1)
     expect(current_path).to eq(new_project_confirmation_path(new_project))
+    expect(new_project.status).to eq("open")
+    expect(new_project.zipcode).to eq("80210")  
+    expect(new_project.recurring).to be true
+    expect(new_project.description).to eq("This is a project that I need done right away")
+    expect(new_project.requester).to eq(user)
+    expect(attachment.upload_file_name).to eq('image.png')
+    expect(attachment.upload_content_type).to eq('image/png')
+    expect(attachment.upload_file_size).to eq(6773)
   end
 end

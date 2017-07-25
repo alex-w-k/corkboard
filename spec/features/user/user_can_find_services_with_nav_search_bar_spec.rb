@@ -12,6 +12,7 @@ RSpec.describe "As a user" do
     within('form') do
       find('button').click
     end
+
     
     expect(current_path).to eq(hire_industry_path(industry))
   end
