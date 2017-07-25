@@ -10,7 +10,6 @@ RSpec.describe "As a logged in user" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit profile_dashboard_path
 
-
     within('.open') do
       expect(page).to have_content(project1.description)
       expect(page).to_not have_content(project2.description)
