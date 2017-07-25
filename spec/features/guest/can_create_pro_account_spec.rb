@@ -53,6 +53,7 @@ RSpec.describe "Guest can create Pro Process" do
 
     fill_in "pro[first_name]", with: "Arnold"
     fill_in "pro[last_name]", with: "Schwarzenegger"
+    fill_in "pro[country_code]", with: '1'
     fill_in "pro[phone_number]", with: "8085559111"
     fill_in "pro[zipcode]", with: "79720"
     fill_in "pro[email]", with: "arny22@gmail.com"
@@ -61,15 +62,12 @@ RSpec.describe "Guest can create Pro Process" do
 
     click_on "Create Account"
 
-    expect(current_path).to eq(twilio_confirmation_path)
+    expect(current_path).to eq(verify_path)
 
-    last_message = FakeSMS.messages.last
+    fill_in "token", with: '123456'
 
-    fill_in "code_verification[code]", with: last_message.body
+    click_on "Verify Token"
 
-    click_on "Verify"
-
-    expect(current_path).to eq(pro_dashboard_path)
 
     latest_user = Pro.last
     expect(latest_user.class).to eq Pro

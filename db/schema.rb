@@ -120,13 +120,16 @@ ActiveRecord::Schema.define(version: 20170725175252) do
     t.string   "zipcode"
     t.string   "phone_number"
     t.string   "email"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "uid"
     t.string   "type"
     t.string   "password"
     t.string   "password_digest"
     t.string   "verification_code"
+    t.string   "country_code"
+    t.integer  "authy_id"
+    t.boolean  "verified",          default: false
   end
 
   add_foreign_key "bids", "projects"

@@ -1,7 +1,7 @@
 class OauthParse
   attr_reader :email, :name
 
-  def initialize(oauth_info=nil)
+  def initialize(oauth_info={})
     @email = oauth_info['info']['email'] if oauth_info
     @name =  oauth_info['info']['name'] if oauth_info
   end

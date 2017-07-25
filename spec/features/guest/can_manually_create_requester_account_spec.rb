@@ -10,7 +10,8 @@ RSpec.describe "Guest Bcrypt Authentication Process" do
 
     fill_in "user[first_name]", with: "Arnold"
     fill_in "user[last_name]", with: "Schwarzenegger"
-    fill_in "user[phone_number]", with: "8675309"
+    fill_in "user[country_code]", with: "1"
+    fill_in "user[phone_number]", with: "7191234567"
     fill_in "user[zipcode]", with: "79720"
     fill_in "user[email]", with: "arny22@gmail.com"
     fill_in "user[password]", with: "hunter2"
@@ -20,17 +21,12 @@ RSpec.describe "Guest Bcrypt Authentication Process" do
 
     click_on "Create Account"
 
-    expect(current_path).to eq(twilio_confirmation_path)
-
-    last_message = FakeSMS.messages.last
-
-    fill_in "code_verification[code]", with: last_message.body
-
-    click_on "Verify"
-
-    expect(current_path).to eq(profile_dashboard_path)
+    expect(current_path).to eq(verify_path)
 
 
+    fill_in "token", with: '123456'
+
+    click_on "Verify Token"
 
     latest_user = User.last
 
