@@ -1,0 +1,36 @@
+<h3>Project Information</h3>
+<ul>
+    <li>
+        Service:
+        <%=@project.service.name%>
+    </li>
+    <li>
+        Created_at:
+        <%=@project.created_at%>
+    </li>
+    <li>
+        Status:
+        <%=@project.status%>
+    </li>
+    <li>
+        Timeline:
+        <%=@project.timeline%>
+    </li>
+    <li>
+        Zipcode:
+        <%=@project.zipcode%>
+    </li>
+    <li>
+        Description:
+        <%=@project.description%>
+    </li>
+    <li>
+        Description:
+        <%=@project.description%>
+    </li>
+    <li>Attachments:
+        <%@project.attachments.each do |attachment|%>
+          <%=image_tag attachment.upload.url(:thumb)%>
+        <%end%>
+    </li>
+</ul>
