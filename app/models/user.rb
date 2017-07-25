@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :requested_projects, :class_name => 'Project', :foreign_key => 'requester_id'
 
   has_many :messages
-
+  
   def self.from_omniauth(auth_info)
     user = where(uid: auth_info[:uid]).first_or_initialize do |new_user|
       new_user.uid = auth_info.uid
@@ -26,11 +26,23 @@ class User < ApplicationRecord
     verification_code == code
   end
 
- def self.locate_by(data, oauth=false)
-  oauth ? find_or_initialize_by(uid: data["uid"]) : find_by(email: data)
- end
+  def self.locate_by(data, oauth=false)
+    oauth ? find_or_initialize_by(uid: data["uid"]) : find_by(email: data)
+  end
 
- def full_name
-   "#{first_name} #{last_name}"
- end
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
+  def open_projects
+    requested_projects.open
+  end
+
+  def closed_projects
+    requested_projects.closed
+  end
+  
+  def accepted_projects
+    requested_projects.accepted
+  end
 end

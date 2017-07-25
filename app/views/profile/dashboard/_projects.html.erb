@@ -1,0 +1,58 @@
+<div class='open'>
+    <h3>Open Projects</h3>
+    <% current_user.open_projects.each do |project| %>
+        <ul>
+            Service:
+            <%=project.service.name%>
+        </ul>
+        <ul>
+            Description:
+            <%=project.description%>
+        </ul>
+        <ul>
+            Timeline:
+            <%=project.timeline%>
+        </ul>
+        <% if !project.attachments.empty?%>
+        </ul>
+            <% project.attachments.each do |attachment| %>
+              <%= image_tag attachment.upload.url(:thumb) %>
+            <%end%>
+        </ul>
+        <%end%>
+    <%end%>
+</div>
+<div class='accepted'>
+    <h3>Accepted Projects</h3>
+    <% current_user.accepted_projects.each do |project| %>
+        <ul>
+            Service:
+            <%=project.service.name%>
+        </ul>
+        <ul>
+            Description:
+            <%=project.description%>
+        </ul>
+        <ul>
+            Timeline:
+            <%=project.timeline%>
+        </ul>
+        <%end%>
+</div>
+<div class='closed'>
+    <h3>Closed Projects</h3>
+    <% current_user.closed_projects.each do |project| %>
+        <ul>
+            Service:
+            <%=project.service.name%>
+        </ul>
+        <ul>
+            Description:
+            <%=project.description%>
+        </ul>
+        <ul>
+            Timeline:
+            <%=project.timeline%>
+        </ul>
+        <%end%>
+</div>

@@ -14,7 +14,7 @@ FactoryGirl.define do
       phone_number { Faker::PhoneNumber.phone_number }
       email { Faker::Internet.email }
       type "Pro"
-      pro_service
+      # pro_service
     end
   end
 end

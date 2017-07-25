@@ -1,0 +1,11 @@
+<form class="navbar-form navbar-left" role="search" action="/home/search" method="get">
+    <div class="form-group">
+        <input type='text' name="service_search" class='form-control' placeholder="What service do you need to do today?" id="service_search">
+    </div>
+    <button type='submit' name='commit' class='btn btn-default'><i class='glyphicon glyphicon-search'></i></button>
+</form>
+
+<!-- <%= form_tag( '/home/search' , method: :get) do %>
+    <%= text_field_tag :service_search, nil, placeholder: "type here"%>
+        <%= submit_tag "Submit"%>
+            <% end %> -->
