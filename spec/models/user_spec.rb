@@ -35,4 +35,5 @@ RSpec.describe User, type: :model do
     it { expect(user).to have_many(:requested_projects).with_foreign_key('requester_id') }
     it { expect(pro_user).to have_one(:pro_service) }
   end
+  
 end

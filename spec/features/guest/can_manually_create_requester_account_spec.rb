@@ -23,7 +23,6 @@ RSpec.describe "Guest Bcrypt Authentication Process" do
 
     expect(current_path).to eq(verify_path)
 
-    binding.pry
 
     fill_in "token", with: '123456'
 

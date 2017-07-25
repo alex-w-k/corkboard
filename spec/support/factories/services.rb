@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :service do
-    name "Mowing"
+    name {Faker::Company.profession}
     category
     slug { name.parameterize }
   end

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :messages
 
   root 'home#index'
+  namespace :home do
+    resources :search
+  end
 
   namespace :profile do
     get '/dashboard', to: 'dashboard#show'
