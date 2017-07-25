@@ -19,8 +19,14 @@ class ProController < ApplicationController
       session[:service_ids].each do |id|
         @pro.pro_services.create(service_id: id, radius: session[:radius])
       end
-      ConfirmationSender.send_confirmation_to(@pro)
       session[:user_id] = @pro.id
+      authy = Authy::API.register_user(
+        email: @user.email,
+        cellphone: @user.phone_number,
+        country_code: @user.country_code
+      )
+      @user.update(authy_id: authy.id)
+      Authy::API.request_sms(id: @user.authy_id)
       session.delete(:service_ids)
       session.delete(:radius)
       session.delete(:omniauth_info)
