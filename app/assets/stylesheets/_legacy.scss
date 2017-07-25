@@ -1,0 +1,273 @@
+/**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Custom CSS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
+    font-family: 'Muli', sans-serif;
+}
+
+.site-content {
+    padding-bottom: 50px;
+}
+
+
+/**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Navbar
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+.navbar {
+    height: 80px;
+    background: transparent;
+}
+
+.navbar-content {
+    padding-top: 13px;
+}
+
+.navbar-form {
+    overflow: auto;
+    margin-top: 0px;
+}
+
+.navbar-form .form-control {
+    display: inline-block;
+    width: 500px;
+    vertical-align: middle;
+    height: 50px;
+}
+
+.navbar-form .form-group {
+    display: inline;
+}
+
+.navbar-brand {
+    padding-top: 7px;
+    padding-left: 5px;
+    img {
+        width: 175px;
+        height: 35px;
+    }
+}
+
+.navbar-form .btn {
+    margin-top: 2px;
+    margin-left: -10px;
+    height: 50px;
+    background-color: #F4F4F4;
+}
+
+.glyphicon-search {
+    height: 36px;
+    padding-top: 10px;
+}
+
+
+/**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Footer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+.navbar-fixed-bottom {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #efefef;
+    text-align: center;
+    height: 15px;
+    background-color: #FAFAFA;
+}
+
+
+/**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Jumbotron
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+.jumbotron h1 {
+    font-size: 50px;
+}
+
+.jumbotron h3 {
+    font-size: 23px;
+}
+
+.jumbotron .form-group {
+    margin-top: 30px;
+}
+
+
+/**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Icon List
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+.icons .fa {
+    font-size: 50px;
+    color: #BDC4C4;
+}
+
+.icons-container {
+    padding: 20px;
+    background-color: #F4F4F4;
+}
+
+.icons-row {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.icons-row .fa:hover {
+    color: #F27802;
+}
+
+
+/**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Sign Up Cards
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+.sign-up-header {
+    margin: 30px;
+    margin-bottom: 50px;
+}
+
+.sign-up {
+    border: 1px solid #E1E3E3;
+    border-radius: 4px;
+    padding: 36px;
+    width: 400px;
+    margin-left: 75px;
+}
+
+.sign-up .card-title {
+    margin-top: 0px;
+}
+
+.sign-up .btn-primary {
+    margin-top: 30px;
+    width: 100%;
+    background: #3F93F3;
+    height: 50px;
+    padding-top: 13px;
+    font-size: 15px;
+}
+
+.sign-up .btn-primary:hover {
+    background: #3275C2;
+    color: #65A8F5;
+    transition: all 0.3s ease 0s;
+}
+
+
+/**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Create Account
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+.form-signin {
+    max-width: 400px;
+    padding: 40px;
+    margin: 0 auto;
+    border: 1px solid #E1E3E3;
+    border-radius: 4px;
+    margin-top: 40px;
+}
+
+.form-signin .btn {
+    width: 100%;
+    background: #3F93F3;
+    height: 60px;
+    font-size: 20px;
+}
+
+.form-signin .btn:hover {
+    background: #3275C2;
+    color: #65A8F5;
+    transition: all 0.3s ease 0s;
+}
+
+.or {
+    margin-top: 25px;
+    font-size: 20px;
+    color: gray;
+}
+
+.facebook-login {
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.facebook-button {
+    height: 60px;
+    width: 318px;
+    color: #FFFFFF;
+    background-color: #4C66A4;
+    border-radius: 5px;
+}
+
+.facebook-button:hover {
+    color: lightgray;
+    background-color: #3C5183;
+    transition: all 0.3s ease 0s;
+}
+
+
+/**
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* Create Account
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
+.login-session {
+    background-color: #FAFAFA;
+}
+
+.jumbotron {
+    margin-top: -20px;
+    margin-bottom: 0;
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    background-image: asset-data-url("jumbotron_1.jpg");
+    background-position: 0px -90px;
+    background-color: rgba(78, 77, 77, .35);
+    background-blend-mode: multiply;
+    color: white;
+}
+
+.pro {
+    background-image: asset-data-url("sign_up_pro.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -120px 0;
+    color: #FFFFFF;
+}

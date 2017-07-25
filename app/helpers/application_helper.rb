@@ -13,15 +13,10 @@ module ApplicationHelper
     end
   end
 
-  def navbar_service_search
+  def dashboard_button
     if logged_in?
-      "<input type='text' class='form-control' placeholder='What service do you need today, #{current_user.first_name}?'>".html_safe
+      link_to 'Dashboard', profile_dashboard_path
     end
   end
-
-  def navbar_search_button
-    if logged_in?
-      "<button type='submit' class='btn btn-default'><i class='glyphicon glyphicon-search'></i></button>".html_safe
-    end
-  end
+  
 end

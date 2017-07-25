@@ -14,5 +14,8 @@ let!(:user) { create(:user) }
 
     expect(current_path).to eq('/profile/dashboard')
     expect(page).to have_content("Logout")
+    expect(page).to have_content("Dashboard")
+    expect(page).to_not have_content("Login")
+    expect(page).to_not have_content("Sign Up")
   end
 end
