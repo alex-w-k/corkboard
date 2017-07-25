@@ -32,7 +32,6 @@ class UsersController < ApplicationController
     if token.ok?
       @user.update(verified: true)
       flash[:success] = "You successfully verified your account!"
-      send_message('You successfully verified your account!')
       user_redirect(current_user)
     else
       flash.now[:danger] = "Incorrect code, please try again"
@@ -62,18 +61,6 @@ class UsersController < ApplicationController
                                  :email,
                                  :password,
                                  :password_confirmation)
-  end
-
-  def send_message(message)
-    @user = current_user
-    twilio_number = ENV['TWILIO_NUMBER']
-    account_sid = ENV['TWILIO_ACCOUNT_SID']
-    @client = Twilio::REST::Client.new account_sid, ENV['TWILIO_AUTH_TOKEN']
-    message = @client.api.accounts(account_sid).messages.create(
-      :from => twilio_number,
-      :to => @user.country_code+@user.phone_number,
-      :body => message
-    )
   end
 
 end

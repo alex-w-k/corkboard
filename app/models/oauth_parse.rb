@@ -4,8 +4,6 @@ class OauthParse
   def initialize(oauth_info=nil)
     @email = oauth_info['info']['email'] if oauth_info
     @name =  oauth_info['info']['name'] if oauth_info
-    @uid = oauth_info['uid']
-    @token = oauth_info['credentials']['token']
   end
 
   def first_name
