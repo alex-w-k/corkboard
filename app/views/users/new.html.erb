@@ -1,3 +1,5 @@
+<% @type = @user %>
+<% @path = register_path %>
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-center">
@@ -5,17 +7,7 @@
     </div>
   </div>
   <div class="form-signin">
-    <%= bootstrap_form_for(@user, url: register_path, method: :post) do |f| %>
-    <%= f.text_field :first_name, placeholder: "First Name", id: "first_name", value: "" || @oauth_info.first_name %><br>
-    <%= f.text_field :last_name, placeholder: "Last Name", id: "last_name", value: "" || @oauth_info.last_name %><br>
-    <%= f.text_field :zipcode, placeholder: 'Enter Zip Code', id: "zip_code"%><br>
-    <%= f.text_field :country_code, placeholder: 'Enter Country Code', id: 'country_code' %><br>
-    <%= f.telephone_field :phone_number, placeholder: 'Enter Phone Number', id: "phone_number" %><br>
-    <%= f.text_field :email, placeholder: "Email", id: "email", value: "" || @oauth_info.email %><br>
-    <%= f.password_field :password, placeholder: "Password" %><br>
-    <%= f.password_field :password_confirmation, placeholder: "Confirm Password", label: "Confirm Password" %><br>
-    <%= f.submit "Create Account", class: "btn login btn-primary" %>
-    <% end %>
+    <%= render "shared/user_form" %>
   </div>
   <div class="row text-center or">
     <p>or</p>

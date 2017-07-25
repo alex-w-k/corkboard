@@ -36,6 +36,7 @@ class ProController < ApplicationController
     params.require(:pro).permit(:first_name,
                                  :last_name,
                                  :zipcode,
+                                 :country_code,
                                  :phone_number,
                                  :email,
                                  :uid,
