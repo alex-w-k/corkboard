@@ -2,3 +2,19 @@ h3 {
     text-align: center;
     margin-top: 5%;
 }
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    height: 80px;
+}
+
+.icon-label {
+    display: none;
+    width: 90px;
+    height: 20px;
+    font-size: 10px;
+}
