@@ -20,5 +20,11 @@ module ApplicationHelper
       link_to 'Dashboard', profile_dashboard_path
     end
   end
+
+  def new_project_button
+    if logged_in?
+      link_to 'New Project', root_path
+    end
+  end
   
 end

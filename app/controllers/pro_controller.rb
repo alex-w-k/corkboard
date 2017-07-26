@@ -21,7 +21,7 @@ class ProController < ApplicationController
       session[:service_ids].each do |id|
         @pro.pro_services.create(service_id: id, radius: session[:radius])
       end
-       session[:user_id] = @pro.id
+      session[:user_id] = @pro.id
       authy = Authy::API.register_user(
         email: @pro.email,
         cellphone: @pro.phone_number,

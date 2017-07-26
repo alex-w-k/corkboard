@@ -14,6 +14,7 @@ class Hire::ProjectController < ApplicationController
     if params[:project][:attachments_attributes]
       project.attachments.create(upload: params[:project][:attachments_attributes]["0"][:upload])
     end
+    flash[:success] = "Project Successfully Submitted"
     redirect_to new_project_confirmation_path(project)
   end
 
