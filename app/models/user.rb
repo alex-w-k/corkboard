@@ -3,8 +3,6 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :zipcode, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :phone_number, presence: true
-  validates :country_code, presence: true
   has_secure_password validations: false
 
   has_many :user_roles, dependent: :destroy
@@ -21,14 +19,6 @@ class User < ApplicationRecord
 
   def update_uid(uid)
     update_attribute(:uid, uid)
-  end
-
-  def full_phone
-
-  end
-
-  def is_valid_code?(code)
-    verification_code == code
   end
 
   def self.locate_by(data, oauth=false)

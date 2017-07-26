@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       @user.update(authy_id: authy.id)
       Authy::API.request_sms(id: @user.authy_id)
       session.delete(:omniauth_info)
-      redirect_to verify_path
+      redirect_to profile_dashboard
     else
       flash.now[:danger] = @user.errors.full_messages
       render :new
@@ -57,8 +57,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name,
                                  :last_name,
                                  :zipcode,
-                                 :country_code,
-                                 :phone_number,
                                  :full_phone,
                                  :email,
                                  :password,
