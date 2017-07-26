@@ -8,6 +8,10 @@ FactoryGirl.define do
     description { Faker::Hipster.paragraph(2) }
     requester
     service
+
+    after(:create) do |project|
+      create(:attachment, attachable: project)
+    end   
   end
   
 end

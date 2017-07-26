@@ -46,4 +46,8 @@ class User < ApplicationRecord
   def accepted_projects
     requested_projects.accepted
   end
+
+  def projects
+    requested_projects
+  end
 end
