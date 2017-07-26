@@ -4,6 +4,7 @@ class ProController < ApplicationController
   end
 
   def new
+    @zipcode = params[:zipcode]
     @location = Geokit::Geocoders::GoogleGeocoder.geocode(params[:zip])
     @oauth_info = OauthParse.new(session[:omniauth_info])
     @services = Service.where(id: params[:service_id])
@@ -37,7 +38,7 @@ class ProController < ApplicationController
       flash.now[:danger] = @pro.errors.full_messages
       @services = Service.where(id: session[:service_ids])
       @radius = session[:radius]
-      # @pro = Pro.new
+      @location = Geokit::Geocoders::GoogleGeocoder.geocode(params[:zip])
       render :new
     end
   end
