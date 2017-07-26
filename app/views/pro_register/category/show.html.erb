@@ -1,20 +1,24 @@
 <div class="service-choices">
-  <h1><%= @category.name %></h1>
-  <%= form_tag(new_pro_path, method: "get")  do %>
-  <table>
-    <tbody class="service_table">
-      <% @services.each do |service| %>
-        <tr>
-          <td>
-            <%= service.name %>
-            <%= check_box_tag "service_id[]", service.id, false%> <br> <br>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table> <p></p>
-    How far are you willing to travel to perform these services?
-    <%= text_field_tag(:radius) %> <p></p>
-  <%= submit_tag "Submit" %>
-  <% end %>
+    <h1>
+        <%= @category.name %>
+    </h1>
+    <%= form_tag(new_pro_path, method: "get")  do %>
+        <table>
+            <tbody class="service_table">
+                <% @services.each do |service| %>
+                    <tr>
+                        <td>
+                            <%= service.name %>
+                                <%= check_box_tag "service_id[]", service.id, false%> <br> <br>
+                        </td>
+                    </tr>
+                    <% end %>
+            </tbody>
+        </table>
+        <p></p>
+        How far are you willing to travel to perform these services?
+        <%= text_field_tag(:radius) %>
+            <p></p>
+            <%= submit_tag "Submit" %>
+                <% end %>
 </div>
