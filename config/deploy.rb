@@ -1,19 +1,19 @@
 # config valid only for current version of Capistrano
 lock "3.8.2"
 
-server '104.154.134.198', user: 'deploy', port: 22, roles: %w{web app db}
+server '104.197.250.20', user: 'deploy', port: 22, roles: %w{web app db}
 
 set :branch, 'capistrano'
 
-set :application, "little-shop"
-set :repo_url, "git@github.com:alex-w-k/little-shop.git"
+set :application, "corkboard"
+set :repo_url, "git@github.com:Benjaminpjacobs/corkboard.git"
 set :use_sudo, true
 
 # Default branch is :setup-capistrano
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/deploy/apps/little-shop/"
+set :deploy_to, "/home/deploy/apps/corkboard/"
 set :nginx_path, '/etc/nginx'
 set :nginx_template, 'config/deploy/nginx_conf.erb'
 set :nginx_server_name, 'myfucking.network'
@@ -23,7 +23,6 @@ set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
 set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
 set :puma_access_log, "#{release_path}/log/puma.error.log"
 set :puma_error_log,  "#{release_path}/log/puma.access.log"
-set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa.pub) }
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 
