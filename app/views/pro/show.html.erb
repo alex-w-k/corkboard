@@ -1,7 +1,5 @@
 <div class="container">
   <div class="row">
-    <%= link_to "Find Projects", pro_dashboard_open_projects_path %>
-
     <div class="col-md-4">
       <h2>My Services</h2>
       <ul class="list-group">
@@ -16,14 +14,15 @@
     <div class="col-md-4">
       <h2>My Projects</h2>
       <ul class="list-group">
-        <% if @pro.projects.empty? %>
+        <% if @projects.empty? %>
           <li class="list-group-item">
             You have no current projects.
           </li>
         <% else %>
-          <% @pro.projects.each do |project| %>
+          <% @projects.each do |project| %>
           <li class="list-group-item">
-            <%= link_to project.name, pro_dashboard_open_project(project) %>
+            Owner: <%= project.requester.full_name %><br />
+            Description: <%= project.description %>
           </li>
           <% end %>
         <% end %>
@@ -40,8 +39,8 @@
         <ul class="list-group">
           <% @bids.each do |bid| %>
             <li class="list-group-item">
-              Requested by: <%= bid.project.requester.full_name %> |
-              Amount: <%= bid.amount %> | <%= link_to "View", bid_path(bid) %>
+              Requested by: <%= bid.project.requester.full_name %><br />
+              Amount: <%= bid.amount %><br /><%= link_to "View", bid_path(bid) %>
             </li>
           <% end %>
         </ul>

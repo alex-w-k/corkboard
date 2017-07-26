@@ -1,6 +1,7 @@
 class ProController < ApplicationController
   def show
     @pro = Pro.find(current_user.id)
+    @projects = @pro.open_projects
     @bids = Bid.where(user_id: current_user.id)
   end
 
