@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include FormHelper
+  
   def login_button
     if logged_in?
       link_to 'Logout', logout_path, method: :delete

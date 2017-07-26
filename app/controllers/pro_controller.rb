@@ -4,6 +4,7 @@ class ProController < ApplicationController
   end
 
   def new
+    @location = Geokit::Geocoders::GoogleGeocoder.geocode(params[:zip])
     @oauth_info = OauthParse.new(session[:omniauth_info])
     @services = Service.where(id: params[:service_id])
     @radius = params[:radius].empty? ? "10" : params[:radius]
@@ -15,6 +16,7 @@ class ProController < ApplicationController
   def create
     @pro = Pro.new(pro_params)
     @pro.uid = session[:omniauth_info]['uid'] if omniauth_user
+
     if @pro.save
       session[:service_ids].each do |id|
         @pro.pro_services.create(service_id: id, radius: session[:radius])
@@ -33,6 +35,9 @@ class ProController < ApplicationController
       redirect_to verify_path
     else
       flash.now[:danger] = @pro.errors.full_messages
+      @services = Service.where(id: session[:service_ids])
+      @radius = session[:radius]
+      # @pro = Pro.new
       render :new
     end
   end

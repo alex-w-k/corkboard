@@ -5,7 +5,7 @@
   <%= f.text_field :country_code, placeholder: 'Enter Country Code', id: 'country_code' %><br>
   <%= f.telephone_field :phone_number, placeholder: 'Enter Phone Number', id: "phone" %><br>
   <input id="hidden" type="hidden" name="phone-full">
-  <%= f.text_field :email, placeholder: "Email", id: "email", value: @oauth_info.email %><br>
+  <%= f.text_field :email, placeholder: "Email", id: "email", value: user_form_email %><br>
   <%= f.password_field :password, placeholder: "Password" %><br>
   <%= f.password_field :password_confirmation, placeholder: "Confirm Password", label: "Confirm Password" %><br>
   <%= f.submit "Create Account", class: "btn login btn-primary" %>
