@@ -59,6 +59,7 @@ class UsersController < ApplicationController
                                  :zipcode,
                                  :country_code,
                                  :phone_number,
+                                 :full_phone,
                                  :email,
                                  :password,
                                  :password_confirmation)

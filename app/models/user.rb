@@ -23,6 +23,10 @@ class User < ApplicationRecord
     update_attribute(:uid, uid)
   end
 
+  def full_phone
+
+  end
+
   def is_valid_code?(code)
     verification_code == code
   end

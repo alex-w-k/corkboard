@@ -1,1 +1,0 @@
-$(".fa").mouseenter(function(){$(this).first().parent().siblings("span").toggle()}),$(".fa").mouseleave(function(){$(this).first().parent().siblings("span").toggle()});
