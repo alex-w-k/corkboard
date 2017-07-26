@@ -16,6 +16,7 @@ class ProController < ApplicationController
   def create
     @pro = Pro.new(pro_params)
     @pro.uid = session[:omniauth_info]['uid'] if omniauth_user
+
     if @pro.save
       session[:service_ids].each do |id|
         @pro.pro_services.create(service_id: id, radius: session[:radius])
@@ -34,6 +35,9 @@ class ProController < ApplicationController
       redirect_to verify_path
     else
       flash.now[:danger] = @pro.errors.full_messages
+      @services = Service.where(id: session[:service_ids])
+      @radius = session[:radius]
+      # @pro = Pro.new
       render :new
     end
   end
