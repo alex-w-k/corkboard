@@ -1,73 +1,29 @@
 <% @type = @pro %>
-    <% @path = pro_index_path %>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h4>These are the services you provide</h4>
-                    <% @services.each do |service| %>
-                        <%= service.name %><br>
-                            <% end %> <br> <br>
-                                <h4>And the distance you are willing to travel to perform them</h4>
-                                <%= @radius %> Miles
-                                    <h2>Create your account</h1>
-                </div>
-            </div>
-            <div class="form-signin">
-                <h4>Account Info</h4>
-                <%= render "shared/user_form" %>
-                    <br>
+<% @path = pro_index_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h4>These are the services you provide</h4>
+      <% @services.each do |service| %>
+        <%= service.name %><br>
+      <% end %>
+      <h4>And the distance you are willing to travel to perform them</h4>
+      <%= @radius %> Miles
+      <h2>Create your account</h1>
+    </div>
+  </div>
+  <div class="form-signin">
+    <h4>Account Info</h4>
+    <%= render "shared/user_form" %><br>
+    <%= link_to "Sign Up With Facebook", '/auth/facebook?user_type=pro', class: "facebook-button" %>
+  </div>
 
-                    <%= link_to "Sign Up With Facebook", '/auth/facebook?user_type=pro', class: "facebook-button" %>
-            </div>
-
-            <div class="ZipRadiusMapContainer">
-                <div id='map'></div>
-                <script>
-                    function initMap() {
-                        var location = {
-                            lat: <%= @location.lat %>,
-                            lng: <%= @location.lng %>
-                        };
-                        var map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 9,
-                            center: location
-                        });
-                        var marker = new google.maps.Marker({
-                            position: location,
-                            map: map
-                        });
-                        var cityCircle = new google.maps.Circle({
-                            strokeColor: '#FF0000',
-                            strokeOpacity: 0.8,
-                            strokeWeight: 2,
-                            fillColor: '#FF0000',
-                            fillOpacity: 0.35,
-                            map: map,
-                            center: location,
-                            radius: <%= @radius.to_i * 1609.34 %>
-                        });
-                    }
-                </script>
-
-                <div id='map'></div>
-                <script>
-                    function initMap() {
-                        var location = {
-                            lat: 40.0,
-                            lng: -105.27
-                        };
-                        var map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 12,
-                            center: location
-                        });
-                        var marker = new google.maps.Marker({
-                            position: location,
-                            map: map
-                        });
-                    }
-                </script>
-
-                <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV[" google_api_key "] %>&callback=initMap">
-                </script>
-            </div>
-        </div>
+  <div class="ZipRadiusMapContainer">
+    <div id='map'></div>
+    <div hidden id="lat"><%= @location.lat %></div>
+    <div hidden id="lng"><%= @location.lng %></div>
+    <div hidden id="radius"><%= @radius %></div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["google_api_key"] %>&callback=initMap">
+    </script>
+  </div>
+</div>
