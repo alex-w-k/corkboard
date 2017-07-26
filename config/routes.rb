@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :messages
 
   root 'home#index'
+  
   namespace :home do
     resources :search
   end
