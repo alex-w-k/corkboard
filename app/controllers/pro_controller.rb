@@ -4,6 +4,7 @@ class ProController < ApplicationController
   end
 
   def new
+    @location = Geokit::Geocoders::GoogleGeocoder.geocode(params[:zip])
     @oauth_info = OauthParse.new(session[:omniauth_info])
     @services = Service.where(id: params[:service_id])
     @radius = params[:radius].empty? ? "10" : params[:radius]
