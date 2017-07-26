@@ -1,5 +1,52 @@
-<%= link_to "Find Projects", pro_dashboard_open_projects_path %><br><br>
+<div class="container">
+  <div class="row">
+    <%= link_to "Find Projects", pro_dashboard_open_projects_path %>
 
-<% @pro.services.each do |service| %>
-  <%= service.name %>
-<% end %>
+    <div class="col-md-4">
+      <h2>My Services</h2>
+      <ul class="list-group">
+        <% @pro.services.each do |service| %>
+        <li class="list-group-item">
+          <%= service.name %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-md-4">
+      <h2>My Projects</h2>
+      <ul class="list-group">
+        <% if @pro.projects.empty? %>
+          <li class="list-group-item">
+            You have no current projects.
+          </li>
+        <% else %>
+          <% @pro.projects.each do |project| %>
+          <li class="list-group-item">
+            <%= link_to project.name, pro_dashboard_open_project(project) %>
+          </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-md-4">
+      <h2>My Bids</h2>
+      <% if @bids.empty? %>
+      <li class="list-group-item">
+        You have no open bids.
+      </li>
+      <% else %>
+        <ul class="list-group">
+          <% @bids.each do |bid| %>
+            <li class="list-group-item">
+              Requested by: <%= bid.project.requester.full_name %> |
+              Amount: <%= bid.amount %> | <%= link_to "View", bid_path(bid) %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+
+  </div>
+</div>

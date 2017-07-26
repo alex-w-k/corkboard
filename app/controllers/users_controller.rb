@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_filter :omniauth_user
-
+  before_action :omniauth_user
+  include AuthyConcern
+  
   def new
     @user = User.new
     @oauth_info = OauthParse.new(session[:omniauth_info])
@@ -10,15 +11,10 @@ class UsersController < ApplicationController
     binding.pry
     @user = User.new(user_params)
     @user.uid = session[:omniauth_info]['uid'] if omniauth_user
+
     if @user.save
       session[:user_id] = @user.id
-      authy = Authy::API.register_user(
-        email: @user.email,
-        cellphone: @user.phone_number,
-        country_code: @user.country_code
-      )
-      @user.update(authy_id: authy.id)
-      Authy::API.request_sms(id: @user.authy_id)
+      authy_authorize(@user)
       session.delete(:omniauth_info)
       redirect_to profile_dashboard
     else
@@ -28,8 +24,7 @@ class UsersController < ApplicationController
   end
 
   def verify
-    @user = current_user
-    token = Authy::API.verify(id: @user.authy_id, token: params[:token])
+    token = verify_token
     if token.ok?
       @user.update(verified: true)
       flash[:success] = "You successfully verified your account!"
@@ -41,9 +36,7 @@ class UsersController < ApplicationController
   end
 
   def resend
-    @user = current_user
-    Authy::API.request_sms(id: @user.authy_id)
-    flash[:notice] = 'Verification code re-sent'
+    resend_token
     redirect_to verify_path
   end
   
