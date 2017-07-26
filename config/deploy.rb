@@ -3,11 +3,12 @@ lock "3.8.2"
 
 server '104.197.250.20', user: 'deploy', port: 22, roles: %w{web app db}
 
-set :branch, 'capistrano'
 
 set :application, "corkboard"
 set :repo_url, "git@github.com:Benjaminpjacobs/corkboard.git"
 set :use_sudo, true
+
+set :branch, 'capistrano'
 
 # Default branch is :setup-capistrano
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
