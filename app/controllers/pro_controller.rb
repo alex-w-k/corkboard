@@ -32,11 +32,9 @@ class ProController < ApplicationController
       session.delete(:service_ids)
       session.delete(:radius)
       session.delete(:omniauth_info)
-      binding.pry
       redirect_to verify_path
     else
       flash.now[:danger] = @pro.errors.full_messages
-      binding.pry
       @services = Service.where(id: session[:service_ids])
       @radius = session[:radius]
       # @pro = Pro.new
