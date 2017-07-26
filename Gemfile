@@ -28,6 +28,7 @@ gem 'authy'
 gem 'passenger'
 gem 'geokit'
 gem "paperclip", "~> 5.0.0"
+gem 'countries'
 
 group :test do
   gem 'vcr'

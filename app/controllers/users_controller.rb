@@ -4,6 +4,10 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @oauth_info = OauthParse.new(session[:omniauth_info])
+    @country_codes = ISO3166::Country.all.map do |countries|
+      counries.country_code
+    end
+    binding.pry
   end
 
   def create
