@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    binding.pry
     @user = User.new(user_params)
     @user.uid = session[:omniauth_info]['uid'] if omniauth_user
     if @user.save
