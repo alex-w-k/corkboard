@@ -15,6 +15,7 @@ class ProController < ApplicationController
     session[:service_ids] = Service.pro_service_ids(params[:service_id])
 
     @location = Geokit::Geocoders::GoogleGeocoder.geocode(params[:zip])
+    @radius = session[:radius]
     @oauth_info = OauthParse.new(session[:omniauth_info])
     @services = Service.where(id: params[:service_id])
     @pro = Pro.new
