@@ -1,4 +1,5 @@
 class ProController < ApplicationController
+  
   def show
     @pro = Pro.find(current_user.id)
     @projects = @pro.open_projects
