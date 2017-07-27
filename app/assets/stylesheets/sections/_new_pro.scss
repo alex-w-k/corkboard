@@ -1,0 +1,39 @@
+@media only screen and (max-width: 767px) {
+  #map {
+    height: 500px;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  .pro-left {
+    position: relative;
+  }
+
+  .pro-right {
+    padding: 5%;
+    position: relative;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #map {
+    height: 600px;
+    width: 100%;
+  }
+  .pro-left {
+    position: fixed;
+    top: 90px;
+    left: 0;
+    height: 80%;
+    overflow-y: scroll;
+  }
+
+  .pro-right {
+    position: fixed;
+    top: 90px;
+    right: 0;
+    height: 620px;
+    overflow-y: hidden;
+  }
+}

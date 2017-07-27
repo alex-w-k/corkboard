@@ -8,3 +8,4 @@ RSpec.describe Attachment do
                 rejecting('text/plain', 'text/xml') }
   it {should belong_to(:attachable) }
 end
+

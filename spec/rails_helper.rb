@@ -9,6 +9,7 @@ require 'capybara/rails'
 # require 'webmock/rspec'
 require 'stub_omniauth.rb'
 require 'fake_sms.rb'
+
 # require 'vcr'
 #
 # VCR.configure do |config|
@@ -38,6 +39,14 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  config.after(:all) do
+    if Rails.env.test? 
+      FileUtils.rm_rf(Dir["#{Rails.root}/public/system/attachments"])
+      # if you want to delete everything under the CarrierWave root that you set in an initializer,
+      # you can do this:
+      # FileUtils.rm_rf(CarrierWave::Uploader::Base.root)
+    end
+  end
 
 
 
