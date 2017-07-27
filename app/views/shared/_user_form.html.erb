@@ -1,6 +1,6 @@
 <%= bootstrap_form_for(@type, url: @path, method: :post) do |f| %>
-  <%= f.text_field :first_name, placeholder: "First Name", id: "first_name", value: @oauth_info.first_name %><br>
-  <%= f.text_field :last_name, placeholder: "Last Name", id: "last_name", value: @oauth_info.last_name %><br>
+  <%= f.text_field :first_name, placeholder: "First Name", id: "first_name", value: user_form_first_name %><br>
+  <%= f.text_field :last_name, placeholder: "Last Name", id: "last_name", value: user_form_last_name %><br>
   <%= f.text_field :zipcode, placeholder: 'Enter Zip Code', id: "zip_code"%><br>
   <%= f.text_field :email, placeholder: "Email", id: "email", value: user_form_email %><br>
   <%= f.password_field :password, placeholder: "Password" %><br>
