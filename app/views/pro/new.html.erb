@@ -1,8 +1,10 @@
 <% @type = @pro %>
 <% @path = pro_index_path %>
-<div class="container">
+<div class="fluid-container">
+    <div class="row">
+        <div class="col-xs-12 outer">
   <div class="row">
-    <div class="col-md-12 text-center">
+    <div class="col-xs-12 col-sm-4 text-center pro-left">
       <h4>These are the services you provide</h4>
       <% @services.each do |service| %>
         <%= service.name %><br>
@@ -10,20 +12,23 @@
       <h4>And the distance you are willing to travel to perform them</h4>
       <%= @radius %> Miles
       <h2>Create your account</h1>
+      <div class="form-signin">
+        <h4>Account Info</h4>
+        <%= render "shared/user_form" %><br>
+        <%= link_to "Sign Up With Facebook", '/auth/facebook?user_type=pro', class: "facebook-button" %>
+      </div>
     </div>
-  </div>
-  <div class="form-signin">
-    <h4>Account Info</h4>
-    <%= render "shared/user_form" %><br>
-    <%= link_to "Sign Up With Facebook", '/auth/facebook?user_type=pro', class: "facebook-button" %>
-  </div>
 
   <div class="ZipRadiusMapContainer">
-    <div id='map'></div>
-    <div hidden id="lat"><%= @location.lat %></div>
-    <div hidden id="lng"><%= @location.lng %></div>
-    <div hidden id="radius"><%= @radius %></div>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["google_api_key"] %>&callback=initMap">
-    </script>
+    <div class="col-xs-12 col-sm-8 text-center pro-right">
+      <div id='map'></div>
+      <div hidden id="lat"><%= @location.lat %></div>
+      <div hidden id="lng"><%= @location.lng %></div>
+      <div hidden id="radius"><%= @radius %></div>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["google_api_key"] %>&callback=initMap">
+      </script>
+    </div>
   </div>
+</div>
+</div>
 </div>
