@@ -10,8 +10,6 @@ RSpec.describe "Guest Bcrypt Authentication Process" do
 
     fill_in "user[first_name]", with: "Arnold"
     fill_in "user[last_name]", with: "Schwarzenegger"
-    fill_in "user[country_code]", with: "1"
-    fill_in "user[phone_number]", with: "7191234567"
     fill_in "user[zipcode]", with: "79720"
     fill_in "user[email]", with: "arny22@gmail.com"
     fill_in "user[password]", with: "hunter2"
@@ -21,12 +19,7 @@ RSpec.describe "Guest Bcrypt Authentication Process" do
 
     click_on "Create Account"
 
-    expect(current_path).to eq(verify_path)
-
-    fill_in "token", with: '123456'
-
-    click_on "Verify Token"
-    
+    expect(current_path).to eq(profile_dashboard_path)
 
     latest_user = User.last
     expect(latest_user.first_name).to eq("Arnold")
@@ -46,8 +39,5 @@ RSpec.describe "Guest Bcrypt Authentication Process" do
     expect(page).to have_content("Last name can't be blank")
     expect(page).to have_content("Zipcode can't be blank")
     expect(page).to have_content("Email can't be blank")
-    expect(page).to have_content("Phone number can't be blank")
-    expect(page).to have_content("Country code can't be blank")
-
   end
 end
