@@ -51,10 +51,12 @@
               </li>
             <% else %>
               <% @pro.open_projects.each do |project| %>
-              <li class="list-group-item">
-                Owner: <%= project.requester.full_name %><br />
-                Description: <%= project.description %>
-              </li>
+                <%= link_to pro_dashboard_open_project_path(project) do %>
+                  <li class="list-group-item">
+                    Owner: <%= project.requester.full_name %><br />
+                    Description: <%= project.description %>
+                  </li>
+                <% end %>
               <% end %>
             <% end %>
           </ul>
