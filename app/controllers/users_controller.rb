@@ -14,7 +14,6 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      authy_authorize(@user)
       session.delete(:omniauth_info)
       redirect_to profile_dashboard
     else
@@ -23,7 +22,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def authy
+    @user = current_user
+    if @user.save
+      authy_register(@user)
+    else
+      render :authy
+    end
+  end
+
   def verify
+    @user = current_user
     token = verify_token
     if token.ok?
       @user.update(verified: true)
