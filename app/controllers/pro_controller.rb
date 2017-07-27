@@ -26,8 +26,9 @@ class ProController < ApplicationController
     @pro.uid = session[:omniauth_info]['uid'] if omniauth_user
     if @pro.save
       set_services(session[:service_ids], @pro, session[:radius])
-      session[:user_id] = @pro.id
       clear_session([:service_ids, :zipcode, :radius, :omniauth_info])
+      session[:user_id] = @pro.id
+      session[:authenticated] = true
       redirect_to pro_dashboard_path
     else
       flash.now[:danger] = @pro.errors.full_messages

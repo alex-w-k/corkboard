@@ -21,6 +21,14 @@ class User < ApplicationRecord
     update_attribute(:uid, uid)
   end
 
+  def pro?
+    if self.type == 'Pro'
+      true
+    else
+      false
+    end
+  end
+
   def self.locate_by(data, oauth=false)
     oauth ? find_or_initialize_by(uid: data["uid"]) : find_by(email: data)
   end
