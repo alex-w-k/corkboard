@@ -1,0 +1,17 @@
+<% if @project.review.id.nil? %>
+  <%= form_for [ @project, @review ] do |f| %>
+      <p>
+        Overall Rating:
+        <%= f.label :rating, 'Overall Rating' %>
+        <%= f.radio_button :rating, '1', :checked => true %> 
+        <%= f.radio_button :rating, '2' %>
+    </p>
+    <p>
+      <%= f.label :comment, "Your comment" %><br/>
+      <%= f.text_area :comment %>
+    </p>
+    <p>
+      <%= f.submit 'Submit' %>
+    </p>
+  <% end %>
+<% end %>
