@@ -19,11 +19,14 @@ feature "User can leave review for pro" do
 
       visit profile_dashboard_path
 
-      find('.closed-project').click
+      within('.closed') { first("a").click }
 
-      select "4", from: 'rating'
-      fill_in 'comments', with: "Not bad, yo."
-      click_on "Submit"
+      expect(current_path).to eq(project_path(project1))
+      within('.review') do
+        select "4", from: 'rating'
+        fill_in 'comments', with: "Not bad, yo."
+        click_on "Submit"
+      end
 
       expect(current_path).to eq(project_show_path(project1))
       #expect not to find a review form
