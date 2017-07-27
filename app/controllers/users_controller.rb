@@ -12,8 +12,9 @@ class UsersController < ApplicationController
     @user.uid = session[:omniauth_info]['uid'] if omniauth_user
 
     if @user.save
-      session[:user_id] = @user.id
       session.delete(:omniauth_info)
+      session[:user_id] = @user.id
+      session[:authenticated] = true
       redirect_to profile_dashboard_path
     else
       flash.now[:danger] = @user.errors.full_messages
