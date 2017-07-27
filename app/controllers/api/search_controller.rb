@@ -1,11 +1,5 @@
 class Api::SearchController < ApplicationController
   def search
-    if params['query'].empty?
-      render json: {}.to_json
-    else
-      categories = Category.where('name ILIKE ?', "%#{params['query']}%").limit(6)
-      binding.pry
-      categories
-    end
+    render json: Category.where('name ILIKE ?', "%#{params['query']}%").limit(6) unless params['query'].empty?
   end
 end
