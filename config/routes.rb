@@ -49,7 +49,8 @@ Rails.application.routes.draw do
       resources :category, path: '', only: [:show]
     end
   end
-
+  
+  resources :hire, only: [:index]
   namespace :hire do
     resources :project, path: ':service', only: [:new, :create]
     resources :industry, path: '', only: [:show] do
