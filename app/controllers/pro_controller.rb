@@ -25,9 +25,8 @@ class ProController < ApplicationController
     if @pro.save
       set_services(session[:service_ids], @pro, session[:radius])
       session[:user_id] = @pro.id
-      authy_authorize(@pro)
       clear_session([:service_ids, :zipcode, :radius, :omniauth_info])
-      redirect_to verify_path
+      redirect_to pro_dashboard_path
     else
       flash.now[:danger] = @pro.errors.full_messages
 
@@ -46,8 +45,6 @@ class ProController < ApplicationController
     params.require(:pro).permit(:first_name,
                                  :last_name,
                                  :zipcode,
-                                 :country_code,
-                                 :phone_number,
                                  :email,
                                  :uid,
                                  :password,

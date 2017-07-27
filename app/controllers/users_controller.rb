@@ -21,36 +21,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def authy
-    @user = current_user
-    if @user.save
-      authy_register(@user)
-    else
-      render :authy
-    end
-  end
-
-  def verify
-    @user = current_user
-    token = verify_token
-    if token.ok?
-      @user.update(verified: true)
-      flash[:success] = "You successfully verified your account!"
-      user_redirect(current_user)
-    else
-      flash.now[:danger] = "Incorrect code, please try again"
-      render :show_verify
-    end
-  end
-
-  def resend
-    resend_token
-    redirect_to verify_path
-  end
-  
-  def show_verify
-    return redirect_to new_user_path unless session[:user_id]
-  end
 
   private
 
@@ -58,7 +28,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:first_name,
                                  :last_name,
                                  :zipcode,
-                                 :full_phone,
                                  :email,
                                  :password,
                                  :password_confirmation)

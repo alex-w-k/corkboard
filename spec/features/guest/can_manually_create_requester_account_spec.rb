@@ -39,8 +39,5 @@ RSpec.describe "Guest Bcrypt Authentication Process" do
     expect(page).to have_content("Last name can't be blank")
     expect(page).to have_content("Zipcode can't be blank")
     expect(page).to have_content("Email can't be blank")
-    expect(page).to have_content("Phone number can't be blank")
-    expect(page).to have_content("Country code can't be blank")
-
   end
 end
