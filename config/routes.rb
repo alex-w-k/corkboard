@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   root 'home#index'
   
+  namespace :api do
+    get '/search', to: 'search#search'
+  end
+
   namespace :home do
     resources :search
   end

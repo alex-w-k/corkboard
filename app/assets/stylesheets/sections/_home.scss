@@ -32,3 +32,21 @@ a {
     text-align: center;
     display: block;
 }
+
+.results-heading {
+    margin-top: 10px
+}
+
+.results {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.result {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px 5px;
+    width: 300px;
+}
