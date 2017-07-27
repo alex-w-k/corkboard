@@ -70,7 +70,7 @@
         <% else %>
           <% current_user.closed_projects.each do |project| %>
           <%= link_to project_path(project) do %>
-            <li class="list-group-item">
+            <li class="list-group-item closed-project">
                 <p>Service:
                 <%=project.service.name%></p>
                 <p>Description:
