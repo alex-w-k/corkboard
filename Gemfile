@@ -57,7 +57,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
   gem 'capistrano'
-  gem 'capistrano-rails', '~> 1.1.0'
+  gem 'capistrano-rails', '~> 1.3'
   gem 'capistrano-rvm', '~> 0.1.0'
   gem 'capistrano-bundler'
   gem 'capistrano-nginx'
