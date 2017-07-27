@@ -43,6 +43,10 @@ a {
     flex-wrap: wrap;
 }
 
+.results a {
+    text-decoration: none;
+}
+
 .result {
     padding: 10px;
     border: 1px solid black;

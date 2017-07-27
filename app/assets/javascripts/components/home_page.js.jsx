@@ -1,9 +1,9 @@
 
 var HomePage = React.createClass({
 
-  getInitialState: function() {
-return { results: [] };
-},
+getInitialState: function() {
+  return { results: [] };
+  },
 
 handleSearch: function(results) {
     this.setState({ results: results });

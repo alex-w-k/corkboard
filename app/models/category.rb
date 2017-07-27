@@ -3,6 +3,7 @@ class Category < ApplicationRecord
 
   before_validation :generate_slug
   before_save :generate_uri
+
   validates :industry, presence: true
   validates :name, presence: true
   validates :slug, presence: true,
