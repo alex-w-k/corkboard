@@ -1,34 +1,37 @@
-<h3>Project Information</h3>
-<ul>
-    <li>
-        Service:
+<h2>
+    Project Information:</h2>
+<ul class="list-group open">
+
+    <li class="list-group-item">
+        <h4 class="list-group-item-heading">Service:</h4>
         <%=@project.service.name%>
     </li>
-    <li>
-        Created_at:
+    <li class="list-group-item">
+        <h4 class="list-group-item-heading">Created At:</h4>
         <%=@project.created_at%>
     </li>
-    <li>
-        Status:
+    <li class="list-group-item">
+        <h4 class="list-group-item-heading">Status:</h4>
         <%=@project.status%>
     </li>
-    <li>
-        Recurring:
+    <li class="list-group-item">
+        <h4 class="list-group-item-heading">Recurring:</h4>
         <%=@project.recurring%>
     </li>
-    <li>
-        Timeline:
+    <li class="list-group-item">
+        <h4 class="list-group-item-heading">Timeline:</h4>
         <%=@project.timeline%>
     </li>
-    <li>
-        Zipcode:
+    <li class="list-group-item">
+        <h4 class="list-group-item-heading">Zipcode:</h4>
         <%=@project.zipcode%>
     </li>
-    <li>
-        Description:
+    <li class="list-group-item">
+        <h4 class="list-group-item-heading">Description:</h4>
         <%=@project.description%>
     </li>
-    <li>Attachments:
+    <li class="list-group-item">
+        <h4 class="list-group-item-heading">Attachment(s):</h4>
         <%@project.attachments.each do |attachment|%>
             <%=image_tag attachment.upload.url(:thumb)%>
                 <%end%>
