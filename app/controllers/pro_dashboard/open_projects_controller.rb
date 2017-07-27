@@ -1,5 +1,6 @@
 class ProDashboard::OpenProjectsController < ApplicationController
   attr_accessor :to_bid_on
+
   def index
     @pro = Pro.find(current_user.id)
     @pro_location = Geokit::Geocoders::GoogleGeocoder.geocode(@pro.zipcode)

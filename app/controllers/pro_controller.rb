@@ -3,10 +3,12 @@ class ProController < ApplicationController
   include AuthyConcern
   include SessionHelper
 
+  def index
+    @pros = Pro.all
+  end
+
   def show
-    @pro = Pro.find(current_user.id)
-    @projects = @pro.open_projects
-    @bids = Bid.where(user_id: current_user.id)
+    @pro = Pro.find(params[:id])
   end
 
   def new

@@ -1,0 +1,145 @@
+<h1>My Pro Dashboard</h1>
+
+<div class="container">
+  <div class="row">
+    <%= link_to "Find Projects", pro_dashboard_open_projects_path %>
+  </div>
+  <div class="row">
+
+    <div class="col-md-4">
+      <h2>My Services</h2>
+      <ul class="list-group">
+        <% @pro.services.each do |service| %>
+        <li class="list-group-item">
+          <%= service.name %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-md-4">
+      <h2>My Projects</h2>
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#accepted" aria-controls="accepted" role="tab" data-toggle="tab">Accepted</a></li>
+        <li role="presentation"><a href="#open" aria-controls="open" role="tab" data-toggle="tab">Open</a></li>
+        <li role="presentation"><a href="#closed" aria-controls="closed" role="tab" data-toggle="tab">Closed</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="accepted">
+          <ul class="list-group">
+            <% if @pro.accepted_projects.empty? %>
+              <li class="list-group-item">
+                You have no accepted projects.
+              </li>
+            <% else %>
+              <% @pro.accepted_projects.each do |project| %>
+              <li class="list-group-item">
+                Owner: <%= project.requester.full_name %><br />
+                Description: <%= project.description %>
+              </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="open">
+          <ul class="list-group">
+            <% if @pro.open_projects.empty? %>
+              <li class="list-group-item">
+                You have no open projects.
+              </li>
+            <% else %>
+              <% @pro.open_projects.each do |project| %>
+              <li class="list-group-item">
+                Owner: <%= project.requester.full_name %><br />
+                Description: <%= project.description %>
+              </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="closed">
+          <ul class="list-group">
+            <% if @pro.closed_projects.empty? %>
+              <li class="list-group-item">
+                You have no closed projects.
+              </li>
+            <% else %>
+              <% @pro.closed_projects.each do |project| %>
+              <li class="list-group-item">
+                Owner: <%= project.requester.full_name %><br />
+                Description: <%= project.description %>
+              </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <h2>My Bids</h2>
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#accepted-bids" aria-controls="accepted-bids" role="tab" data-toggle="tab">Accepted</a></li>
+        <li role="presentation"><a href="#open-bids" aria-controls="open-bids" role="tab" data-toggle="tab">Open</a></li>
+        <li role="presentation"><a href="#rejected-bids" aria-controls="rejected-bids" role="tab" data-toggle="tab">Rejected</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="accepted-bids">
+          <% if @bids.accepted.empty? %>
+            <li class="list-group-item">
+              You have no accepted bids.
+            </li>
+          <% else %>
+            <ul class="list-group">
+              <% @bids.accepted.each do |bid| %>
+                <li class="list-group-item">
+                  Requested by: <%= bid.project.requester.full_name %><br />
+                  Amount: <%= bid.amount %><br /><%= link_to "View", bid_path(bid) %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="open-bids">
+          <% if @bids.open.empty? %>
+            <li class="list-group-item">
+              You have no open bids.
+            </li>
+          <% else %>
+            <ul class="list-group">
+              <% @bids.open.each do |bid| %>
+                <li class="list-group-item">
+                  Requested by: <%= bid.project.requester.full_name %><br />
+                  Amount: <%= bid.amount %><br /><%= link_to "View", bid_path(bid) %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="rejected-bids">
+          <% if @bids.rejected.empty? %>
+            <li class="list-group-item">
+              You have no rejected bids.
+            </li>
+          <% else %>
+            <ul class="list-group">
+              <% @bids.rejected.each do |bid| %>
+                <li class="list-group-item">
+                  Requested by: <%= bid.project.requester.full_name %><br />
+                  Amount: <%= bid.amount %><br /><%= link_to "View", bid_path(bid) %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :messages
 
   root 'home#index'
-  
+
   namespace :home do
     resources :search
   end
@@ -24,16 +24,17 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get '/pro/dashboard', to: 'pro#show'
   get "users/verify", to: 'users#show_verify', as: 'verify'
   post "users/verify"
   post "users/resend"
   get '/hire/new-project-confirmation/:id', to: 'hire/project#confirmation', as: 'new_project_confirmation'
 
-  resources :pro, only: [:new, :create]
+  resources :pro, only: [:index, :show, :new, :create]
 
   resources :projects, only: [:show]
 
+  resources :pro_dashboard, only: [:index]
+  
   namespace :pro_dashboard do
     resources :open_projects, only: [:index, :show]
     resources :project_bids, only: [:index]

@@ -136,10 +136,11 @@ it "can skip authy validation" do
     expect(current_path).to eq(verify_path)
 
     click_button "Skip Validation"
-    
-    visit pro_dashboard_path
 
     latest_user = Pro.last
+    visit pro_dashboard_index_path
+
+
     expect(latest_user.class).to eq Pro
     expect(latest_user.verified).to be false
 
@@ -193,7 +194,7 @@ it "can skip authy validation" do
     expect(page).to have_content("Gardening")
     expect(page).to_not have_content("Leaf Clean up")
     click_on "Create Account"
-    
+
     expect(current_path).to eq('/pro')
     expect(page).to have_content("First name can't be blank")
     expect(page).to have_content("Last name can't be blank")
