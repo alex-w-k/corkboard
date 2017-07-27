@@ -1,38 +1,38 @@
 <nav class="navbar navbar-default" style="color: transparent;">
-    <div class="container-fluid navbar-content">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-        </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <a class="navbar-brand" href="/">
-                <%= image_tag  "corkboard.png" %>
-            </a>
-
-            <%= render "shared/navbar_service_search" if logged_in? %>
-
-                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <%= new_project_button %>
-                    </li>
-                    <li>
-                        <%= dashboard_button %>
-                    </li>
-                    <li>
-                        <%= link_to "Browse", hire_index_path %>
-                    </li>
-                    <li>
-                        <%= sign_up_button %>
-                    </li>
-                    <li>
-                        <%= login_button %>
-                    </li>
-                </ul>
-        </div>
+  <div class="container-fluid navbar-content">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
     </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <a class="navbar-brand" href="/">
+        <%= image_tag "corkboard.png" %>
+      </a>
+
+      <%= render "shared/navbar_service_search" if logged_in? %>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <%= new_project_button %>
+        </li>
+        <li>
+            <%= dashboard_button %>
+        </li>
+        <li>
+            <%= link_to "Browse", hire_index_path %>
+        </li>
+        <li>
+            <%= sign_up_button %>
+        </li>
+        <li>
+            <%= login_button %>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
