@@ -99,6 +99,14 @@ GEM
     coffee-script-source (1.12.2)
     commonjs (0.2.7)
     concurrent-ruby (1.0.5)
+    countries (2.1.1)
+      i18n_data (~> 0.8.0)
+      money (~> 6.9)
+      sixarm_ruby_unaccent (~> 1.1)
+      unicode_utils (~> 1.4)
+    country_select (3.1.0)
+      countries (~> 2.0)
+      sort_alphabetical (~> 1.0)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     database_cleaner (1.6.1)
@@ -130,6 +138,7 @@ GEM
     hashie (3.5.6)
     httpclient (2.8.3)
     i18n (0.8.6)
+    i18n_data (0.8.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
@@ -163,6 +172,8 @@ GEM
     mimemagic (0.3.2)
     mini_portile2 (2.2.0)
     minitest (5.10.3)
+    money (6.9.0)
+      i18n (>= 0.6.4, < 0.9)
     multi_json (1.12.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
@@ -279,7 +290,10 @@ GEM
       activesupport (>= 3)
     shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
+    sixarm_ruby_unaccent (1.1.2)
     slop (3.6.0)
+    sort_alphabetical (1.1.0)
+      unicode_utils (>= 1.2.2)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -314,6 +328,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
+    unicode_utils (1.4.0)
     vcr (3.0.3)
     web-console (3.5.1)
       actionview (>= 5.0)
@@ -348,6 +363,7 @@ DEPENDENCIES
   capistrano3-puma
   capybara
   coffee-rails (~> 4.2)
+  country_select
   database_cleaner
   factory_girl_rails
   faker

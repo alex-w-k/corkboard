@@ -16,13 +16,11 @@ RSpec.describe "Guest Facebook OAuth Process" do
     expect(page).to have_field('user[email]', with: 'rileyt_111@hotmail.com')
 
     fill_in "user[zipcode]", with: "79720"
-    fill_in "user[country_code]", with: '1'
-    fill_in "user[phone_number]", with: "3944568"
 
 
     click_on "Create Account"
 
-    expect(current_path).to eq(verify_path)
+    expect(current_path).to eq(profile_dashboard_path)
 
     latest_user = User.last
 
