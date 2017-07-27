@@ -29,7 +29,7 @@ feature "User can leave review for pro" do
         click_on "Submit"
       end
 
-      expect(current_path).to eq(project_show_path(project1))
+      expect(current_path).to eq(project_path(project1))
       #expect not to find a review form
       #expect to see review
       #expect to see an edit button on the review
