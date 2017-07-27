@@ -1,5 +1,6 @@
 <% if @project.review.id.nil? %>
   <%= form_for [ @project, @review ] do |f| %>
+  <%= f.hidden_field :user_id, value: @project.bids.find_by(status: "accepted").user_id %>
       <p>
         Overall Rating:
         <%= f.label :rating, 'Overall Rating' %>
