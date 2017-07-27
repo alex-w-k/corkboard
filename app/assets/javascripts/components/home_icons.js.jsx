@@ -1,51 +1,50 @@
 
 var HomeIcons = React.createClass({
-  showsLabel: function(e) {
-    e.target.parentElement.nextElementSibling.style.display = 'block';
-  },
-  hidesLabel: function(e){
-    e.target.parentElement.nextElementSibling.style.display = 'none';
-  },
   render: function() {
     return(
         <div className="icons icons-container">
           <div className="icons-row">
-              <div className="icon">
-                <a href="hire/home-improvement" id="home-link">
-                <i onMouseEnter={this.showsLabel} onMouseLeave={this.hidesLabel} className="fa fa-home"></i>
-                </a>
-                  <span className='icon-label'>Home Improvemnt</span>
-              </div>
-              <div className="icon"><a href="hire/events" id="events-link">
-              <i onMouseEnter={this.showsLabel} onMouseLeave={this.hidesLabel} className="fa fa-calendar"></i></a>
-                  <span className='icon-label'>Events</span>
-              </div>
-              <div className="icon"><a href="hire/lessons" id="lessons-link">
-              <i onMouseEnter={this.showsLabel} onMouseLeave={this.hidesLabel} className="fa fa-graduation-cap"></i></a>
-                  <span className='icon-label'>Lessons</span>
-              </div>
-              <div className="icon"><a href="hire/wellness" id="wellness-link">
-              <i onMouseEnter={this.showsLabel} onMouseLeave={this.hidesLabel} className="fa fa-heartbeat"></i></a>
-                  <span className='icon-label'>Wellness</span>
-              </div>
-              <div className="icon"><a href="hire/more/business" id="business-link">
-              <i onMouseEnter={this.showsLabel} onMouseLeave={this.hidesLabel} className="fa fa-briefcase"></i></a>
-                  <span className='icon-label'>Business</span>
-              </div>
-              <div className="icon"><a href="hire/more/crafts" id="crafts-link">
-              <i onMouseEnter={this.showsLabel} onMouseLeave={this.hidesLabel} className="fa fa-paint-brush"></i></a>
-                  <span className='icon-label'>Crafts</span>
-              </div>
-              <div className="icon"><a href="hire/more/design-web" id="design-web-link">
-              <i onMouseEnter={this.showsLabel} onMouseLeave={this.hidesLabel} className="fa fa-desktop"></i></a>
-                  <span className='icon-label'>Design/Web</span>
-              </div>
-              <div className="icon"><a href="hire/more/pets" id="pets-link">
-              <i onMouseEnter={this.showsLabel} onMouseLeave={this.hidesLabel} className="fa fa-paw"></i></a>
-                  <span className='icon-label'>Pets</span>
-              </div>
+            <Icon href="hire/home-improvement" 
+                  id="home-link" 
+                  className="fa fa-home" 
+                  name="Home Improvement"/>
+
+            <Icon href="hire/events" 
+                  id="events-link" 
+                  className="fa fa-calendar" 
+                  name="Events"/>   
+
+            <Icon href="hire/lessons" 
+                  id="lessons-link" 
+                  className="fa fa-graduation-cap" 
+                  name="Lessons"/>
+
+            <Icon href="hire/wellness" 
+                  id="wellness-link"
+                  className="fa fa-heartbeat" 
+                  name="Wellness"/>
+
+            <Icon href="hire/more/business" 
+                  id="business-link" 
+                  className="fa fa-briefcase" 
+                  name="Business"/>
+
+            <Icon href="hire/more/crafts" 
+                  id="crafts-link" 
+                  className="fa fa-paint-brush" 
+                  name="Crafts"/>
+
+            <Icon href="hire/more/design-web" 
+                  id="design-web-link" 
+                  className="fa fa-desktop" 
+                  name="Design/Web"/>
+
+            <Icon href="hire//more/pets" 
+                  id="pets-link"
+                  className="fa fa-paw" 
+                  name="Pets"/>
           </div>
-        </div>    
+        </div>     
     )
   }
 });
