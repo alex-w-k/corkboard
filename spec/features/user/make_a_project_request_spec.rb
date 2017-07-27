@@ -6,7 +6,7 @@ RSpec.describe 'user creates a project' do
   let!(:service)  { create(:service, name: 'Mowing', category: category) }
   let!(:user)     { create(:user) }
 
-  scenario 'with valid inputs' do
+  xscenario 'with valid inputs' do
     page.set_rack_session(user_id: user.id)
     page.set_rack_session(authenticated: true)
 

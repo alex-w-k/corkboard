@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  namespace :api do
+    get '/search', to: 'search#search'
+  end
+
   namespace :home do
     resources :search
   end
@@ -34,7 +38,7 @@ Rails.application.routes.draw do
   resources :projects, only: [:show]
 
   resources :pro_dashboard, only: [:index]
-  
+
   namespace :pro_dashboard do
     resources :open_projects, only: [:index, :show]
     resources :project_bids, only: [:index]
@@ -47,6 +51,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :hire, only: [:index]
   namespace :hire do
     resources :project, path: ':service', only: [:new, :create]
     resources :industry, path: '', only: [:show] do
