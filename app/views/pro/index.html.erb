@@ -2,7 +2,7 @@
   <div class="row">
     <% @pros.each do |pro| %>
       <div class="col-md-2">
-        <h4><%= link_to pro.full_name, pro_path(@pro.id) %></h4>
+        <h4><%= link_to pro.full_name, pro_path(pro) %></h4>
         <p>
           Email: <%= pro.email %>
         </p>
