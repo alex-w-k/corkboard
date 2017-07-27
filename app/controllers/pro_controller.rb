@@ -5,6 +5,7 @@ class ProController < ApplicationController
 
   def show
     @pro = Pro.find(current_user.id)
+    @projects = @pro.open_projects
     @bids = Bid.where(user_id: current_user.id)
   end
 
@@ -33,7 +34,7 @@ class ProController < ApplicationController
       @services = Service.where(id: session[:service_ids])
       @radius = session[:radius]
       @location = Geokit::Geocoders::GoogleGeocoder.geocode(params[:zip])
-      
+
       render :new
     end
   end
