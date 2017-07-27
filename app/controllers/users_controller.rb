@@ -8,14 +8,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
     @user = User.new(user_params)
     @user.uid = session[:omniauth_info]['uid'] if omniauth_user
 
     if @user.save
       session[:user_id] = @user.id
       session.delete(:omniauth_info)
-      redirect_to profile_dashboard
+      redirect_to profile_dashboard_path
     else
       flash.now[:danger] = @user.errors.full_messages
       render :new
