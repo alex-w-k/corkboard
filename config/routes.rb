@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :messages
 
   root 'home#index'
+  post '/hello', to: 'home#hello'
   
   namespace :api do
     get '/search', to: 'search#search'
