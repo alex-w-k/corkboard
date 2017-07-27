@@ -22,8 +22,10 @@ feature "User can leave review for pro" do
       within('.closed') { first("a").click }
 
       expect(current_path).to eq(project_path(project1))
+      save_and_open_page
+
       within('.review') do
-        select "4", from: 'rating'
+        choose '2'
         fill_in 'comments', with: "Not bad, yo."
         click_on "Submit"
       end

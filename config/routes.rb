@@ -37,6 +37,9 @@ Rails.application.routes.draw do
   resources :pro, only: [:new, :create]
 
   resources :projects, only: [:show]
+  resources :projects do
+    resources :reviews
+  end
 
   namespace :pro_dashboard do
     resources :open_projects, only: [:index, :show]
