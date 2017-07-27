@@ -46,7 +46,6 @@ var HomeIcons = React.createClass({
               </div>
           </div>
         </div>    
-    
     )
   }
 });
