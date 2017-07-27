@@ -62,13 +62,13 @@
 
     <div class="col-md-4">
       <h2>Completed Projects</h2>
-      <ul class="list-group completed">
+      <ul class="list-group closed">
         <% if current_user.closed_projects.empty? %>
           <li class="list-group-item">
             You have no completed projects.
           </li>
         <% else %>
-          <% current_user.completed.each do |project| %>
+          <% current_user.closed_projects.each do |project| %>
           <%= link_to project_path(project) do %>
             <li class="list-group-item">
                 <p>Service:
