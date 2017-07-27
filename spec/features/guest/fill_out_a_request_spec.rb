@@ -5,9 +5,8 @@ RSpec.feature 'guest fills out a project request' do
   let!(:category) { create(:category, name: "Lawn Care", industry: industry) }
   let!(:service)  { create(:service, name: "Mowing", category: category) }
 
-  scenario 'from the root path' do
+  xscenario 'from the root path' do
     visit root_path
-
     click_link('home-link')
     expect(current_path).to eq('/hire/home-improvement')
 

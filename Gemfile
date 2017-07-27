@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bootstrap_form'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'coffee-rails', '~> 4.2'
 gem 'font-awesome-sass'
 gem 'jbuilder', '~> 2.5'
@@ -15,7 +16,7 @@ gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.3'
 gem 'redis', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 gem 'twitter-bootstrap-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'omniauth-facebook'
@@ -28,6 +29,7 @@ gem 'authy'
 gem 'passenger'
 gem 'geokit'
 gem "paperclip", "~> 5.0.0"
+gem 'react-rails'
 
 group :test do
   gem 'vcr'
