@@ -29,9 +29,7 @@ RSpec.describe 'user creates a project' do
     choose('ASAP')
 
     expect(page).to_not have_content('Login or Sign Up to request this project')
-        # save_and_open_page
     page.attach_file("project[attachments_attributes][0][upload]", Rails.root + "spec/fixtures/files/image.png") 
-    # binding.pry
     click_on 'Submit'
 
     new_project = Project.last
