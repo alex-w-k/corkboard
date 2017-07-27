@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727162929) do
+ActiveRecord::Schema.define(version: 20170727223415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,18 +43,21 @@ ActiveRecord::Schema.define(version: 20170727162929) do
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.integer  "industry_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.string   "slug"
     t.string   "uri"
+    t.string   "search_service_id"
     t.index ["industry_id"], name: "index_categories_on_industry_id", using: :btree
   end
 
   create_table "industries", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.string   "slug"
+    t.string   "uri"
+    t.string   "search_service_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -100,9 +103,11 @@ ActiveRecord::Schema.define(version: 20170727162929) do
   create_table "services", force: :cascade do |t|
     t.string   "name"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.string   "slug"
+    t.string   "uri"
+    t.string   "search_service_id"
     t.index ["category_id"], name: "index_services_on_category_id", using: :btree
   end
 
