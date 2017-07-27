@@ -1,15 +1,27 @@
-<div class="row col-md-8 col-md-offset-2">
-  <h1><%= @bid.project.service.name %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      put some info on the project here.
+      put a button to accept or reject a bid. make sure if it gets accepted the other bids are automatically rejected.
+      be cool to notify the rejected pros that they are now, in fact, rejects.
+    </div>
+    <div class="row col-md-4">
 
-  <div class="panel panel-default">
-    <% if @bid.messages.any? %>
-      <div class="panel-body" id="messages">
-        <%= render partial: 'messages/message', collection: @bid.messages%>
+      <h1><%= @bid.project.service.name %></h1>
+
+      <div class="panel panel-default">
+        <% if @bid.messages.any? %>
+          <div class="panel-body" id="messages">
+            <%= render partial: 'messages/message', collection: @bid.messages%>
+          </div>
+        <%else%>
+          <div class="panel-body hidden" id="messages">
+          </div>
+        <%end%>
       </div>
-    <%else%>
-      <div class="panel-body hidden" id="messages">
-      </div>
-    <%end%>
+
+      <%= render partial: 'messages/message_form', locals: {message: @message, bid: @bid}%>
+
+    </div>
   </div>
-  <%= render partial: 'messages/message_form', locals: {message: @message, bid: @bid}%>
 </div>
