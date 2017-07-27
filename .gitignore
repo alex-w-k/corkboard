@@ -24,3 +24,4 @@
 
 # Ignore DS Store files
 *.DS_Store
+/public/system
