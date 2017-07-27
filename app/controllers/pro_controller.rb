@@ -15,6 +15,7 @@ class ProController < ApplicationController
     session[:service_ids] = Service.pro_service_ids(params[:service_id])
 
     @location = Geokit::Geocoders::GoogleGeocoder.geocode(params[:zip])
+    @radius = session[:radius]
     @oauth_info = OauthParse.new(session[:omniauth_info])
     @services = Service.where(id: params[:service_id])
     @pro = Pro.new
@@ -25,10 +26,10 @@ class ProController < ApplicationController
     @pro.uid = session[:omniauth_info]['uid'] if omniauth_user
     if @pro.save
       set_services(session[:service_ids], @pro, session[:radius])
-      session[:user_id] = @pro.id
-      authy_authorize(@pro)
       clear_session([:service_ids, :zipcode, :radius, :omniauth_info])
-      redirect_to verify_path
+      session[:user_id] = @pro.id
+      session[:authenticated] = true
+      redirect_to pro_dashboard_path
     else
       flash.now[:danger] = @pro.errors.full_messages
 
@@ -47,8 +48,6 @@ class ProController < ApplicationController
     params.require(:pro).permit(:first_name,
                                  :last_name,
                                  :zipcode,
-                                 :country_code,
-                                 :phone_number,
                                  :email,
                                  :uid,
                                  :password,

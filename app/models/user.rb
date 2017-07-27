@@ -3,8 +3,6 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :zipcode, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :phone_number, presence: true
-  validates :country_code, presence: true
   has_secure_password validations: false
 
   has_many :user_roles, dependent: :destroy
@@ -23,8 +21,12 @@ class User < ApplicationRecord
     update_attribute(:uid, uid)
   end
 
-  def is_valid_code?(code)
-    verification_code == code
+  def pro?
+    if self.type == 'Pro'
+      true
+    else
+      false
+    end
   end
 
   def self.locate_by(data, oauth=false)

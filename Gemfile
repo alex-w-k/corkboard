@@ -52,6 +52,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rack_session_access'
   gem 'rspec-rails'
+  gem 'simplecov', :require => false, :group => :test
 end
 
 group :development do
