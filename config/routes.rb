@@ -2,12 +2,12 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => '/cable'
 
-  resources :bid, only: [:create]
+  #resources :bid, only: [:create, :update]
   resources :bids
   resources :messages
 
   root 'home#index'
-  
+
   namespace :api do
     get '/search', to: 'search#search'
   end
@@ -28,15 +28,16 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get '/pro/dashboard', to: 'pro#show'
   get "users/verify", to: 'users#show_verify', as: 'verify'
   post "users/verify"
   post "users/resend"
   get '/hire/new-project-confirmation/:id', to: 'hire/project#confirmation', as: 'new_project_confirmation'
 
-  resources :pro, only: [:new, :create]
+  resources :pro, only: [:index, :show, :new, :create]
 
   resources :projects, only: [:show]
+
+  resources :pro_dashboard, only: [:index]
 
   namespace :pro_dashboard do
     resources :open_projects, only: [:index, :show]
@@ -49,7 +50,7 @@ Rails.application.routes.draw do
       resources :category, path: '', only: [:show]
     end
   end
-  
+
   resources :hire, only: [:index]
   namespace :hire do
     resources :project, path: ':service', only: [:new, :create]

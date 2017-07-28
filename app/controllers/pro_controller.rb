@@ -3,10 +3,12 @@ class ProController < ApplicationController
   include AuthyConcern
   include SessionHelper
 
+  def index
+    @pros = Pro.all
+  end
+
   def show
-    @pro = Pro.find(current_user.id)
-    @projects = @pro.open_projects
-    @bids = Bid.where(user_id: current_user.id)
+    @pro = Pro.find(params[:id])
   end
 
   def new
@@ -29,7 +31,7 @@ class ProController < ApplicationController
       clear_session([:service_ids, :zipcode, :radius, :omniauth_info])
       session[:user_id] = @pro.id
       session[:authenticated] = true
-      redirect_to pro_dashboard_path
+      redirect_to pro_dashboard_index_path
     else
       flash.now[:danger] = @pro.errors.full_messages
 
