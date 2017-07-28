@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :requested_projects, :class_name => 'Project', :foreign_key => 'requester_id'
 
   has_many :messages
-  
+
   def self.from_omniauth(auth_info)
     user = where(uid: auth_info[:uid]).first_or_initialize do |new_user|
       new_user.uid = auth_info.uid
@@ -44,7 +44,7 @@ class User < ApplicationRecord
   def closed_projects
     requested_projects.closed
   end
-  
+
   def accepted_projects
     requested_projects.accepted
   end
@@ -52,4 +52,5 @@ class User < ApplicationRecord
   def projects
     requested_projects
   end
+
 end

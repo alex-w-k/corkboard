@@ -60,7 +60,7 @@ RSpec.describe "Guest can create Pro Process" do
 
     click_on "Create Account"
 
-    expect(current_path).to eq(pro_dashboard_path)
+    expect(current_path).to eq(pro_dashboard_index_path)
 
     latest_user = Pro.last
     expect(latest_user.class).to eq Pro
