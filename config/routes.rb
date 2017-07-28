@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => '/cable'
 
-  resources :bid, only: [:create]
+  #resources :bid, only: [:create, :update]
   resources :bids
   resources :messages
 
