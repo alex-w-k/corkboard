@@ -2,7 +2,7 @@
 
   <h1><%= @bid.project.service.name %></h1>
 
-  <div class="panel panel-default">
+  <div class="panel panel-default chatbox">
     <% if @bid.messages.any? %>
       <div class="panel-body" id="messages">
         <%= render partial: 'messages/message', collection: @bid.messages%>

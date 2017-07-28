@@ -5,14 +5,16 @@
 
       <%= render 'bid_details' %>
 
-      <%= render 'pro_details' %>
-
-      <%= render 'client_details' %>
+      <% if @bid.pro.id == current_user.id %>
+        <%= render 'client_details' %>
+      <% else %>
+        <%= render 'pro_details' %>
+      <% end %>
 
       <%= render 'bid_action_buttons' %>
     </div>
 
     <%= render 'chatbox' %>
-    
+
   </div>
 </div>
