@@ -1,4 +1,3 @@
-<div class="mine"><%= csrf_meta_tags %></div>
 <%= bootstrap_form_for(@type, url: @path, method: :post) do |f| %>
   <%= f.text_field :first_name, placeholder: "First Name", id: "first_name", value: user_form_first_name %><br>
   <%= f.text_field :last_name, placeholder: "Last Name", id: "last_name", value: user_form_last_name %><br>
