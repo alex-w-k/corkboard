@@ -13,6 +13,7 @@ feature "User can leave review for pro" do
       project1 = create(:project, service_id: service.id, requester_id: user.id, status: 2)
       bid = project1.bids.create(user_id: pro.id, amount: "100", comment: "I can help.", status: 1)
       bid2 = project1.bids.create(user_id: pro2.id, amount: "350", comment: "I need money", status: 2)
+      pro_reviews_count = pro.reviews.count
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
       #User should be able to leave a review for pro
@@ -36,7 +37,9 @@ feature "User can leave review for pro" do
       expect(page).to have_selector('.star-rated', count: 2)
       expect(page).to have_selector('.star-denied', count: 3)
       expect(project1.review.present?).to eq(true)
-      #expect pro.reviews to increase by one
+      expect(project1.review.comment).to eq("Not bad, yo.")
+      expect(project1.review.rating).to eq(2.0)
+      expect(pro.reviews.count).to eq(pro_reviews_count + 1)
       expect(page).to have_link("edit")
     end
   end
