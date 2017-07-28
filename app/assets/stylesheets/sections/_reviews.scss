@@ -63,4 +63,18 @@
     width: 98%;
     height: 120px;
   }
+  
+  .star-rated {
+    display: inline;
+    text-align: left;
+    font-size: 40px;
+    color: gold;
+  }
+
+  .star-denied {
+    display: inline;
+    text-align: left;
+    font-size: 40px;
+    color: gray;
+  }
 }

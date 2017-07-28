@@ -1,4 +1,5 @@
 <% if @project.review.present? %>
-  <%= @project.review.rating %>
-  <%= @project.review.comment %>
+  <span class="star-rated"><%= ("<i class='fa fa-star' aria-hidden='true'></i>" * (@project.review.rating)).html_safe %></span><span class="star-denied"><%= ("<i class='fa fa-star' aria-hidden='true'></i>" * (5 - @project.review.rating)).html_safe %></span>
+  <h4>Comment:</h4>
+  <p><%= @project.review.comment %></p>
 <% end %>
