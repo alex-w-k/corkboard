@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <% @pros.each do |pro| %>
+      <div class="col-md-2">
+        <h4><%= link_to pro.full_name, pro_path(pro) %></h4>
+        <p>
+          Email: <%= pro.email %>
+        </p>
+        <p>
+          Phone: <%= pro.phone_number %>
+        </p>
+        <p>
+          <!-- class inheritance is preventing me from making this a model method. refactor if time.  -->
+          <%= distance_of_time_in_words(Time.now, pro.created_at) %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>

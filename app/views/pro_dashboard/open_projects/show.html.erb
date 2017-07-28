@@ -1,11 +1,22 @@
-<%= bootstrap_form_for(@bid, url: bid_index_path(project_id: @project), method: :post) do |f| %>
-  <%= f.text_field :amount, placeholder: "Enter amount", id: "amount"%><br>
-  <%= f.text_area :comment, placeholder: "Enter any additional comments here" %><br>
-  
-  <div class="form-group" id="upload">
-    <%= f.fields_for :attachments, @bid.attachments.build do |attachment| %>
-      <%= attachment.file_field :upload %><br>
-    <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <%= form_for(@bid, url: bids_path, method: :post, class: "form-group") do |f| %>
+        <%= f.hidden_field :project_id, value: @project.id %>
+        <%= f.text_field :amount, placeholder: "Enter amount", id: "amount", class: "form-control" %><br>
+        <%= f.text_area :comment, placeholder: "Enter any additional comments here", class: "form-control" %><br>
+
+        <div class="form-group" id="upload">
+          <%= f.fields_for :attachments, @bid.attachments.build do |attachment| %>
+            <%= attachment.file_field :upload %><br>
+          <% end %>
+        </div>
+        <%= f.submit "Place Bid", class: "btn login btn-primary" %>
+      <% end %>
+    </div>
+
+    <div class="col-md-8">
+      why aren't there project details here?
+    </div>
   </div>
-  <%= f.submit "Place Bid", class: "btn login btn-primary" %>
-<% end %>
+</div>
