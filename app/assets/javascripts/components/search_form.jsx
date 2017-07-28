@@ -3,7 +3,7 @@ var SearchForm = React.createClass({
     var query = document.getElementById('query').value
     var self = this;
     $.ajax({
-      url: '/api/search',
+      url: 'https://corkboard-micro.herokuapp.com/api/v1/records',
       data: { query: query },
       success: function(data) {
         self.props.handleSearch(data);

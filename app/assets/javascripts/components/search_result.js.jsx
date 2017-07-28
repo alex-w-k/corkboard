@@ -1,8 +1,8 @@
 
 var SearchResults = React.createClass({
-getInitialState: function() {
-  return { title: '' };
-  },
+  getInitialState: function() {
+    return { title: '' };
+    },
   render: function() {
     var results = [];
     var title = '';
@@ -10,7 +10,7 @@ getInitialState: function() {
       title = "Search Results..."
       this.props.results.forEach(function(result) {
         results.push(<Result result={result}
-                          key={'result' + result.id}/>);
+                          key={'result' + result._id.$oid}/>);
       }.bind(this));
     }
     return(
