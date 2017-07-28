@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :user_redirect
 
   include FlashMessages
-  
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 
   def user_redirect(user)
     if user.type
-      redirect_to pro_dashboard_path
+      redirect_to pro_dashboard_index_path
     else
       redirect_to profile_dashboard_path
     end
