@@ -3,9 +3,13 @@
   <%= f.hidden_field :user_id, value: @project.bids.find_by(status: "accepted").user_id %>
       <p>
         Overall Rating:
-        <%= f.label :rating, 'Overall Rating' %>
-        <%= f.radio_button :rating, '1', :checked => true %> 
-        <%= f.radio_button :rating, '2' %>
+        <span class="star-rating">
+        <%= f.radio_button :rating, '1' %><i></i>
+        <%= f.radio_button :rating, '2' %><i></i>
+        <%= f.radio_button :rating, '3' %><i></i>
+        <%= f.radio_button :rating, '4' %><i></i>
+        <%= f.radio_button :rating, '5' %><i></i>
+        </span>
     </p>
     <p>
       <%= f.label :comment, "Your comment" %><br/>
