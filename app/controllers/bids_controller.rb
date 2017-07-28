@@ -10,7 +10,6 @@ class BidsController < ApplicationController
   end
 
   def create
-    binding.pry
     @bid = Bid.new(bid_params)
     @bid.pro = Pro.find(current_user.id)
     @bid.project = Project.find(params[:bid][:project_id])
