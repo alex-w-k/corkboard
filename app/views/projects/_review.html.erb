@@ -1,5 +1,5 @@
-<% if @project.review.present? %>
-  <span class="star-rated"><%= @project.review.star_rated %></span><span class="star-denied"><%= @project.review.star_denied %></span>
+<% if !@project.review.id.nil? %>
+  <%= @project.review.star_rated %><%= @project.review.star_denied %>
   <h4>Comment:</h4>
   <p><%= @project.review.comment %></p>
 <% end %>

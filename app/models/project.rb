@@ -14,4 +14,7 @@ class Project < ApplicationRecord
   has_many :attachments, as: :attachable
   accepts_nested_attributes_for :attachments
 
+  def pro
+    Pro.find_by(id: (self.bids.find_by(status: "accepted").user_id))
+  end
 end

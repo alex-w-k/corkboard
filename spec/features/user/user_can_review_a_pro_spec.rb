@@ -30,11 +30,14 @@ feature "User can leave review for pro" do
       end
 
       expect(current_path).to eq(project_path(project1))
-      #expect not to find a review form
-      #expect to see review
-      #expect to see an edit button on the review
-      #expect project.review to return a review
+      expect(page).to_not have_selector(".star-rating")
+      expect(page).to_not have_field('review_comment')
+      expect(page).to have_content("Not bad, yo.")
+      expect(page).to have_selector('.star-rated', count: 2)
+      expect(page).to have_selector('.star-denied', count: 3)
+      expect(project1.review.present?).to eq(true)
       #expect pro.reviews to increase by one
+      expect(page).to have_link("edit")
     end
   end
 end
