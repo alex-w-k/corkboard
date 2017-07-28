@@ -3,6 +3,8 @@
   <%= f.hidden_field :user_id, value: @project.bids.find_by(status: "accepted").user_id %>
       <p>
         Overall Rating:
+      </p>
+      <p>
         <span class="star-rating">
         <%= f.radio_button :rating, '1' %><i></i>
         <%= f.radio_button :rating, '2' %><i></i>
@@ -12,7 +14,7 @@
         </span>
     </p>
     <p>
-      <%= f.label :comment, "Your comment" %><br/>
+      <%= f.label :comment, "Your Comment:" %><br/>
       <%= f.text_area :comment %>
     </p>
     <p>

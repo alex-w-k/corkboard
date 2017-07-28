@@ -1,7 +1,7 @@
 <div class='container'>
   <div class="row">
-    <div class="col-md-4 col-md-offset-2 project">
-      <%= render partial: 'shared/project_information'%>
+    <div class=<%= "col-md-4 #{"col-md-offset-2" if !@project.closed?} project" %>>
+      <%= render partial: 'shared/project_information'%> 
     </div>
     <div class="col-md-4 bid">
       <h2>Bids:</h2>
@@ -22,9 +22,12 @@
       </ul>
     </div>
     <% if @project.closed? %>
-      <div class="col-md-4 col-md-offset-2 review">
-        <%= render partial: 'projects/review' %>
-        <%= render partial: 'reviews/form' %>
+      <div class="col-md-4 review">
+        <h2>Review:</h2>
+        <div class="list-group-item">
+          <%= render partial: 'projects/review' %>
+          <%= render partial: 'reviews/form' %>
+        </div>
       </div>
     <% end %>
   </div>
