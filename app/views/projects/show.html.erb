@@ -25,8 +25,11 @@
       <div class="col-md-4 review">
         <h2>Review:</h2>
         <div class="list-group-item">
-          <%= render partial: 'projects/review' %>
+        <% if session[:edit_review] || @project.review.id.nil?%>
           <%= render partial: 'reviews/form' %>
+        <% else %>
+          <%= render partial: 'projects/review' %>
+        <% end %>
         </div>
       </div>
     <% end %>
