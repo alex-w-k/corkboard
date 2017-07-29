@@ -1,5 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Review, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "Relationships" do
+    it { should belong_to(:pro) }
+    it { should belong_to(:project) }
+  end
+
+  describe "Validations" do
+    it { should validate_presence_of(:comment) }
+    it { should validate_presence_of(:rating) }
+  end
 end
