@@ -5,6 +5,10 @@ class ReviewsController < ApplicationController
     redirect_to project_path(@project)
   end
 
+  def edit
+
+  end
+
   private
 
   def review_params
