@@ -36,6 +36,9 @@ Rails.application.routes.draw do
   resources :pro, only: [:index, :show, :new, :create]
 
   resources :projects, only: [:show]
+  resources :projects do
+    resources :reviews
+  end
 
   resources :pro_dashboard, only: [:index]
 

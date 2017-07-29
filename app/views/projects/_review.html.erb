@@ -1,0 +1,7 @@
+<% if !@project.review.id.nil? %>
+  <p>Overall Rating:</p>
+  <%= @project.review.star_rated %><%= @project.review.star_denied %>
+  <h4>Comment:</h4>
+  <p><%= @project.review.comment %></p>
+  <p><button type="button" class="btn btn-warning"><%= link_to "Edit", edit_project_review_path(@project, @project.review) %> </button></p>
+<% end %>

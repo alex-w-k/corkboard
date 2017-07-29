@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row">
     <%= link_to "Start A New Project", root_path %>
-
     <div class="col-md-4">
       <h2>Open Projects</h2>
       <ul class="list-group open">
@@ -13,20 +12,17 @@
           <% current_user.open_projects.each do |project| %>
             <%= link_to project_path(project) do %>
               <li class="list-group-item">
-                  <p>Service:
-                  <%=project.service.name%></p>
-                  <p>Description:
-                  <%=project.description%></p>
-                  <p>Timeline:
-                  <%=project.timeline%></p>
-                <% if !project.attachments.empty?%>
+                <p>Service: <%=project.service.name%></p>
+                <p>Description: <%=project.description%></p>
+                <p>Timeline: <%=project.timeline%></p>
+                <% if !project.attachments.empty? %>
                   <% project.attachments.each do |attachment| %>
                     <%= image_tag attachment.upload.url(:thumb) %>
                   <%end%>
                 <%end%>
-              <%end%>
-            </li>
+              </li>
             <%end%>
+          <%end%>
         <%end%>
       </ul>
     </div>
