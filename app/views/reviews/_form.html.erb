@@ -5,16 +5,16 @@
     </p>
     <p>
       <span class="star-rating">
-      <%= f.radio_button :rating, '1' %><i></i>
-      <%= f.radio_button :rating, '2' %><i></i>
-      <%= f.radio_button :rating, '3' %><i></i>
-      <%= f.radio_button :rating, '4' %><i></i>
-      <%= f.radio_button :rating, '5' %><i></i>
+      <%= f.radio_button :rating, '1', required: true %><i></i>
+      <%= f.radio_button :rating, '2', required: true %><i></i>
+      <%= f.radio_button :rating, '3', required: true %><i></i>
+      <%= f.radio_button :rating, '4', required: true %><i></i>
+      <%= f.radio_button :rating, '5', required: true %><i></i>
       </span>
   </p>
   <p>
     <%= f.label :comment, "Your Comment:" %><br/>
-    <%= f.text_area :comment %>
+    <%= f.text_area :comment, required: true %>
   </p>
   <p>
     <%= f.submit 'Submit' %>
