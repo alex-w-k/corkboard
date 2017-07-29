@@ -40,7 +40,7 @@ feature "User can leave review for pro" do
       expect(project1.review.comment).to eq("Not bad, yo.")
       expect(project1.review.rating).to eq(2.0)
       expect(pro.reviews.count).to eq(pro_reviews_count + 1)
-      expect(page).to have_link("edit")
+      expect(page).to have_link("Edit")
     end
   end
 end

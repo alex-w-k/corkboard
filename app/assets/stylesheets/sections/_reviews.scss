@@ -77,4 +77,21 @@
     font-size: 55px;
     color: #E8E8E8;
   }
+
+  .btn {
+    position: relative;
+    float:right;
+  }
+
+  .btn a {
+    color: white;
+  }
+
+  .btn a:hover {
+      text-decoration: none;
+    }
+
+  .list-group-item {
+    overflow: hidden;
+  }
 }
