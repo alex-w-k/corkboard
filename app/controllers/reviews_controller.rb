@@ -1,6 +1,12 @@
 class ReviewsController < ApplicationController
+
+  before_action :set_project, :project_owner
+
+  def project_owner
+    @project.requester_id == current_user.id
+  end
+
   def create
-    @project = Project.find_by(id: params["project_id"].to_i)
     @review = @project.create_review(review_params)
     redirect_to project_path(@project)
   end
@@ -10,6 +16,10 @@ class ReviewsController < ApplicationController
   end
 
   private
+
+  def set_project
+    @project = Project.find_by(id: params["project_id"].to_i)
+  end
 
   def review_params
     params.require(:review).permit(:rating, :comment, :user_id)
