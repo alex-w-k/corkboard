@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception, prepend: true
-  force_ssl if: :ssl_configured?
+  force_ssl if: "Rails.env.production? && action_name != 'messages'"
 
   helper_method :current_user
   helper_method :logged_in?
@@ -31,12 +31,6 @@ class ApplicationController < ActionController::Base
     else
       redirect_to profile_dashboard_path
     end
-  end
-
-  private
-
-  def ssl_configured?
-    Rails.env.in?(Rails.application.config.secure_envs) && request.path != '/cable'
   end
 
 end
