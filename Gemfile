@@ -16,7 +16,7 @@ gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.3'
 gem 'redis', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
-# gem 'turbolinks', '~> 5'
+gem 'turbolinks', '~> 5'
 gem 'twitter-bootstrap-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'omniauth-facebook'
@@ -31,6 +31,7 @@ gem 'geokit'
 gem "paperclip", "~> 5.0.0"
 gem 'react-rails'
 gem 'faraday'
+gem 'faker'
 
 group :test do
   gem 'vcr'
@@ -49,7 +50,6 @@ group :development, :test do
   gem 'pry'
   gem 'awesome_print', require: 'ap'
   gem 'byebug', platform: :mri
-  gem 'faker'
   gem 'factory_girl_rails'
   gem 'rack_session_access'
   gem 'rspec-rails'

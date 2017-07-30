@@ -321,6 +321,9 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    turbolinks (5.0.1)
+      turbolinks-source (~> 5)
+    turbolinks-source (5.0.3)
     twilio-ruby (5.0.0)
       faraday (~> 0.9)
       jwt (~> 1.5)
@@ -401,6 +404,7 @@ DEPENDENCIES
   simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
+  turbolinks (~> 5)
   twilio-ruby (~> 5.0.0)
   twitter-bootstrap-rails
   tzinfo-data
