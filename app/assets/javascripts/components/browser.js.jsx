@@ -31,9 +31,11 @@ getDataFromApi: function() {
                                 key={'industry' + industry.id}/>)
     }.bind(this));
     return(
-      <ul className="list-group">
-          {collection}
-      </ul>
+      <div className="browser">
+        <ul className="list-group">
+            {collection}
+        </ul>
+      </div>
     )
   }
 });

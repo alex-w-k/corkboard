@@ -8,9 +8,11 @@ var Service = React.createClass({
     var service = this.props
     return(
       <li className="list-group-item-heading">
-              <h4>
-                {service.name}
-              </h4>
+              <a href={service.uri}>
+                <h4>
+                  {service.name}
+                </h4>
+              </a>
       </li>
     )
   }
