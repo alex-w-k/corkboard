@@ -6,6 +6,7 @@ var Service = React.createClass({
   },
   render: function(){
     var service = this.props
+    debugger
     return(
       <li className="list-group-item-heading">
               <a href={service.uri}>
