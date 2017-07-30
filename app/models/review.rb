@@ -1,6 +1,8 @@
 class Review < ApplicationRecord
-  belongs_to :user
+  belongs_to :pro, foreign_key: "user_id"
   belongs_to :project
+  validates :comment, presence: true
+  validates :rating, presence: true
 
   def star_rated
     yellow_star_html = "<i class='fa fa-star star-rated' aria-hidden='true'></i>"

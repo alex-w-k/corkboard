@@ -8,7 +8,16 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    session[:edit_review] = true
+    @review = @project.review
+    redirect_to project_path(@project)
+  end
 
+  def update
+    @project.review.update_attributes(review_params)
+    @review = @project.review
+    session[:edit_review] = nil
+    redirect_to project_path(@project)
   end
 
   private
