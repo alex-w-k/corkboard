@@ -18,4 +18,5 @@ class Pro < User
   def radius
     pro_services.first.radius.to_i
   end
+
 end

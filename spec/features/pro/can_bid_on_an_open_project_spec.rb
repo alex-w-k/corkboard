@@ -21,7 +21,6 @@ RSpec.describe 'a logged-in pro can place a bid on an open project' do
     click_on "Place Bid"
 
     expect(current_path).to eq(pro_dashboard_project_bids_path)
-
     bid = Bid.last
     expect(bid.amount).to eq("100")
     expect(bid.comment).to eq("I'd like to work on this project.")
