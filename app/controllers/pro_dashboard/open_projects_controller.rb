@@ -11,8 +11,8 @@ class ProDashboard::OpenProjectsController < ApplicationController
     @open_projects.each do |open_project|
       request_location = open_project.zipcode
       distance = @pro_location.distance_to(request_location)
-      if distance < @pro.pro_services.first.radius.to_i
         @to_bid_on << open_project
+      if distance < @pro.pro_services.first.radius.to_i
       else
       end
     end
