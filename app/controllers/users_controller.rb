@@ -26,8 +26,9 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = current_user
     if @user.update_attributes(user_params)
-      redirect_to user_path(@user)
+      redirect_to profile_dashboard_path
     else
       flash.now[:danger] = @user.errors.full_messages
     end

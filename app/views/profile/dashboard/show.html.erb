@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row">
-    <%= link_to "Start A New Project", root_path %>
+    <div class="col-md-12">
+      <%= link_to "Start A New Project", root_path %>
+      <%= link_to "Edit Profile", edit_user_path(current_user), class: 'btn btn-primary' %>
+    </div>
     <div class="col-md-4">
       <h2>Open Projects</h2>
       <ul class="list-group open">

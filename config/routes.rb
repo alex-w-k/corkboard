@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   post "users/verify", to: 'authy#verify'
   post "users/resend", to: 'authy#resend'
   post 'authy/new', to: 'authy#new'
+  resources :users, only: [:edit, :update]
 
   resources :pro, only: [:index, :show, :new, :create]
 

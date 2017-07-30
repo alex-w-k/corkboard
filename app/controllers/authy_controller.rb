@@ -15,7 +15,7 @@ class AuthyController < ApplicationController
     token = verify_token
     if token.ok?
       @user.update(verified: true)
-      flash[:success] = "You successfully verified your account!"
+      flash[:success] = "You have authorized your account!"
       user_redirect(current_user)
     else
       flash.now[:danger] = "Incorrect code, please try again"
