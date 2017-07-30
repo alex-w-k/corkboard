@@ -2,6 +2,10 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :zipcode, presence: true
+  validates_format_of :zipcode,
+              with: /\A\d{5}-\d{4}|\A\d{5}\z/,
+              message: "should be 12345 or 12345-1234",
+              allow_blank: true
   validates :email, presence: true, uniqueness: true
   has_secure_password validations: false
 

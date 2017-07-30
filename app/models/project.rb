@@ -1,5 +1,9 @@
 class Project < ApplicationRecord
   validates :zipcode, presence: true
+  validates_format_of :zipcode,
+                with: /\A\d{5}-\d{4}|\A\d{5}\z/,
+                message: "should be 12345 or 12345-1234",
+                allow_blank: true
   validates :timeline, presence: true
   validates :description, presence: true
   validates :status, presence: true
