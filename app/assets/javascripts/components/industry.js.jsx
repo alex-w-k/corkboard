@@ -15,6 +15,7 @@ var Industry = React.createClass({
   getCategories: function(e){
     var self = this
     var div = e.target.nextElementSibling
+    var industry = e.target.parentElement
     if(self.state.categories.length === 0){
       $.ajax({
         url: `/api/category?query=${self.props.slug}`,
@@ -22,6 +23,7 @@ var Industry = React.createClass({
           self.setState({ categories: data });
           $(div).css('visibility', 'visible');
           $(div).addClass('active');
+          $(industry).addClass('active');
         },
         error: function(xhr, status, error) {
           alert('Cannot get data from API: ', error);
@@ -29,6 +31,7 @@ var Industry = React.createClass({
       });
     }else{
       $('.categories').removeClass('active');
+      $(industry).removeClass('active');
       setTimeout(function(){
         $('.categories').css('visibility', 'hidden');
         self.setState({categories: []})
