@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :omniauth_user
-  include AuthyConcern
   
   def new
     @user = User.new
@@ -19,6 +18,18 @@ class UsersController < ApplicationController
     else
       flash.now[:danger] = @user.errors.full_messages
       render :new
+    end
+  end
+
+  def edit
+    @user = current_user
+  end
+
+  def update
+    if @user.update_attributes(user_params)
+      redirect_to user_path(@user)
+    else
+      flash.now[:danger] = @user.errors.full_messages
     end
   end
 

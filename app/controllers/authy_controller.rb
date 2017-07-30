@@ -1,6 +1,7 @@
 class AuthyController < ApplicationController
+  include AuthyConcern
 
-  def authy
+  def new
     @user = current_user
     if @user.save
       authy_register(@user)

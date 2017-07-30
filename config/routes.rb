@@ -28,9 +28,10 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  get "users/verify", to: 'users#show_verify', as: 'verify'
-  post "users/verify"
-  post "users/resend"
+  get "users/verify", to: 'authy#show_verify', as: 'verify'
+  post "users/verify", to: 'authy#verify'
+  post "users/resend", to: 'authy#resend'
+  post 'authy/new', to: 'authy#new'
 
   resources :pro, only: [:index, :show, :new, :create]
 
