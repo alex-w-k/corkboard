@@ -38,6 +38,7 @@ a {
 }
 
 .results {
+    text-align: center;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -51,6 +52,6 @@ a {
     padding: 10px;
     border: 1px solid black;
     border-radius: 5px;
-    margin: 5px 5px;
-    width: 300px;
+    margin: 5px auto;
+    width: 350px;
 }

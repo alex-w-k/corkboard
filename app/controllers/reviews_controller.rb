@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   before_action :set_project, :project_owner, :project_closed
 
   def create
