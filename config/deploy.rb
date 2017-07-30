@@ -1,5 +1,4 @@
 # config valid only for current version of Capistrano
-lock "3.8.2"
 
 server '104.197.250.20', user: 'deploy', port: 22, roles: %w{web app db}
 

@@ -13,7 +13,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
-gem 'rails', '~> 5.0.3'
+gem 'rails', '~> 5.1.1'
 gem 'redis', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'turbolinks', '~> 5'
@@ -30,7 +30,6 @@ gem 'passenger'
 gem 'geokit'
 gem "paperclip", "~> 5.0.0"
 gem 'react-rails'
-gem 'rails_12factor'
 
 group :test do
   gem 'vcr'
