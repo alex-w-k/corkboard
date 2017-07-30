@@ -30,6 +30,7 @@ gem 'passenger'
 gem 'geokit'
 gem "paperclip", "~> 5.0.0"
 gem 'react-rails'
+gem 'faker'
 
 group :test do
   gem 'vcr'
@@ -48,7 +49,6 @@ group :development, :test do
   gem 'pry'
   gem 'awesome_print', require: 'ap'
   gem 'byebug', platform: :mri
-  gem 'faker'
   gem 'factory_girl_rails'
   gem 'rack_session_access'
   gem 'rspec-rails'
