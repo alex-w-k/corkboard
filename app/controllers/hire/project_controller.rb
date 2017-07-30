@@ -1,5 +1,6 @@
 class Hire::ProjectController < ApplicationController
   def new
+    binding.pry
     @service = Service.find(params[:service])
     @project = Project.new
   end

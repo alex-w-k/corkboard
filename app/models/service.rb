@@ -23,7 +23,7 @@ class Service < ApplicationRecord
   end
 
   def generate_uri
-    self.uri = "hire/#{self.category.slug}/new"
+    self.uri = "hire/#{self.slug}/new"
   end
 
 end
