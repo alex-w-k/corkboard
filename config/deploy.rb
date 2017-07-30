@@ -7,7 +7,7 @@ set :application, "corkboard"
 set :repo_url, "git@github.com:Benjaminpjacobs/corkboard.git"
 set :use_sudo, true
 
-set :branch, 'capistrano'
+set :branch, 'rails-upgrade-capistrano'
 
 # Default branch is :setup-capistrano
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
