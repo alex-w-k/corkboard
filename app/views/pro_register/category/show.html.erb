@@ -5,7 +5,7 @@
     <%= form_tag(new_pro_path, method: "get")  do %>
         <table>
             <tbody class="service_table">
-                <% @services.each do |service| %>
+                <% @category.services.each do |service| %>
                     <tr>
                         <td>
                             <%= service.name %>

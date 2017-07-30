@@ -1,11 +1,11 @@
 class BidsController < ApplicationController
-
+  before_action :set_bid, only: [:show, :update, :destroy]
+  
   def index
 
   end
 
   def show
-    @bid = Bid.find(params[:id])
     @message = Message.new
   end
 
@@ -27,12 +27,10 @@ class BidsController < ApplicationController
   end
 
   def update
-    @bid = Bid.find(params[:id])
     @bid.update(status: params[:new_status])
   end
 
   def destroy
-    @bid = Bid.find(params[:id])
     @bid.destroy
   end
 
@@ -42,4 +40,7 @@ class BidsController < ApplicationController
       params.require(:bid).permit(:amount, :comment, )
     end
 
+    def set_bid
+      @bid = Bid.find(params[:id])
+    end
 end

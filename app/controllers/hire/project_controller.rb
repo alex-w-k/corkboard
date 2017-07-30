@@ -5,27 +5,31 @@ class Hire::ProjectController < ApplicationController
   end
 
   def create
-    @project = Project.create(zipcode:     params[:project][:zipcode],
-                             recurring:   params[:project][:recurring],
-                             description: params[:project][:description],
-                             timeline:    params[:project][:timeline],
-                             requester:   current_user,
-                             service_id:  params[:project][:service_id])
-    if params[:project][:attachments_attributes]
-      @project.attachments.create(upload: params[:project][:attachments_attributes]["0"][:upload])
-    end
+    @project = Project.create(project_params)
+    add_attachment if attachment_params
+    
     if @project.save
       flash[:success] = "Project Successfully Submitted"
-      redirect_to new_project_confirmation_path(@project)
+      redirect_to project_path(@project)
     else 
       @service = Service.find(params[:service])
       flash[:danger] = @project.errors.full_messages
       render :new
     end
   end
-
-  def confirmation
-    @project = Project.find(params[:id])
-  end
   
+  private
+
+    def add_attachment
+      @project.attachments.create(upload: attachment_params["0"][:upload])
+    end
+
+    def project_params
+      requester = {requester_id: current_user.id}
+      params.require(:project).permit(:zipcode, :recurring, :description, :timeline, :service_id).merge!(requester)
+    end
+    
+    def attachment_params
+      params.require(:project)[:attachments_attributes]
+    end
 end

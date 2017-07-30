@@ -5,7 +5,6 @@ class Home::SearchController < ApplicationController
     
     return redirect_to hire_industry_category_path(category.industry.slug, category.slug) if category
     return redirect_to hire_industry_path(industry) if industry
-    
   end
 
   private

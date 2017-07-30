@@ -18,6 +18,10 @@ class Project < ApplicationRecord
   has_many :attachments, as: :attachable
   accepts_nested_attributes_for :attachments
 
+  geocoded_by :zipcode
+  after_validation :geocode
+
+
   def pro
     Pro.find_by(id: (self.bids.find_by(status: "accepted").user_id))
   end

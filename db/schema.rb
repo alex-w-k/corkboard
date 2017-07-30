@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727223415) do
+ActiveRecord::Schema.define(version: 20170730145842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(version: 20170727223415) do
     t.integer  "timeline",     default: 0
     t.integer  "requester_id"
     t.integer  "service_id"
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["requester_id"], name: "index_projects_on_requester_id", using: :btree
     t.index ["service_id"], name: "index_projects_on_service_id", using: :btree
   end
@@ -147,6 +149,8 @@ ActiveRecord::Schema.define(version: 20170727223415) do
     t.string   "country_code"
     t.integer  "authy_id"
     t.boolean  "verified",          default: false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_foreign_key "bids", "projects"
