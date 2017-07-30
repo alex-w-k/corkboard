@@ -80,4 +80,30 @@ RSpec.describe 'user creates a project' do
     expect(page).to have_content(new_project.description)
     expect(page).to have_css('img', count: 1)
   end
+
+  scenario 'redirects back without valid inputs' do
+    page.set_rack_session(user_id: user.id)
+    page.set_rack_session(authenticated: true)
+
+    visit hire_industry_path(industry)
+
+    click_link("#{category.name}")
+    expect(current_path).to eq('/hire/home-improvement/lawn-care')
+
+    click_on("#{service.slug}")
+    expect(current_path).to eq('/hire/mowing/new')
+
+    expect(page).to have_css('.project-form')
+
+    fill_in('project[zipcode]', :with => 'asdkj')
+    choose('Recurring')
+    choose('ASAP')
+
+    expect(page).to_not have_content('Login or Sign Up to request this project')
+
+    click_on 'Submit'
+    expect(current_path).to eq('/hire/mowing')
+    expect(page).to have_content("Zipcode should be 12345 or 12345-1234")
+    expect(page).to have_content("Description can't be blank")
+  end
 end

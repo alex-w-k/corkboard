@@ -6,8 +6,8 @@ class Hire::ProjectController < ApplicationController
 
   def create
     @project = Project.create(project_params)
-    
     add_attachment if attachment_params
+    
     if @project.save
       flash[:success] = "Project Successfully Submitted"
       redirect_to project_path(@project)
