@@ -15,6 +15,16 @@
         </li>
         <% end %>
       </ul>
+      <h2>My Reviews</h2>
+      <ul class="list-group">
+        <li class="list-group-item review">
+          <%= "You have no reviews." if @pro.reviews.empty? %>
+        <% @pro.reviews.each do |review| %>
+          <%= review.star_rated %><%= review.star_denied %>
+          <p><%= "Comment: #{review.comment}" %></p>
+        </li>
+        <% end %>
+      </ul>
     </div>
 
     <div class="col-md-4 projects">
@@ -140,7 +150,6 @@
             </ul>
           <% end %>
         </div>
-
       </div>
     </div>
   </div>
