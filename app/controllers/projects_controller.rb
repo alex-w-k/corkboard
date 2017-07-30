@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
   def show
-    binding.pry
     @project = current_user.projects.where(id: params[:id]).first
 
     render file: 'public/404.html' if @project.nil?
