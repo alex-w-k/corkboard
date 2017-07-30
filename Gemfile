@@ -30,7 +30,6 @@ gem 'passenger'
 gem 'geokit'
 gem "paperclip", "~> 5.0.0"
 gem 'react-rails'
-gem 'rails_12factor'
 
 group :test do
   gem 'vcr'
