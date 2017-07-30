@@ -34,7 +34,7 @@ RSpec.describe 'user creates a project' do
 
     expect(Project.count).to eq(1)
     expect(Attachment.count).to eq(1)
-    expect(current_path).to eq(new_project_confirmation_path(new_project))
+    expect(current_path).to eq(project_path(new_project))
     expect(attachment.upload_file_name).to eq('image.png')
     expect(attachment.upload_content_type).to eq('image/png')
     expect(attachment.upload_file_size).to eq(6773)
@@ -45,6 +45,7 @@ RSpec.describe 'user creates a project' do
     expect(page).to have_content(new_project.description)
     expect(page).to have_css('img', count: 2)
   end
+
   scenario 'with valid inputs, no image' do
     page.set_rack_session(user_id: user.id)
     page.set_rack_session(authenticated: true)
@@ -72,7 +73,7 @@ RSpec.describe 'user creates a project' do
     attachment = Attachment.first
 
     expect(Project.count).to eq(1)
-    expect(current_path).to eq(new_project_confirmation_path(new_project))
+    expect(current_path).to eq(project_path(new_project))
     expect(page).to have_content(new_project.status)
     expect(page).to have_content(new_project.zipcode)  
     expect(page).to have_content(new_project.recurring)

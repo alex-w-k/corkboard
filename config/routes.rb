@@ -31,7 +31,6 @@ Rails.application.routes.draw do
   get "users/verify", to: 'users#show_verify', as: 'verify'
   post "users/verify"
   post "users/resend"
-  get '/hire/new-project-confirmation/:id', to: 'hire/project#confirmation', as: 'new_project_confirmation'
 
   resources :pro, only: [:index, :show, :new, :create]
 

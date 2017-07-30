@@ -10,18 +10,16 @@ class Hire::ProjectController < ApplicationController
     add_attachment if attachment_params
     if @project.save
       flash[:success] = "Project Successfully Submitted"
-      redirect_to new_project_confirmation_path(@project)
+      redirect_to project_path(@project)
     else 
       @service = Service.find(params[:service])
       flash[:danger] = @project.errors.full_messages
       render :new
     end
   end
-
-  def confirmation
-    @project = Project.find(params[:id])
-  end
+  
   private
+
     def add_attachment
       @project.attachments.create(upload: attachment_params["0"][:upload])
     end
