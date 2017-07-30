@@ -21,11 +21,11 @@ class Seed
   end
 
   def generate_bids_with_conversations
-    pro = Pro.create!(first_name: "Bob", last_name: "Ross", zipcode: "80203", phone_number: "5555555", email: "bross@gmail.com", password: "password", country_code: "+1")
+    pro = Pro.create!(first_name: "Bob", last_name: "Ross", zipcode: "80203", phone_number: "5555055050", email: "bross@gmail.com", password: "password", country_code: "+1")
 
     pro_service = pro.pro_services.create(service_id: 1, radius: 100)
 
-    requester = User.create(first_name: "Burt", last_name: "Reynolds", zipcode: "80203", phone_number: "5555554", email: "turdferguson@gmail.com", password: "password", country_code: "+1")
+    requester = User.create(first_name: "Burt", last_name: "Reynolds", zipcode: "80203", phone_number: "5555055051", email: "turdferguson@gmail.com", password: "password", country_code: "+1")
 
     project = Project.create(status: "open", zipcode: "80203", recurring: false, description: "Help me.", timeline: "ASAP", requester_id: 2, service_id: 1)
 

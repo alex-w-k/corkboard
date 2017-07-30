@@ -16,7 +16,7 @@ gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.3'
 gem 'redis', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
-# gem 'turbolinks', '~> 5'
+gem 'turbolinks', '~> 5'
 gem 'twitter-bootstrap-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'omniauth-facebook'
@@ -30,6 +30,7 @@ gem 'passenger'
 gem 'geokit'
 gem "paperclip", "~> 5.0.0"
 gem 'react-rails'
+gem 'rails_12factor'
 
 group :test do
   gem 'vcr'
