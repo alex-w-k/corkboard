@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'a logged-in pro can place a bid on an open project' do
   let!(:pro) { create(:pro_user) }
   let!(:pro_service) { pro.pro_services.create(service: service, pro: pro, radius: 100) }
-  let!(:project) { create(:project, service: service) }
+  let!(:project) { create(:project, service: service, zipcode: 80113) }
   let!(:service) { create(:service, category: category) }
   let!(:category)  { create(:category, name: 'Lawn & Garden', industry: industry) }
   let!(:industry)  { create(:industry, name: 'Home Improvement')}

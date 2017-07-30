@@ -9,7 +9,7 @@
       <th>Location</th>
       <th>E-mail</th>
     </tr>
-    <% @to_bid_on.each do |project| %>
+    <% @projects.to_bid_on.each do |project| %>
       <tr>
         <td><%= link_to "View", pro_dashboard_open_project_path(project) %></td>
         <td><%= project.service.created_at %></td>
