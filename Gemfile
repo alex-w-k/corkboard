@@ -32,6 +32,7 @@ gem "paperclip", "~> 5.0.0"
 gem 'react-rails'
 gem 'faraday'
 gem 'faker'
+gem 'jwt'
 
 group :test do
   gem 'vcr'
