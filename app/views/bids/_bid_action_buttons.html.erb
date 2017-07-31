@@ -1,0 +1,9 @@
+<div class="row bid-buttons">
+  <% if @bid.pro.id == current_user.id %>
+    <%= button_to "Withdraw", @bid, method: :patch, action: :update, class:"btn btn-warning", params: {user_id: current_user.id, pro_id: @bid.pro.id, new_status: "withdrawn"} %>
+  <% else %>
+    <%= button_to "Accept", @bid, method: :patch, action: :update, class:"btn btn-primary", params: {user_id: current_user.id, pro_id: @bid.pro.id, new_status: "accepted"} %>
+
+    <%= button_to "Reject", @bid, method: :patch, action: :update, class:"btn btn-danger", params: {user_id: current_user.id, pro_id: @bid.pro.id, new_status: "rejected"} %>
+  <% end %>
+</div>

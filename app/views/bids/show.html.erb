@@ -1,16 +1,20 @@
-<div class="row col-md-8 col-md-offset-2">
-  <h1><%= @bid.project.service.name %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 bid-block">
+      <%= render 'project_details' %>
 
-  <div class="panel panel-default">
-    <% if @bid.messages.any? %>
-      <div class="panel-body" id="messages">
-        <%= render partial: 'messages/message', collection: @bid.messages%>
-      </div>
-    <%else%>
-      <div class="panel-body hidden" id="messages">
-      </div>
-    <%end%>
+      <%= render 'bid_details' %>
+
+      <% if @bid.pro.id == current_user.id %>
+        <%= render 'client_details' %>
+      <% else %>
+        <%= render 'pro_details' %>
+      <% end %>
+
+      <%= render 'bid_action_buttons' %>
+    </div>
+
+    <%= render 'chatbox' %>
+
   </div>
-
-  <%= render partial: 'messages/message_form', locals: {message: @message, bid: @bid}%>
 </div>

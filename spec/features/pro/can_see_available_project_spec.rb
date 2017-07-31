@@ -14,7 +14,7 @@ RSpec.describe 'a logged pro can see available projects that match its services'
 
   it 'visits find new projects page and and sees a list of projects that match services' do
     page.set_rack_session(user_id: pro.id, authenticated: true)
-    visit '/pro/dashboard'
+    visit pro_dashboard_index_path
 
     click_link 'Find Projects'
 

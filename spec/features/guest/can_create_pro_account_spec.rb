@@ -53,8 +53,6 @@ RSpec.describe "Guest can create Pro Process" do
 
     fill_in "pro[first_name]", with: "Arnold"
     fill_in "pro[last_name]", with: "Schwarzenegger"
-    fill_in "pro[country_code]", with: '1'
-    fill_in "pro[phone_number]", with: "8085559111"
     fill_in "pro[zipcode]", with: "79720"
     fill_in "pro[email]", with: "arny22@gmail.com"
     fill_in "pro[password]", with: "hunter2"
@@ -62,12 +60,7 @@ RSpec.describe "Guest can create Pro Process" do
 
     click_on "Create Account"
 
-    expect(current_path).to eq(verify_path)
-
-    fill_in "token", with: '123456'
-
-    click_on "Verify Token"
-
+    expect(current_path).to eq(pro_dashboard_index_path)
 
     latest_user = Pro.last
     expect(latest_user.class).to eq Pro
@@ -75,7 +68,6 @@ RSpec.describe "Guest can create Pro Process" do
     expect(latest_user.first_name).to eq("Arnold")
     expect(latest_user.last_name).to eq('Schwarzenegger')
     expect(latest_user.email).to eq("arny22@gmail.com")
-    expect(latest_user.phone_number).to eq('8085559111')
     expect(latest_user.zipcode).to eq('79720')
     expect(latest_user.services.count).to eq(2)
     expect(latest_user.services.first.name).to eq(service_1.name)
