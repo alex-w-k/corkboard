@@ -4,9 +4,9 @@ describe "Projects API" do
   it "can return a list of all open projects for a user" do
     category =          create(:category)
     service =           create(:service, category_id: category.id)
-    user = create(:user)
+    user =              create(:user)
     10.times do |i|
-      project = create(:project, service_id: service.id, requester_id: user.id, status: 0)
+      project =         create(:project, service_id: service.id, requester_id: user.id, status: 0)
     end
 
     get "/api/v1/projects/find_all?requester_id=#{user.id}&status=0"
