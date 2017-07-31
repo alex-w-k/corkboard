@@ -2,7 +2,7 @@
   <h1>Just To Be Safe...</h1>
   <p>
       Your account has been created, but we need to make sure you're a human
-      in control of the phone number you gave us. Can you please enter the 
+      in control of the phone number you gave us. Can you please enter the
       verification code we just sent to your phone?
   </p>
   <%= form_tag users_verify_path do %>
@@ -17,4 +17,8 @@
   <%= form_tag users_resend_path do %>
     <button type="submit" class="btn">Resend code</button>
   <% end %>
+
+  <%=link_to pro_dashboard_index_path do%>
+    <button class="btn">Skip Validation</button>
+  <%end%>
 </div>

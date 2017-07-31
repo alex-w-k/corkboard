@@ -1,6 +1,6 @@
 <form class="navbar-form navbar-left" role="search" action="/home/search" method="get">
     <div class="form-group">
-        <input type='text' name="service_search" class='form-control' placeholder="What service do you need to do today?" id="service_search">
+        <input type='text' name="service_search" class='form-control' placeholder="What service do you need to do today?" id="service_search" list="services_list">
     </div>
     <button type='submit' name='commit' class='btn btn-default'><i class='glyphicon glyphicon-search'></i></button>
 </form>
@@ -9,3 +9,8 @@
     <%= text_field_tag :service_search, nil, placeholder: "type here"%>
         <%= submit_tag "Submit"%>
             <% end %> -->
+
+<datalist id="services_list">
+</datalist>
+
+<%= javascript_include_tag "nav/search.js" %>

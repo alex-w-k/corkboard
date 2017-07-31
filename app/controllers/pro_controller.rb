@@ -1,14 +1,25 @@
 class ProController < ApplicationController
+  include ProConcern
+  include AuthyConcern
+  include SessionHelper
+
+  def index
+    @pros = Pro.all
+  end
+
   def show
-    @pro = Pro.find(current_user.id)
+    @pro = Pro.find(params[:id])
   end
 
   def new
+    session[:zipcode] = params[:zipcode]
+    session[:radius] = params[:radius].empty? ? "10" : params[:radius]
+    session[:service_ids] = Service.pro_service_ids(params[:service_id])
+
+    @location = Geokit::Geocoders::GoogleGeocoder.geocode(params[:zip])
+    @radius = session[:radius]
     @oauth_info = OauthParse.new(session[:omniauth_info])
     @services = Service.where(id: params[:service_id])
-    @radius = params[:radius].empty? ? "10" : params[:radius]
-    session[:radius] = @radius
-    session[:service_ids] = Service.pro_service_ids(params[:service_id])
     @pro = Pro.new
   end
 
@@ -16,17 +27,18 @@ class ProController < ApplicationController
     @pro = Pro.new(pro_params)
     @pro.uid = session[:omniauth_info]['uid'] if omniauth_user
     if @pro.save
-      session[:service_ids].each do |id|
-        @pro.pro_services.create(service_id: id, radius: session[:radius])
-      end
-      ConfirmationSender.send_confirmation_to(@pro)
+      set_services(session[:service_ids], @pro, session[:radius])
+      clear_session([:service_ids, :zipcode, :radius, :omniauth_info])
       session[:user_id] = @pro.id
-      session.delete(:service_ids)
-      session.delete(:radius)
-      session.delete(:omniauth_info)
-      redirect_to verify_path
+      session[:authenticated] = true
+      redirect_to pro_dashboard_index_path
     else
       flash.now[:danger] = @pro.errors.full_messages
+
+      @services = Service.where(id: session[:service_ids])
+      @radius = session[:radius]
+      @location = Geokit::Geocoders::GoogleGeocoder.geocode(params[:zip])
+
       render :new
     end
   end
@@ -38,8 +50,6 @@ class ProController < ApplicationController
     params.require(:pro).permit(:first_name,
                                  :last_name,
                                  :zipcode,
-                                 :country_code,
-                                 :phone_number,
                                  :email,
                                  :uid,
                                  :password,

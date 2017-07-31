@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bootstrap_form'
+gem 'bootstrap-sass', '~> 3.3.6'
 gem 'coffee-rails', '~> 4.2'
 gem 'font-awesome-sass'
 gem 'jbuilder', '~> 2.5'
@@ -28,6 +29,9 @@ gem 'authy'
 gem 'passenger'
 gem 'geokit'
 gem "paperclip", "~> 5.0.0"
+gem 'react-rails'
+gem 'faraday'
+gem 'faker'
 
 group :test do
   gem 'vcr'
@@ -39,16 +43,17 @@ group :test do
   gem 'shoulda-callback-matchers', '~> 1.1.1'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'aws-sdk', '~> 2.3.0'
+  gem "nyan-cat-formatter"
 end
 
 group :development, :test do
   gem 'pry'
   gem 'awesome_print', require: 'ap'
   gem 'byebug', platform: :mri
-  gem 'faker'
   gem 'factory_girl_rails'
   gem 'rack_session_access'
   gem 'rspec-rails'
+  gem 'simplecov', :require => false, :group => :test
 end
 
 group :development do
@@ -56,6 +61,12 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+  gem 'capistrano'
+  gem 'capistrano-rails', '~> 1.3'
+  gem 'capistrano-rvm', '~> 0.1.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-nginx'
+  gem 'capistrano3-puma'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

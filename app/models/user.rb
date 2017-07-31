@@ -2,9 +2,11 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :zipcode, presence: true
+  validates_format_of :zipcode,
+              with: /\A\d{5}-\d{4}|\A\d{5}\z/,
+              message: "should be 12345 or 12345-1234",
+              allow_blank: true
   validates :email, presence: true, uniqueness: true
-  validates :phone_number, presence: true
-  validates :country_code, presence: true
   has_secure_password validations: false
 
   has_many :user_roles, dependent: :destroy
@@ -12,7 +14,7 @@ class User < ApplicationRecord
   has_many :requested_projects, :class_name => 'Project', :foreign_key => 'requester_id'
 
   has_many :messages
-  
+
   def self.from_omniauth(auth_info)
     user = where(uid: auth_info[:uid]).first_or_initialize do |new_user|
       new_user.uid = auth_info.uid
@@ -23,8 +25,12 @@ class User < ApplicationRecord
     update_attribute(:uid, uid)
   end
 
-  def is_valid_code?(code)
-    verification_code == code
+  def pro?
+    if self.type == 'Pro'
+      true
+    else
+      false
+    end
   end
 
   def self.locate_by(data, oauth=false)
@@ -42,8 +48,13 @@ class User < ApplicationRecord
   def closed_projects
     requested_projects.closed
   end
-  
+
   def accepted_projects
     requested_projects.accepted
   end
+
+  def projects
+    requested_projects
+  end
+
 end

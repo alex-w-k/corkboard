@@ -4,6 +4,10 @@
  *= require rails_bootstrap_forms
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
 @import "bootstrap_and_overrides";
 @import "legacy";
 @import "sections/home";
+@import "sections/new_pro";
+@import "sections/reviews";

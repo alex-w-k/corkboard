@@ -1,0 +1,22 @@
+<%= form_for [ @project, @project.review ] do |f| %>
+<%= f.hidden_field :user_id, value: @project.bids.find_by(status: "accepted").user_id %>
+    <p>
+      Overall Rating:
+    </p>
+    <p>
+      <span class="star-rating">
+      <%= f.radio_button :rating, '1', required: true %><i></i>
+      <%= f.radio_button :rating, '2', required: true %><i></i>
+      <%= f.radio_button :rating, '3', required: true %><i></i>
+      <%= f.radio_button :rating, '4', required: true %><i></i>
+      <%= f.radio_button :rating, '5', required: true %><i></i>
+      </span>
+  </p>
+  <p>
+    <%= f.label :comment, "Your Comment:" %><br/>
+    <%= f.text_area :comment, required: true %>
+  </p>
+  <p>
+    <%= f.submit 'Submit', class: 'btn btn-warning' %>
+  </p>
+<% end %>

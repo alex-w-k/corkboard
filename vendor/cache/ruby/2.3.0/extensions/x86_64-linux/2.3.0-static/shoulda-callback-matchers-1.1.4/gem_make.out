@@ -1,5 +1,0 @@
-current directory: /home/rails/corkboard/vendor/cache/ruby/2.3.0/gems/shoulda-callback-matchers-1.1.4/ext
-/home/rails/.rbenv/versions/2.3.0/bin/ruby mkrf_conf.rb
-
-current directory: /home/rails/corkboard/vendor/cache/ruby/2.3.0/gems/shoulda-callback-matchers-1.1.4/ext
-/home/rails/.rbenv/versions/2.3.0/bin/ruby -rubygems /home/rails/corkboard/vendor/cache/ruby/2.3.0/gems/rake-12.0.0/exe/rake RUBYARCHDIR=/home/rails/corkboard/vendor/cache/ruby/2.3.0/extensions/x86_64-linux/2.3.0-static/shoulda-callback-matchers-1.1.4 RUBYLIBDIR=/home/rails/corkboard/vendor/cache/ruby/2.3.0/extensions/x86_64-linux/2.3.0-static/shoulda-callback-matchers-1.1.4

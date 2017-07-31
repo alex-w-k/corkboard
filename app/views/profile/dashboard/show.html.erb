@@ -1,5 +1,88 @@
-<% if current_user.requested_projects.empty? %>
-  <h3>You don't have any projects at yet.</h3>s
-<%else %>
-  <%= render partial: "projects" %>
-<%end%>
+<div class="container">
+  <div class="row">
+    <%= link_to "Start A New Project", root_path %>
+    <div class="col-md-4">
+      <h2>Open Projects</h2>
+      <ul class="list-group open">
+        <% if current_user.open_projects.empty? %>
+          <li class="list-group-item">
+            You have no open projects.
+          </li>
+        <% else %>
+          <% current_user.open_projects.each do |project| %>
+            <%= link_to project_path(project) do %>
+              <li class="list-group-item">
+                <p>Service: <%=project.service.name%></p>
+                <p>Description: <%=project.description%></p>
+                <p>Timeline: <%=project.timeline%></p>
+                <% if !project.attachments.empty? %>
+                  <% project.attachments.each do |attachment| %>
+                    <%= image_tag attachment.upload.url(:thumb) %>
+                  <%end%>
+                <%end%>
+              </li>
+            <%end%>
+          <%end%>
+        <%end%>
+      </ul>
+    </div>
+
+    <div class="col-md-4">
+      <h2>Accepted Projects</h2>
+      <ul class="list-group accepted">
+        <% if current_user.accepted_projects.empty? %>
+          <li class="list-group-item">
+            You have no accepted projects.
+          </li>
+        <% else %>
+          <% current_user.accepted_projects.each do |project| %>
+            <%= link_to project_path(project) do %>
+              <li class="list-group-item">
+                  Service:
+                  <%=project.service.name%>
+                  Description:
+                  <%=project.description%>
+                  Timeline:
+                  <%=project.timeline%>
+                <% if !project.attachments.empty?%>
+                  <% project.attachments.each do |attachment| %>
+                    <%= image_tag attachment.upload.url(:thumb) %>
+                  <%end%>
+                <%end%>
+              <%end%>
+              </li>
+            <%end%>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-md-4">
+      <h2>Completed Projects</h2>
+      <ul class="list-group closed">
+        <% if current_user.closed_projects.empty? %>
+          <li class="list-group-item">
+            You have no completed projects.
+          </li>
+        <% else %>
+          <% current_user.closed_projects.each do |project| %>
+          <%= link_to project_path(project) do %>
+            <li class="list-group-item">
+                <p>Service:
+                <%=project.service.name%></p>
+                <p>Description:
+                <%=project.description%></p>
+                <p>Timeline:
+                <%=project.timeline%></p>
+            <% if !project.attachments.empty?%>
+                <% project.attachments.each do |attachment| %>
+                  <%= image_tag attachment.upload.url(:thumb) %>
+                <%end%>
+              <%end%>
+            <%end%>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -32,3 +32,26 @@ a {
     text-align: center;
     display: block;
 }
+
+.results-heading {
+    margin-top: 10px
+}
+
+.results {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.results a {
+    text-decoration: none;
+}
+
+.result {
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px auto;
+    width: 350px;
+}
