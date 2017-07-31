@@ -17,6 +17,7 @@ class BidsController < ApplicationController
       flash["success"] = bid_placed
       redirect_to bid_path(@bid)
     else
+      @project = Project.find(bid_params[:project_id])
       flash.now[:danger] = @bid.errors.full_messages
       render '/pro_dashboard/open_projects/show'
     end
