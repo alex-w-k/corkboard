@@ -1,5 +1,5 @@
 class BidsController < ApplicationController
-  include AttachmentsConcern
+  include Attachments
   before_action :set_bid, only: [:show, :update, :destroy]
   
   def index
@@ -15,7 +15,7 @@ class BidsController < ApplicationController
     if @bid.save
       add_attachment(@bid, :bid) if attachment_params(:bid)
       flash["success"] = bid_placed
-      redirect_to pro_dashboard_project_bids_path
+      redirect_to bid_path(@bid)
     else
       flash.now[:danger] = @bid.errors.full_messages
       render '/pro_dashboard/open_projects/show'

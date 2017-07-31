@@ -1,5 +1,5 @@
 class Hire::ProjectController < ApplicationController
-  include AttachmentsConcern
+  include Attachments
 
   def new
     @service = Service.find(params[:service])

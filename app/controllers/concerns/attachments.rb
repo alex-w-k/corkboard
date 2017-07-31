@@ -1,4 +1,4 @@
-module AttachmentsConcern
+module Attachments
   extend ActiveSupport::Concern
 
   def add_attachment(element, required)
