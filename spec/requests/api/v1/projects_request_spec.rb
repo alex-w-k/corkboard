@@ -9,24 +9,24 @@ describe "Projects API" do
       project = create(:project, service_id: service.id, requester_id: user.id, status: 0)
     end
 
-    get "/api/v1/projects/find_all?id=#{user.id}&status=0"
+    get "/api/v1/projects/find_all?requester_id=#{user.id}&status=0"
     expect(response).to be_success
 
     projects = JSON.parse(response.body)
-    project = project.first
+    project = projects.first
 
     expect(projects.count).to eq(10)
-    expect(project.requester_id).to eq(user.id)
-    expect(item).to have_key("status")
-    expect(item).to have_key("zipcode")
-    expect(item).to have_key("description")
-    expect(item).to_not have_key("created_at")
-    expect(item).to_not have_key("updated_at")
-    expect(item).to_not have_key("recurring")
-    expect(item).to_not have_key("timeline")
-    expect(item).to_not have_key("requester_id")
-    expect(item).to_not have_key("latitude")
-    expect(item).to_not have_key("longitude")
-    expect(item).to_not have_key("service_id")
+    expect(project["requester_id"]).to eq(user.id)
+    expect(project).to have_key("status")
+    expect(project).to have_key("zipcode")
+    expect(project).to have_key("description")
+    expect(project).to have_key("created_at")
+    expect(project).to have_key("updated_at")
+    expect(project).to have_key("recurring")
+    expect(project).to have_key("timeline")
+    expect(project).to have_key("requester_id")
+    expect(project).to have_key("latitude")
+    expect(project).to have_key("longitude")
+    expect(project).to have_key("service_id")
   end
 end
