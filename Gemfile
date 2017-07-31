@@ -30,6 +30,7 @@ gem 'passenger'
 gem 'geokit'
 gem "paperclip", "~> 5.0.0"
 gem 'react-rails'
+
 gem 'faraday'
 gem 'faker'
 
