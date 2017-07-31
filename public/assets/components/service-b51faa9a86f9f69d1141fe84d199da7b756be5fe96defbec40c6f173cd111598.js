@@ -1,0 +1,1 @@
+var Service=React.createClass({displayName:"Service",propTypes:{name:React.PropTypes.string,uri:React.PropTypes.string,slug:React.PropTypes.string},render:function(){var e=this.props;return React.createElement("li",{className:"list-group-item-heading"},React.createElement("a",{href:e.uri},React.createElement("h4",null,e.name)))}});
