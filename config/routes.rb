@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     get '/search', to: 'search#search'
+    resources :industry, only:[:index]
+    resources :category, only:[:index]
+    resources :service, only:[:index]
   end
 
   namespace :home do
