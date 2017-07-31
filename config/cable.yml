@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://localhost:6379/
+  url: redis://redistogo:af88b05f99b4096ba445d2a56977b9f5@koi.redistogo.com:9061/
   channel_prefix: corkboard_production
