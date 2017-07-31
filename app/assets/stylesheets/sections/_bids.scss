@@ -1,14 +1,16 @@
 .bid-blocks {
-
-  a {
-    text-align: inherit;
-  }
+    a {
+        text-align: inherit;
+    }
 }
 
 .bid-block {
+    .button_to {
+        float: left;
+        padding: 10px;
+    }
+}
 
-  .button_to {
-    float: left;
-    padding: 10px;
-  }
+.new-project-bid {
+    text-align: center;
 }
