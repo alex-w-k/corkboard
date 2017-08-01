@@ -11,7 +11,7 @@ class BidsController < ApplicationController
 
   def create
     @bid = Bid.new(bid_params)
-    
+
     if @bid.save
       add_attachment(@bid, :bid) if attachment_params(:bid)
       flash["success"] = bid_placed
@@ -24,7 +24,12 @@ class BidsController < ApplicationController
   end
 
   def update
-    @bid.update(status: params[:new_status])
+    @bid.update_statuses(params[:new_status])
+    if current_user.pro?
+      redirect_to pro_dashboard_index_path
+    else
+      redirect_to profile_dashboard_path
+    end
   end
 
   def destroy
@@ -35,7 +40,7 @@ class BidsController < ApplicationController
 
     def bid_params
       pro = {user_id: current_user.id}
-      params.require(:bid).permit(:amount, :comment, :project_id).merge(pro)
+      params.require(:bid).permit(:amount, :comment, :project_id, :new_status).merge(pro)
     end
 
     def set_bid

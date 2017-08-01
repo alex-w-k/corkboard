@@ -12,4 +12,14 @@ class Bid < ApplicationRecord
   has_many :attachments, as: :attachable
   accepts_nested_attributes_for :attachments
 
+  def update_statuses(new_status)
+    update!(status: new_status)
+    return if new_status == "withdrawn"
+    close_other_bids if new_status == "accepted"
+  end
+
+  def close_other_bids
+    bids = Bid.where(project_id: self.project_id, status: "open")
+    bids.each { |b| b.status = "rejected"}
+  end
 end
