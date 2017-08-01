@@ -12,14 +12,14 @@ describe "Projects API" do
                       status: 1)
     id = project.id
     previous_status = project.status
-    project_params = {status: 2}
+    project_params = {status: 'closed'}
 
     put "/api/v1/projects/#{id}", params: {project: project_params}
 
     expect(response).to be_success
     updated_project = Project.find_by(id: id)
 
-    expect(updated_project.status).to eq(2)
+    expect(updated_project.status).to eq('closed')
     expect(updated_project.status).to_not eq(previous_status)
   end
 
