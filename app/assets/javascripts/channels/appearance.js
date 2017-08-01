@@ -1,5 +1,3 @@
-var buttonSelector;
-
 App.cable.subscriptions.create("AppearanceChannel", {
   connected: function() {
     install();
