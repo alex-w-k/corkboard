@@ -1,5 +1,6 @@
 json.(@projects) do |project|
   json.(project,
+      :id,
       :status,
       :zipcode,
       :description,
