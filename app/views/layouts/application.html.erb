@@ -6,7 +6,7 @@
   <title>Corkboard</title>
   <%= action_cable_meta_tag %>
   <%= csrf_meta_tags %>
-  <script>var user = <%= current_user.id %>;</script>
+  <script>var user = <%= current_user.id if current_user %>;</script>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
