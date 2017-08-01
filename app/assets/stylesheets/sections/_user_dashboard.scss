@@ -1,11 +1,14 @@
-.closed,
-.acccepted,
+.closed-project,
+.accepted-project,
 .open-project a {
     text-decoration: none;
     text-align: left;
 }
 
-.open-project, .accepted, .closed {
+.open-project, .accepted-project, .closed-project {
+		li {
+			color: gray;
+		}
     .btn-primary {
 			display: inline;
 			margin-right: 1%;
@@ -22,5 +25,12 @@
 
 		.accepted-buttons {
 			white-space: nowrap;
+		}
+
+		.project-label {
+			color: black;
+			display: inline;
+			white-space: nowrap;
+			
 		}
 }
