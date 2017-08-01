@@ -8,7 +8,7 @@ set :application, "corkboard"
 set :repo_url, "git@github.com:Benjaminpjacobs/corkboard.git"
 set :use_sudo, true
 
-set :branch, 'development'
+set :branch, 'new_relic'
 
 # Default branch is :setup-capistrano
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -38,7 +38,7 @@ set :puma_worker_timeout, nil
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml", "config/application.yml", "config/secrets.yml"
+append :linked_files, "config/database.yml", "config/application.yml", "config/secrets.yml", "config/newrelic.yml"
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"

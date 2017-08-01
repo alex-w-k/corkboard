@@ -34,6 +34,7 @@ gem 'aws-sdk', '~> 2.3.0'
 gem 'faraday'
 gem 'faker'
 gem 'jwt'
+gem 'newrelic_rpm'
 
 group :test do
   gem 'vcr'
