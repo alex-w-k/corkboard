@@ -57,4 +57,12 @@ class User < ApplicationRecord
     requested_projects
   end
 
+  def appear
+    # self.online = true
+  end
+
+  def disappear
+    # self.online = false
+  end
+
 end

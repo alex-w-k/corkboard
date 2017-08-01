@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170730145842) do
+ActiveRecord::Schema.define(version: 20170801012002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,6 +151,7 @@ ActiveRecord::Schema.define(version: 20170730145842) do
     t.boolean  "verified",          default: false
     t.float    "latitude"
     t.float    "longitude"
+    t.boolean  "online",            default: false
   end
 
   add_foreign_key "bids", "projects"

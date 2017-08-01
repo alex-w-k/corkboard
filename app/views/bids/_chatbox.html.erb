@@ -13,6 +13,15 @@
     <%end%>
   </div>
 
+  <p>
+    <span class="appearance-icon" data-behavior="appear_away"></span>Chatting with: <%= current_user.last_name %>
+    <% if current_user == @bid.pro %>
+      <span class="appearance-icon" data-behavior="appear_away"></span>Chatting with: <%= @bid.project.requester.first_name %>
+    <% else %>
+      <span class="appearance-icon" data-behavior="appear_away"></span>Chatting with: <%= @bid.pro.first_name %>
+    <% end %>
+  </p>
+
   <%= render partial: 'messages/message_form', locals: {message: @message, bid: @bid}%>
 
 </div>
