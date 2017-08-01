@@ -3,8 +3,8 @@
     <div class="col-md-4">
       <%= form_for(@bid, url: bids_path, method: :post, class: "form-group") do |f| %>
         <%= f.hidden_field :project_id, value: @project.id %>
-        <%= f.text_field :amount, placeholder: "Enter amount", id: "amount", class: "form-control" %><br>
-        <%= f.text_area :comment, placeholder: "Enter any additional comments here", class: "form-control" %><br>
+        <!-- <%= f.text_field :amount, placeholder: "Enter amount", id: "amount", class: "form-control" %><br> -->
+        <%= f.text_area :comment, placeholder: "Please enter an introductory message", class: "form-control" %><br>
 
         <div class="form-group" id="upload">
           <%= f.fields_for :attachments, @bid.attachments.build do |attachment| %>
@@ -16,7 +16,7 @@
     </div>
 
     <div class="col-md-8">
-      why aren't there project details here?
+      <%= render partial: 'project_details' %>
     </div>
   </div>
 </div>

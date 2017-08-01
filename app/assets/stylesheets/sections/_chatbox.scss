@@ -1,4 +1,32 @@
-.chatbox {
-  max-height: 250px;
-  overflow: auto;
+.chat-window {
+
+  .pro-name {
+    text-align: left;
+    font-size: 18px;
+  }
+
+  i.online {
+    color: green;
+  }
+
+  .chatbox {
+    max-height: 250px;
+    overflow: auto;
+  }
+
+  .message {
+
+    .chat-name {
+      text-align: left;
+      font-size: 18px;
+    }
+
+    .chat-time {
+      text-align: right;
+    }
+
+    .message-content {
+
+    }
+  }
 }

@@ -1,6 +1,7 @@
 class SearchService
   def initialize
-     @conn = Faraday.new(:url => "https://corkboard-micro.herokuapp.com/api/v1")
+     # @conn = Faraday.new(:url => "https://corkboard-micro.herokuapp.com/api/v1")
+          @conn = Faraday.new(:url => "http://localhost:3001/api/v1")
   end
 
   def get(query= '')
@@ -8,14 +9,14 @@ class SearchService
   end
 
   def post(post_params)
-    @conn.post 'records', post_params
+    @conn.post 'records', {token: JsonWebToken.encode(post_params)}
   end
 
   def put(id, put_params)
-    @conn.put "records/#{id}", put_params
+    @conn.put "record", {token: JsonWebToken.encode(post_params)}
   end
   
-  def put(id)
-    @conn.delete "records#{id}"
+  def delete(id)
+    @conn.delete "record", {token: JsonWebToken.encode(post_params)}
   end
 end

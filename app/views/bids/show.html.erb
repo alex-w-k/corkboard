@@ -4,13 +4,7 @@
       <%= render 'project_details' %>
 
       <%= render 'bid_details' %>
-
-      <% if @bid.pro.id == current_user.id %>
-        <%= render 'client_details' %>
-      <% else %>
-        <%= render 'pro_details' %>
-      <% end %>
-
+      <%= render "#{details}_details"%>
       <%= render 'bid_action_buttons' %>
     </div>
 
