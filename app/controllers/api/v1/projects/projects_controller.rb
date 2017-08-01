@@ -19,7 +19,7 @@ class Api::V1::Projects::ProjectsController < ApiBaseController
     end
 
     def token_valid?
-      # token == ENV['project_api_token']
-      false
+      user_id = Project.find(params[:id]).requester.id
+      JsonWebToken.decode(token[:token])[:id] == user_id
     end
 end

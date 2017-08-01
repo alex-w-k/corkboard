@@ -12,7 +12,9 @@ describe "Projects API" do
                       status: 1)
     id = project.id
     previous_status = project.status
-    project_params = {status: 'closed'}
+    token = JsonWebToken.encode({id: user.id})
+    project_params = {status: 'closed', token: token}
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     put "/api/v1/projects/#{id}", params: {project: project_params}
 
