@@ -57,4 +57,13 @@ class User < ApplicationRecord
     requested_projects
   end
 
+  def appear(data = {})
+    self.update(online: true)
+    ActionCable.server.broadcast "appearance", {event: 'appear', user_id: self.id}
+  end
+
+  def away
+    @appearance_state = nil
+  end
+
 end
