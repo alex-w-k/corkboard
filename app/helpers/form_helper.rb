@@ -36,4 +36,7 @@ module FormHelper
       ''
     end
   end
+  def which_user
+    logged_in? ? 'user' : 'guest'
+  end
 end
