@@ -14,12 +14,12 @@ class Bid < ApplicationRecord
 
   def update_statuses(new_status)
     update!(status: new_status)
-    return if new_status == "withdrawn"
+    return if new_status == "withdrawn" || new_status == "rejected"
     close_other_bids if new_status == "accepted"
   end
 
   def close_other_bids
     bids = Bid.where(project_id: self.project_id, status: "open")
-    bids.each { |b| b.status = "rejected"}
+    bids.each { |b| b.update!(status: "rejected")}
   end
 end
