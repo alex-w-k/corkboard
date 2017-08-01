@@ -10,7 +10,6 @@ class BidsController < ApplicationController
   end
 
   def create
-    binding.pry
     @bid = Bid.new(bid_params)
     
     if @bid.save
