@@ -7,6 +7,7 @@ $(document).ready(function(){
 });
 
 var getOpenProjects = function() {
+  $('.open').empty();
   return $.ajax({
     url: API + `/find_all?requester_id=${user}&status=0`,
     method: 'GET',
@@ -20,12 +21,13 @@ var getOpenProjects = function() {
 };
 
 var getAcceptedProjects = function() {
+  $('.accepted').empty();
   return $.ajax({
     url: API + `/find_all?requester_id=${user}&status=1`,
     method: 'GET',
   }).done(function(projects) {
     projects.forEach(function(project){
-      $('.accepted').append('<li class="list-group-item"><p>Service: ' + project.service_id + '</p><p>Description: ' + project.description + '</p><p>Timeline: ' + project.timeline + '</p></li><input type="hidden" name="status" value="2"><input type="submit" value="Mark as Complete" class="btn btn-warning"></form></div>')
+      $('.accepted').append('<li class="list-group-item"><p>Service: ' + project.service_id + '</p><p>Description: ' + project.description + '</p><p>Timeline: ' + project.timeline + '</p><p><input type="hidden" name="status" value="2"><input type="submit" value="Mark as Complete" class="btn btn-warning"></form></p></li>')
     })
   }).fail(function(error) {
     console.log(error);
@@ -33,6 +35,7 @@ var getAcceptedProjects = function() {
 };
 
 var getCompletedProjects = function() {
+  $('.closed').empty();
   return $.ajax({
     url: API + `/find_all?requester_id=${user}&status=2`,
     method: 'GET',
