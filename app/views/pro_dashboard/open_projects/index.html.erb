@@ -29,23 +29,23 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title" id="myModalLabel">Bid on <%=project.service.name%></h4>
             </div>
-            <div class="modal-body">
-              <%= form_for(@bid, url: bids_path, method: :post, class: "form-group") do |f| %>
-              <%= f.hidden_field :project_id, value: project.id %>
-               <%= f.text_area :comment, placeholder: "Please enter an introductory message", class: "form-control" %><br> 
-            </div>
+              <%= form_for(@bid, url: bids_path, method: :post, validate: true, remote: true, class: "form-group") do |f| %>
+                <div class="modal-body">
+                  <%= f.hidden_field :project_id, value: project.id %>
+                  <%= f.text_area :comment, placeholder: "Please enter an introductory message", class: "form-control" %><br> 
+                </div>
 
-            <div class="form-group" id="upload">
-              <%= f.fields_for :attachments, @bid.attachments.build do |attachment| %>
-                <%= attachment.file_field :upload %><br>
-              <% end %>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <%= f.submit "Place Bid", class: "btn login btn-primary" %>
-              <%end%>
-            </div>
-          </div>
+                <div class="form-group" id="upload">
+                  <%= f.fields_for :attachments, @bid.attachments.build do |attachment| %>
+                    <%= attachment.file_field :upload %><br>
+                  <% end %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <%= f.submit "Place Bid", class: "btn login btn-primary" %>
+                </div>
+              </div>
+            <%end%>
         </div>
       </div>
       <% end %>
@@ -53,3 +53,4 @@
 </div>
 
 
+<%= javascript_include_tag "bids/form" %>

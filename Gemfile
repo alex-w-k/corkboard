@@ -35,6 +35,7 @@ gem 'faraday'
 gem 'faker'
 gem 'jwt'
 gem 'newrelic_rpm'
+gem 'client_side_validations'
 
 group :test do
   gem 'vcr'
