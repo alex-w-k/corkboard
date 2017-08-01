@@ -181,6 +181,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.1.0)
+    newrelic_rpm (4.3.0.335)
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
@@ -386,6 +387,7 @@ DEPENDENCIES
   jwt
   launchy
   listen (~> 3.0.5)
+  newrelic_rpm
   nyan-cat-formatter
   omniauth-facebook
   paperclip (~> 5.0.0)

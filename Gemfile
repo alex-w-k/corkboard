@@ -34,6 +34,7 @@ gem 'aws-sdk', '~> 2.3.0'
 gem 'faraday'
 gem 'faker'
 gem 'jwt'
+gem 'newrelic_rpm'
 
 group :test do
   gem 'vcr'
@@ -44,7 +45,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'shoulda-callback-matchers', '~> 1.1.1'
   gem 'shoulda-matchers', '~> 3.1'
-
   gem "nyan-cat-formatter"
 end
 

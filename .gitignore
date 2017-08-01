@@ -18,6 +18,7 @@
 
 # Ignore application configuration
 /config/application.yml
+/config/newrelic.yml
 
 #ignore VCR gem cassettes
 /spec/cassettes
