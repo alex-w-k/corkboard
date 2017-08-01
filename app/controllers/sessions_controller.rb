@@ -47,6 +47,7 @@ class SessionsController < ApplicationController
   def manual_login(user)
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
+      cookies.signed[:user_id] = user.id
       session[:authenticated] = true
       user_redirect(user)
     else

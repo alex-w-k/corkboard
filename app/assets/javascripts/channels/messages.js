@@ -5,13 +5,14 @@ App.messages = App.cable.subscriptions.create("MessagesChannel", {
   disconnected: function() {},
   received: function(data) {
     if (data.message.blank == null) {
-      return $('.chatbox').append('<div class="message">' + '<div class="message-user">' + data.user + ":" + '</div>' + '<div class="message-content">' + data.message + '</div>' + '</div>');
+      $('#messages').append('<div class="message">' + '<div class="message-user row">' + '<span class="chat-name col-md-6">' + data.user + '</span>' + '<span class="chat-time col-md-6">' + data.created_at + '</span>' + '</div>' + '<div class="message-content row">' + '<p class="chat-content col-md-12">' + data.message + '</p>' + '</div>' + '</div>'), scroll_bottom();
     }
   }
 });
 
 $(document).on('turbolinks:load', function() {
-  return submit_message();
+  submit_message();
+  scroll_bottom();
 });
 
 submit_message = function() {
@@ -23,3 +24,7 @@ submit_message = function() {
     }
   });
 };
+
+scroll_bottom = function() {
+  $('.chatbox').scrollTop($('.chatbox')[0].scrollHeight);
+}
