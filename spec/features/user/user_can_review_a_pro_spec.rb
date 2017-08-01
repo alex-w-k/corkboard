@@ -17,9 +17,7 @@ feature "User can leave review for pro" do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      visit profile_dashboard_path
-
-      within('.closed') { first("a").click }
+      visit project_path(project1)
 
       expect(current_path).to eq(project_path(project1))
 
@@ -58,9 +56,7 @@ feature "User can leave review for pro" do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      visit profile_dashboard_path
-
-      within('.accepted') { first("a").click }
+      visit project_path(project1)
 
       expect(current_path).to eq(project_path(project1))
       expect(page).to_not have_selector('.review')
