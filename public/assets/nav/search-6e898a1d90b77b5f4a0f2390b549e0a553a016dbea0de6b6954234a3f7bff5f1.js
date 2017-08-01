@@ -1,1 +1,0 @@
-$(document).on("turbolinks:load",function(){const e=document.getElementById("service_search"),n=document.getElementById("services_list");e.addEventListener("keyup",function(){search=this.value,$.getJSON("api/search",{query:search},function(e){e&&(n.innerHTML="",e.forEach(function(e){var t=document.createElement("option");t.value=e.name,n.appendChild(t)}))})})});
