@@ -33,6 +33,7 @@ gem 'react-rails'
 gem 'aws-sdk', '~> 2.3.0'
 gem 'faraday'
 gem 'faker'
+gem 'jwt'
 
 group :test do
   gem 'vcr'

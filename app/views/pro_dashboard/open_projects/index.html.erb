@@ -1,7 +1,7 @@
 <div class="table-responsive">
   <table class="table table-striped table-hover">
     <tr>
-      <th>View Project</th>
+      <th>Bid Project</th>
       <th>Date</th>
       <th>Service</th>
       <th>Timeline</th>
@@ -11,7 +11,10 @@
     </tr>
     <% @projects.to_bid_on.each do |project| %>
       <tr>
-        <td><%= link_to "View", pro_dashboard_open_project_path(project) %></td>
+        <!-- <td><%= link_to "View", pro_dashboard_open_project_path(project) %></td> -->
+        <td><button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+  Bid
+</button></td>
         <td><%= project.service.created_at %></td>
         <td><%= project.service.name %></td>
         <td><%= project.timeline %></td>
@@ -19,6 +22,34 @@
         <td><%= project.zipcode %></td>
         <td><%= project.requester.email %></td>
       </tr>
-    <% end %>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Bid on <%=project.service.name%></h4>
+            </div>
+            <div class="modal-body">
+              <%= form_for(@bid, url: bids_path, method: :post, class: "form-group") do |f| %>
+              <%= f.hidden_field :project_id, value: project.id %>
+               <%= f.text_area :comment, placeholder: "Please enter an introductory message", class: "form-control" %><br> 
+            </div>
+
+            <div class="form-group" id="upload">
+              <%= f.fields_for :attachments, @bid.attachments.build do |attachment| %>
+                <%= attachment.file_field :upload %><br>
+              <% end %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <%= f.submit "Place Bid", class: "btn login btn-primary" %>
+              <%end%>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
   </table>
 </div>
+
+

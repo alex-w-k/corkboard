@@ -1,9 +1,9 @@
 <ul class="list-group">
-    <% @industry.categories.each do |category| %>
-        <li class="list-group-item-heading">
-            <h4>
-            <%= link_to category.name, hire_industry_category_path(@industry, category), id: " #{category.slug} " %>
-            </h4>
-        </li>
-    <% end %>
+  <% @industry.categories.each do |category| %>
+    <li class="list-group-item-heading">
+      <h4>
+        <%= link_to category.name, hire_industry_category_path(@industry, category), id: " #{category.slug} " %>
+      </h4>
+    </li>
+  <% end %>
 <ul>
