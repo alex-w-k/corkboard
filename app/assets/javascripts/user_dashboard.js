@@ -1,6 +1,6 @@
 var API = 'http://localhost:3000/api/v1/projects';
 
-document.addEventListener("turbolinks:load", function() {
+$(document).ready(function() {
   getOpenProjects();
   getAcceptedProjects();
   getCompletedProjects();
