@@ -1,6 +1,28 @@
 require 'rails_helper'
 
 describe "Projects API" do
+  it "can update a project" do
+    category =          create(:category)
+    service =           create(:service,
+                              category_id: category.id)
+    user =              create(:user)
+    project = create(:project,
+                      service_id: service.id,
+                      requester_id: user.id,
+                      status: 1)
+    id = project.id
+    previous_status = project.status
+    project_params = {status: 2}
+
+    put "/api/v1/projects/#{id}", params: {project: project_params}
+
+    expect(response).to be_success
+    updated_project = Project.find_by(id: id)
+
+    expect(updated_project.status).to eq(2)
+    expect(updated_project.status).to_not eq(previous_status)
+  end
+
   it "can return a list of all open projects for a user" do
     category =          create(:category)
     service =           create(:service,

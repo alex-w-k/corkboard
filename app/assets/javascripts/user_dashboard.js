@@ -4,6 +4,11 @@ $(document).ready(function(){
   getOpenProjects();
   getAcceptedProjects();
   getCompletedProjects();
+  $('.close-form').submit(function() {
+  var status = $('input[name=status]').val();
+  var id = $('input[name=project_id]').val();
+  updateProject(status);
+  })
 });
 
 var getOpenProjects = function() {
@@ -27,7 +32,7 @@ var getAcceptedProjects = function() {
     method: 'GET',
   }).done(function(projects) {
     projects.forEach(function(project){
-      $('.accepted').append('<li class="list-group-item"><p><a href="/projects/' + project.id + '">View Project and Bids</a><p>Service: ' + project.service_id + '</p><p>Description: ' + project.description + '</p><p>Timeline: ' + project.timeline + '</p><p><input type="hidden" name="status" value="2"><input type="submit" value="Mark as Complete" class="btn btn-warning"></form></p></li>')
+      $('.accepted').append('<li class="list-group-item"><p><a href="/projects/' + project.id + '">View Project and Bids</a><p>Service: ' + project.service_id + '</p><p>Description: ' + project.description + '</p><p>Timeline: ' + project.timeline + '</p><p><form class="close-form"><input type="hidden" name="status" value="2"><input type="hidden" name="project_id" value="' + project.id + '"><input type="submit" value="Mark as Complete" class="btn btn-warning"></form></p></li>')
     })
   }).fail(function(error) {
     console.log(error);
@@ -48,3 +53,15 @@ var getCompletedProjects = function() {
   })
 };
 
+var updateProject = function(id, status) {
+  return $.ajax({
+    url: API + `/find_all?id=${id}`,
+    method: 'PUT',
+    data: {project: {status: status}},
+  }).done(function() {
+    $('.accepted').empty();
+    $('.closed').empty();
+    getAcceptedProjects();
+    getCompletedProjects();
+  })
+};
