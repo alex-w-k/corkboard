@@ -12,8 +12,8 @@ RSpec.describe "As a logged in user" do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit profile_dashboard_path
 
-    expect(page).to have_selector('.open')
-    expect(page).to have_selector('.accepted')
-    expect(page).to have_selector('.closed')
+    expect(page).to have_selector('.open-project')
+    expect(page).to have_selector('.accepted-project')
+    expect(page).to have_selector('.closed-project')
   end
 end
