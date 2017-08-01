@@ -1,7 +1,13 @@
 <div class="row col-md-4 chat-window">
 
   <h1><%= @bid.project.service.name %></h1>
-  <span class="pro-name"><i class="fa fa-thumb-tack" id="user_<%= @bid.pro.id %>" aria-hidden="true"></i> <%= @bid.pro.full_name %></span>
+
+  <% if current_user.id != @bid.pro.id %>
+    <span class="pro-name"><i class="fa fa-thumb-tack" id="user_<%= current_user.id %>" aria-hidden="true"></i> Provided by: <%= @bid.pro.full_name %></span>
+  <% else %>
+    <span class="pro-name"><i class="fa fa-thumb-tack" id="user_<%= @bid.pro.id %>" aria-hidden="true"></i> Service for: <%= @bid.project.requester.full_name %></span>
+  <% end %>
+
   <div class="panel panel-default chatbox">
     <% if @bid.messages.any? %>
       <div class="panel-body" id="messages">
@@ -12,16 +18,6 @@
       </div>
     <%end%>
   </div>
-
-  <% if current_user && current_user == @bid.pro  %>
-    <div class="main" id="user_<%=@bid.project.requester.id %>">
-      Chatting with: <%= @bid.project.requester.first_name %>
-    </div>
-  <% elsif current_user && current_user == @bid.project.requester %>
-    <div class="main" id="user_<%= @bid.pro.id %>">
-      Chatting with: <%= @bid.pro.first_name %>
-    </div>
-  <% end %>
 
   <%= render partial: 'messages/message_form', locals: {message: @message, bid: @bid}%>
 

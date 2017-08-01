@@ -24,7 +24,7 @@ App.cable.subscriptions.create("AppearanceChannel", {
     eventType = data.event
     if(eventType == 'appear') {
       $('#user_' + userId).addClass('online');
-    } else {
+    } else if(eventType == 'away') {
       $('#user_' + userId).removeClass('online');
     }
   }
@@ -32,9 +32,10 @@ App.cable.subscriptions.create("AppearanceChannel", {
 });
 
 install = function() {
-  // $(document).on("turbolinks:load.", (function() {
-  //   received();
-  // }));
+  $(document).on("turbolinks:load.", (function() {
+    $('#user_' + userId).addClass('online');
+    // received();
+  }));
 },
 
 uninstall = function() {
