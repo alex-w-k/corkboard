@@ -27,6 +27,7 @@ describe "Projects API" do
     project = projects.first
 
     expect(projects.count).to eq(10)
+    expect(project).to have_key("id")
     expect(project["requester_id"]).to eq(user.id)
     expect(project).to have_key("status")
     expect(project).to have_key("zipcode")

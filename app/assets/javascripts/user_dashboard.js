@@ -13,7 +13,7 @@ var getOpenProjects = function() {
     method: 'GET',
   }).done(function(projects) {
     projects.forEach(function(project){
-      $('.open').append('<li class="list-group-item"><p>Service: ' + project.service_id + '</p><p>Description: ' + project.description + '</p><p>Timeline: ' + project.timeline + '</p></li>')
+      $('.open').append('<li class="list-group-item"><p><a href="/projects/' + project.id + '">View Project and Bids</a></p><p>Service: ' + project.service_id + '</p><p>Description: ' + project.description + '</p><p>Timeline: ' + project.timeline + '</p></li>')
     })
   }).fail(function(error) {
     console.log(error);
@@ -27,7 +27,7 @@ var getAcceptedProjects = function() {
     method: 'GET',
   }).done(function(projects) {
     projects.forEach(function(project){
-      $('.accepted').append('<li class="list-group-item"><p>Service: ' + project.service_id + '</p><p>Description: ' + project.description + '</p><p>Timeline: ' + project.timeline + '</p><p><input type="hidden" name="status" value="2"><input type="submit" value="Mark as Complete" class="btn btn-warning"></form></p></li>')
+      $('.accepted').append('<li class="list-group-item"><p><a href="/projects/' + project.id + '">View Project and Bids</a><p>Service: ' + project.service_id + '</p><p>Description: ' + project.description + '</p><p>Timeline: ' + project.timeline + '</p><p><input type="hidden" name="status" value="2"><input type="submit" value="Mark as Complete" class="btn btn-warning"></form></p></li>')
     })
   }).fail(function(error) {
     console.log(error);
@@ -41,7 +41,7 @@ var getCompletedProjects = function() {
     method: 'GET',
   }).done(function(projects) {
     projects.forEach(function(project){
-      $('.closed').append('<li class="list-group-item"><p>Service: ' + project.service_id + '</p><p>Description: ' + project.description + '</p><p>Timeline: ' + project.timeline + '</p></li>')
+      $('.closed').append('<li class="list-group-item"><p><a href="/projects/' + project.id + '">View Project and Bids</a></p><p>Service: ' + project.service_id + '</p><p>Description: ' + project.description + '</p><p>Timeline: ' + project.timeline + '</p></li>')
     })
   }).fail(function(error) {
     console.log(error);
