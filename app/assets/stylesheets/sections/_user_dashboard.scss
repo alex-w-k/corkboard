@@ -1,6 +1,26 @@
 .closed,
 .acccepted,
-.open a {
+.open-project a {
     text-decoration: none;
     text-align: left;
+}
+
+.open-project, .accepted, .closed {
+    .btn-primary {
+			display: inline;
+			margin-right: 1%;
+			float: right;
+    }
+
+		.btn-warning {
+			display: inline;
+    }
+
+    .list-group-item {
+      overflow: hidden;
+  	}
+
+		.accepted-buttons {
+			white-space: nowrap;
+		}
 }
