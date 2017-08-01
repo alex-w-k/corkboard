@@ -16,4 +16,7 @@ deploy:
   app:
     master: corkboard-services
   run:
-    - "rake db:migrate"
+  - rake db:migrate
+env:
+  test:
+    secure: lLCh3yLvy7mEkgDOzHY1fMH2IthgL0JA2l3IlSkYoiqGm4ob6fqVOJrV8t8uxzZcxK+DBzhqETR+IC8SziGQDQ2UdvEBDnLieS2uyWAuSQq86Ws5869opk7U73/h34gUbWW4pnWxiobjrvRsd1X1rdcGxy0qd6XQYsItKHRilyVyPLoog6AHW5XUo5q4HkJTYojGlTSAyC3Lld9gW/fV+VctVYM4MWaY+eS9kidn08dxQLz78d+wbiCov8g87e/d2TCEaorpKlSgyPAFg+1cJyq060DVdqyx/pIxnK2r8lTPuTqWOUOAYeaJTump+xw/kL9HIRcfsP1C60KvhUUFbhB3oldtg9wxIadfgk+fefIIMYYhxcI5+T0cuZPyTo0CadCCZaS/5e4Z0c1e1Ac1z5Y1b34gy79Y+5uml9fU8+XNwfBYDxue99J0Xi+kYeqorp28JHFtT+VSTYXUBSH4AJa6FNkD1PzBWyww3zjxdrMRwsGN6ry2leJr0SD7l2EClevot0i27feCeXAgXtwn0hmbVVhU/h+9vDdYfLKddWWqD7WdHpvJCmk1cFY3UUIdfLhNxNv41TRlzPTBAOqixqlKZTvifdz/pdY+J2P/3A1uQFBLPpFzWfKkx2uCZZyRBhetj8KkCbNsqMrkGkk5Mnna6NDPJUQBxU0DkRjPxOs=
