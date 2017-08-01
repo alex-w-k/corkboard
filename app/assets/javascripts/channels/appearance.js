@@ -18,25 +18,23 @@ App.cable.subscriptions.create("AppearanceChannel", {
   },
   away: function() {
     return this.perform("away");
+  },
+  received: function(data) {
+    userId = data.user_id
+    eventType = data.event
+    if(eventType == 'appear') {
+      $('#user_' + userId).addClass('online');
+    } else {
+      $('#user_' + userId).removeClass('online');
+    }
   }
+
 });
 
-buttonSelector = "[data-behavior~=appear_away]"
-
-var install = function() {
-  $(document).on("turbolinks:load.appearance", (function(_this) {
-    return function() {
-      return _this.appear();
-    };
-  })(this));
-
-  $(document).on("click.appearance", buttonSelector, (function(_this) {
-    return function() {
-      _this.away();
-      return false;
-    };
-  })(this));
-  return $(buttonSelector).show();
+install = function() {
+  // $(document).on("turbolinks:load.", (function() {
+  //   received();
+  // }));
 },
 
 uninstall = function() {

@@ -2,6 +2,7 @@ class AppearanceChannel < ApplicationCable::Channel
 
   def subscribed
     current_user.appear
+    stream_from 'appearance'
   end
 
   def unsubscribed
@@ -9,8 +10,7 @@ class AppearanceChannel < ApplicationCable::Channel
   end
 
   def appear(data)
-    binding.pry
-    current_user.appear(on: data['appearing_on'])
+    current_user.appear(on: data["action"])
   end
 
   def away
