@@ -45,7 +45,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'shoulda-callback-matchers', '~> 1.1.1'
   gem 'shoulda-matchers', '~> 3.1'
-
   gem "nyan-cat-formatter"
 end
 

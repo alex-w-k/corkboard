@@ -8,7 +8,7 @@ set :application, "corkboard"
 set :repo_url, "git@github.com:Benjaminpjacobs/corkboard.git"
 set :use_sudo, true
 
-set :branch, 'new_relic'
+set :branch, 'development'
 
 # Default branch is :setup-capistrano
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
