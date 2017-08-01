@@ -3,6 +3,7 @@ class ProDashboard::OpenProjectsController < ApplicationController
   before_action :set_pro, only: [:index]
 
   def index
+    @bid = Bid.new
     @projects = OpenProjectPresenter.new(@pro)
   end
 
