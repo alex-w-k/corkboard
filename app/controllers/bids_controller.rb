@@ -28,7 +28,7 @@ class BidsController < ApplicationController
     if current_user.pro?
       redirect_to pro_dashboard_index_path
     else
-      redirect_to profile_dashboard_path
+      redirect_to project_path(@bid.project)
     end
   end
 

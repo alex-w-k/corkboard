@@ -15,4 +15,5 @@ RSpec.describe "As a pro" do
     expect(current_path).to eq(pro_dashboard_index_path)
     expect(Bid.last.status).to eq("withdrawn")
   end
+  
 end
