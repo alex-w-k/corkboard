@@ -63,7 +63,7 @@ describe "Projects API" do
     expect(project).to have_key("requester_id")
     expect(project).to have_key("latitude")
     expect(project).to have_key("longitude")
-    expect(project).to have_key("service_id")
+    expect(project).to have_key("service")
   end
 
   it "can return a list of all accepted projects for a user" do
@@ -103,7 +103,7 @@ describe "Projects API" do
     expect(project).to have_key("requester_id")
     expect(project).to have_key("latitude")
     expect(project).to have_key("longitude")
-    expect(project).to have_key("service_id")
+    expect(project).to have_key("service")
   end
 
   it "can return a list of all closed projects for a user" do
@@ -143,6 +143,6 @@ describe "Projects API" do
     expect(project).to have_key("requester_id")
     expect(project).to have_key("latitude")
     expect(project).to have_key("longitude")
-    expect(project).to have_key("service_id")
+    expect(project).to have_key("service")
   end
 end

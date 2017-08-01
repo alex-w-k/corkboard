@@ -21,7 +21,7 @@ var getOpenProjects = function() {
     method: 'GET',
   }).done(function(projects) {
     projects.forEach(function(project){
-      $('.open').append('<li class="list-group-item"><p><a href="/projects/' + project.id + '">View Project and Bids</a></p><p>Service: ' + project.service_id + '</p><p>Description: ' + project.description + '</p><p>Timeline: ' + project.timeline + '</p></li>')
+      $('.open').append('<li class="list-group-item"><p><a href="/projects/' + project.id + '">View Project and Bids</a></p><p>Service: ' + project.service.name + '</p><p>Description: ' + project.description + '</p><p>Timeline: ' + project.timeline + '</p></li>')
     })
   }).fail(function(error) {
     console.log(error);
@@ -37,7 +37,7 @@ var getAcceptedProjects = function() {
     method: 'GET',
   }).done(function(projects) {
     projects.forEach(function(project){
-      $('.accepted').append('<li class="list-group-item"><p><a href="/projects/' + project.id + '">View Project and Bids</a><p>Service: ' + project.service_id + '</p><p>Description: ' + project.description + '</p><p>Timeline: ' + project.timeline + '</p><p><form class="close-form"><input type="hidden" name="token" value=' + token + '><input type="hidden" name="project_id" value="' + project.id + '"><input type="submit" value="Mark as Complete" class="btn btn-warning"></form></p></li>')
+      $('.accepted').append('<li class="list-group-item"><p><a href="/projects/' + project.id + '">View Project and Bids</a><p>Service: ' + project.service.name + '</p><p>Description: ' + project.description + '</p><p>Timeline: ' + project.timeline + '</p><p><form class="close-form"><input type="hidden" name="token" value=' + token + '><input type="hidden" name="project_id" value="' + project.id + '"><input type="submit" value="Mark as Complete" class="btn btn-warning"></form></p></li>')
     })
     submitClose();
   }).fail(function(error) {
@@ -52,7 +52,7 @@ var getCompletedProjects = function() {
     method: 'GET',
   }).done(function(projects) {
     projects.forEach(function(project){
-      $('.closed').append('<li class="list-group-item"><p><a href="/projects/' + project.id + '">View Project and Bids</a></p><p>Service: ' + project.service_id + '</p><p>Description: ' + project.description + '</p><p>Timeline: ' + project.timeline + '</p></li>')
+      $('.closed').append('<li class="list-group-item"><p><a href="/projects/' + project.id + '">View Project and Bids</a></p><p>Service: ' + project.service.name + '</p><p>Description: ' + project.description + '</p><p>Timeline: ' + project.timeline + '</p></li>')
     })
   }).fail(function(error) {
     console.log(error);
