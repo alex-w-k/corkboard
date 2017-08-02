@@ -7,11 +7,11 @@ $(document).ready(function() {
 });
 
 var submitClose = function() {
-    $('.close-form').on('submit', function(event){
-      var id = $('input[name=project_id]').val();
-      var token = $('input[name=token]').val();
-      updateProject(id, token);
-  });
+    $('.close-form').on('submit', function(event) {
+        var id = $('input[name=project_id]').val();
+        var token = $('input[name=token]').val();
+        updateProject(id, token);
+    });
 }
 
 var getOpenProjects = function() {
@@ -86,3 +86,4 @@ var updateProject = function(id, token) {
     console.log(error);
   })
 };
+

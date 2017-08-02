@@ -17,7 +17,6 @@ RSpec.describe 'a logged pro can see available projects that match its services'
     visit pro_dashboard_index_path
 
     click_link 'Find Projects'
-
     expect(current_path).to eq('/pro_dashboard/open_projects')
     expect(page).to have_content(project_1_email)
     expect(page).to have_content(project_1.service.name)
