@@ -1,5 +1,3 @@
-var submit_message;
-
 App.messages = App.cable.subscriptions.create("MessagesChannel", {
   connected: function() {},
   disconnected: function() {},
@@ -10,9 +8,8 @@ App.messages = App.cable.subscriptions.create("MessagesChannel", {
   }
 });
 
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
   submit_message();
-  scroll_bottom();
 });
 
 submit_message = function() {

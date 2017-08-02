@@ -1,5 +1,3 @@
-var API = 'http://localhost:3000/api/v1/projects';
-
 $(document).ready(function() {
     getOpenProjects();
     getAcceptedProjects();
@@ -74,3 +72,4 @@ var updateProject = function(id, token) {
         console.log(error);
     })
 };
+
