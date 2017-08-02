@@ -3,5 +3,11 @@
   <%= @project.review.star_rated %><%= @project.review.star_denied %>
   <h4>Comment:</h4>
   <p><%= @project.review.comment %></p>
-  <p><button type="button" class="btn btn-warning edit-review"><%= link_to "Edit", edit_project_review_path(@project, @project.review) %> </button></p>
+  <p>
+    
+    <%= link_to edit_project_review_path(@project, @project.review) do%>
+      <button type="button" class="btn btn-warning edit-review">Edit</button>
+    <% end %>
+  
+  </p>
 <% end %>
