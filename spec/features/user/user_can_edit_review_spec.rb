@@ -15,8 +15,8 @@ feature "User can edit a review for a pro" do
 
       visit project_path(project1)
 
-      within('.edit-review') do
-        find("a").click
+      within('.review') do
+        find('a').click
       end
 
       within('.review') do
