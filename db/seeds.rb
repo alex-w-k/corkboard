@@ -28,8 +28,14 @@ class Seed
     requester = User.create(first_name: "Burt", last_name: "Reynolds", zipcode: "80203", phone_number: "5555055051", email: "burt@example.com", password: "password", country_code: "+1")
 
     project = Project.create(status: "open", zipcode: "80203", recurring: false, description: "Help me.", timeline: "ASAP", requester_id: 2, service_id: 1)
+    project2 = Project.create!(service_id: 1, zipcode: 80223, description: "I'm going to need more french. I'm still pretty bad.", status: "closed")
+    project3 = Project.create!(service_id: 1, zipcode: 80223, description: "Moar french plz.", status: "closed")
+    project4 = Project.create!(service_id: 1, zipcode: 80223, description: "CAN YOU MAKE ME FLUENT?! This is the job for you!.", status: "closed")
+    Review.create(comment: "Hey! Thanks for teaching pretty god french!", rating: 4.0, user_id: pro.id, project_id: project2.id)
+    Review.create(comment: "Your french accent sounds like you're from Atlantic City. Boo.", rating: 2.0, user_id: pro.id, project_id: project3.id)
+    Review.create(comment: "These French lessons were adequate.", rating: 3.0, user_id: pro.id, project_id: project4.id)
 
-    bid = Bid.create(user_id: 1, project_id: 1, amount: "100", comment: "I can help.", status: "open")
+    bid = Bid.create(user_id: 1, project_id: 1, amount: "100", comment: "Hi, my name is Jimi. I've done several similar jobs in your area and have received some pretty excellent reviews. I'd love to talk more details about your project. Please call me at 303-123-4345. Thanks!", status: "open")
   end
 
   def generate_industries
@@ -88,7 +94,14 @@ class Seed
                       password: "password",
                       country_code: "+1")
     project = user.projects.create!(service_id: service.id, zipcode: 80223, description: "I need french lessons.", status: "closed")
-    bid = project.bids.create!(user_id: pro.id, amount: "100", comment: "I teach good French.", status: "accepted")
+    project2 = user.projects.create!(service_id: service.id, zipcode: 80223, description: "I'm going to need more french. I'm still pretty bad.", status: "open")
+    project3 = user.projects.create!(service_id: service.id, zipcode: 80223, description: "Moar french plz.", status: "accepted")
+    project4 = user.projects.create!(service_id: service.id, zipcode: 80223, description: "CAN YOU MAKE ME FLUENT?! This is the job for you!.", status: "accepted")
+
+    bid = project.bids.create!(user_id: pro.id, amount: "100", comment: "Hi, my name is Jimi. I've done several similar jobs in your area and have received some pretty excellent reviews. I'd love to talk more details about your project. Please call me at 303-123-4345. Thanks!.", status: "accepted")
+    bid = project3.bids.create!(user_id: pro.id, amount: "20", comment: "I teach good French.", status: "accepted")
+    bid = project4.bids.create!(user_id: pro.id, amount: "3.5", comment: "I teach good French.", status: "accepted")
+
     review = project.create_review(comment: "These French lessons were adequate.", rating: 4.0, user_id: pro.id)
   end
 
