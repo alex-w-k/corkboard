@@ -1,7 +1,7 @@
-<%= form_for message, remote: true, authenticity_token: true do |f| %>
+<%= form_for message, authenticity_token: true do |f| %>
   <%= f.label :your_message %>:
   <%= f.text_area :content, class: "form-control", data: {textarea: "message"} %>
 
-  <%= f.hidden_field :bid_id, value: bid.id %>
-  <%= f.submit "Send", class: "btn btn-primary", style: "display:none;", data: {send: "message"} %>
+  <%= f.hidden_field :bid_id, value: @bid.id %>
+  <%= f.submit "Send", class: "btn btn-primary", style: "display:none;", data: {send: "message"}, :data => { disable_with: false } %>
 <% end %>
