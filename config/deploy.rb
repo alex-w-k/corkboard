@@ -8,7 +8,7 @@ set :application, "corkboard"
 set :repo_url, "git@github.com:Benjaminpjacobs/corkboard.git"
 set :use_sudo, true
 
-set :branch, 'development'
+set :branch, 'new_relic'
 
 # Default branch is :setup-capistrano
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -80,14 +80,39 @@ namespace :deploy do
     end
   end
 
-  desc "reload the database with seed data"
-  task :seed do
-    run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=production"
+  task :seedapi do
+    puts "\n=== Seeding Database ===\n"
+    on primary :db do
+      within current_path do
+        with rails_env: fetch(:stage) do
+          execute :rake, 'api:seed'
+        end
+      end
+    end
+  end
+
+  desc 'Clobber assets'
+  task :clobber_assets => [:set_rails_env] do
+    on release_roles(fetch(:assets_roles)) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, "assets:clobber"
+        end
+      end
+    end
   end
 
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
+end
+
+namespace :rake do
+  desc "Run a task on a remote server."
+  # run like: cap staging rake:invoke task=a_certain_task
+  task :invoke do
+    run("cd #{deploy_to}/current; /usr/bin/env rake #{ENV['task']} RAILS_ENV=#{rails_env}")
+  end
 end
 
 # ps aux | grep puma    # Get puma pid

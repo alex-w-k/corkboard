@@ -5,20 +5,21 @@ Rails.application.configure do
   config.cache_classes = true
   config.react.variant = :production
   config.react.addons = true
+
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
-  config.action_cable.allowed_request_origins = ["https://myfucking.network", 'http://corkboard-services.herokuapp.com']
-  config.web_socket_server_url = "wss://corkboard-services.herokuapp.com/cable" 
+  config.action_cable.allowed_request_origins = ["https://myfucking.network"]
+
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.public_file_server.enabled = true #ENV['STATIC_FILES'].present?
+  config.public_file_server.enabled = false #ENV['STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
   # config.assets.js_compressor = :uglifier
@@ -42,7 +43,7 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
