@@ -8,7 +8,6 @@ class MessagesController < ApplicationController
         message: message.content,
         user: message.user.full_name,
         created_at: message.created_at.strftime("%H:%M")
-      head :ok
     else
       redirect_to bids_path
     end
