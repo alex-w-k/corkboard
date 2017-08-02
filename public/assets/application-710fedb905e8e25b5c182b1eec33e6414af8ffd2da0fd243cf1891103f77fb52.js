@@ -16196,7 +16196,7 @@ document.addEventListener('DOMContentLoaded', function() {
         searchInputField.addEventListener("keyup", function() {
 
             search = this.value
-            $.getJSON('http://localhost:3000/api/search', { query: search },
+            $.getJSON('https://corkboard-services.herokuapp.com/api/search', { query: search },
                 function(data) {
                     dataList.innerHTML = ''
                     if (data) {
@@ -16242,7 +16242,7 @@ t.hasOwnProperty(y)&&b.mixins(e,t.mixins);for(var i in t)if(t.hasOwnProperty(i)&
 // By default, this file is loaded for server-side rendering.
 // It should require your components and any dependencies.
 ;
-var API = 'http://localhost:3000/api/v1/projects';
+var API = 'https://corkboard-services.herokuapp.com/api/v1/projects';
 
 $(document).ready(function() {
 
@@ -16264,7 +16264,7 @@ var getOpenProjects = function() {
     var user = user_div.data("user");
     $('.open-project').empty();
     return $.ajax({
-        url: API + `/find_all?requester_id=${user}&status=0`,
+        url: `/find_all?requester_id=${user}&status=0`,
         method: 'GET',
     }).done(function(projects) {
         if (projects.length > 0) {
@@ -16286,7 +16286,7 @@ var getAcceptedProjects = function() {
     var token = token_div.data("token");
     $('.accepted-project').empty();
     return $.ajax({
-        url: API + `/find_all?requester_id=${user}&status=1`,
+        url: `/find_all?requester_id=${user}&status=1`,
         method: 'GET',
     }).done(function(projects) {
         if (projects.length > 0) {
@@ -16307,7 +16307,7 @@ var getCompletedProjects = function() {
     var user = user_div.data("user");
     $('.closed-project').empty();
     return $.ajax({
-        url: API + `/find_all?requester_id=${user}&status=2`,
+        url: `/find_all?requester_id=${user}&status=2`,
         method: 'GET',
     }).done(function(projects) {
         if (projects.length > 0) {
@@ -16323,22 +16323,20 @@ var getCompletedProjects = function() {
 };
 
 var updateProject = function(id, token) {
-  return $.ajax({
-    url: API + '/' + id,
-    method: 'PUT',
-    data: {project: {status: 'closed', token: token}},
-  }).done(function() {
-    $('.accepted-project').empty();
-    $('.closed-project').empty();
-    getAcceptedProjects();
-    getCompletedProjects();
-  }).fail(function(error) {
-    alert("Something went wrong. We feel terrible.");
-    console.log(error);
-  })
+    return $.ajax({
+        url: '/' + id,
+        method: 'PUT',
+        data: { project: { status: 'closed', token: token } },
+    }).done(function() {
+        $('.accepted-project').empty();
+        $('.closed-project').empty();
+        getAcceptedProjects();
+        getCompletedProjects();
+    }).fail(function(error) {
+        alert("Something went wrong. We feel terrible.");
+        console.log(error);
+    })
 };
-
-
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
