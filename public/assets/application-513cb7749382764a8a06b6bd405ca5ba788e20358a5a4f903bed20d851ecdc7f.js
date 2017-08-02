@@ -15475,22 +15475,6 @@ var Service = React.createClass({
     );
   }
 });
-// $(document).ready(function() {
-
-//     $('input[type=submit]').click(function() {
-//         debugger
-//         var project_id = $('#bid_project_id').val()
-//         var
-//             debugger;
-//         $.post({
-//             url: "/bids",
-//             data: { bid: { valuesToSubmit } },
-//             type: "POST"
-//         })
-
-//         return false;
-//     });
-// });
 (function() {
   jQuery(function() {
     $("a[rel~=popover], .has-popover").popover();
@@ -16146,71 +16130,6 @@ scroll_bottom = function() {
     $('.chatbox').scrollTop($('.chatbox')[0].scrollHeight);
 }
 ;
-$('.fa').mouseenter(function(e) {
-    $(this).first().parent().siblings('span').toggle()
-})
-
-$('.fa').mouseleave(function(e) {
-    $(this).first().parent().siblings('span').toggle()
-})
-
-$('.result').on('click', function() {
-    $(this).addClass('click-res')
-})
-;
-function initMap() {
-  var location = {
-    lat: Number(document.getElementById('lat').textContent),
-    lng: Number(document.getElementById('lng').textContent)
-  }
-  var radius = Number(document.getElementById('radius').textContent) * 1609.34;
-  var zoom = Number(document.getElementById('zoom').textContent);
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: zoom,
-    center: location,
-    styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#6195a0"}]},{"featureType":"administrative.province","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"lightness":"0"},{"saturation":"0"},{"color":"#f5f5f2"},{"gamma":"1"}]},{"featureType":"landscape.man_made","elementType":"all","stylers":[{"lightness":"-3"},{"gamma":"1.00"}]},{"featureType":"landscape.natural.terrain","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#bae5ce"},{"visibility":"on"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45},{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#fac9a9"},{"visibility":"simplified"}]},{"featureType":"road.highway","elementType":"labels.text","stylers":[{"color":"#4e4e4e"}]},{"featureType":"road.arterial","elementType":"labels.text.fill","stylers":[{"color":"#787878"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"transit.station.airport","elementType":"labels.icon","stylers":[{"hue":"#0a00ff"},{"saturation":"-77"},{"gamma":"0.57"},{"lightness":"0"}]},{"featureType":"transit.station.rail","elementType":"labels.text.fill","stylers":[{"color":"#43321e"}]},{"featureType":"transit.station.rail","elementType":"labels.icon","stylers":[{"hue":"#ff6c00"},{"lightness":"4"},{"gamma":"0.75"},{"saturation":"-68"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#eaf6f8"},{"visibility":"on"}]},{"featureType":"water","elementType":"geometry.fill","stylers":[{"color":"#c7eced"}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"lightness":"-49"},{"saturation":"-53"},{"gamma":"0.79"}]}]
-
-  });
-  var cityCircle = new google.maps.Circle({
-    strokeColor: '#FF8C00',
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: '#FF8C00',
-    fillOpacity: 0.25,
-    map: map,
-    center: location,
-    radius: radius
-  });
-  var marker = new google.maps.Marker({
-    position: location,
-    map: map,
-    icon: {url: "https://cdn2.iconfinder.com/data/icons/iconslandgps/PNG/256x256/Pinpoints/NeedleLeftYellow.png",scaledSize: new google.maps.Size(40, 40), origin: new google.maps.Point(0, 0), anchor: new google.maps.Point(20,40) }
-  });
-}
-;
-document.addEventListener('DOMContentLoaded', function() {
-    const searchInputField = document.getElementById('service_search')
-    const dataList = document.getElementById('services_list')
-    if (searchInputField) {
-
-        searchInputField.addEventListener("keyup", function() {
-
-            search = this.value
-            $.getJSON('https://corkboard-services.herokuapp.com/api/search', { query: search },
-                function(data) {
-                    dataList.innerHTML = ''
-                    if (data) {
-                        data.forEach(function(datum) {
-                            var option = document.createElement('option')
-                            option.value = datum.name
-                            dataList.appendChild(option)
-                        });
-                    }
-                })
-        })
-    }
-})
-;
 !function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={exports:{},id:r,loaded:!1};return e[r].call(o.exports,o,o.exports,t),o.loaded=!0,o.exports}var n={};return t.m=e,t.c=n,t.p="",t(0)}([function(e,t,n){(function(e){var t=n(81),r=n(178);t.addons=n(166),e.React=t,e.ReactDOMServer=r}).call(t,function(){return this}())},function(e,t,n){"use strict";function r(e,t,n,r,i,a,s,u){if(o(t),!e){var c;if(void 0===t)c=new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else{var l=[n,r,i,a,s,u],p=0;c=new Error(t.replace(/%s/g,function(){return l[p++]})),c.name="Invariant Violation"}throw c.framesToPop=1,c}}var o=function(e){};e.exports=r},function(e,t,n){"use strict";var r=n(7),o=r;e.exports=o},function(e,t){"use strict";function n(e){for(var t=arguments.length-1,n="Minified React error #"+e+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant="+e,r=0;r<t;r++)n+="&args[]="+encodeURIComponent(arguments[r+1]);n+=" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.";var o=new Error(n);throw o.name="Invariant Violation",o.framesToPop=1,o}e.exports=n},function(e,t){/*
 	object-assign
 	(c) Sindre Sorhus
@@ -16242,101 +16161,6 @@ t.hasOwnProperty(y)&&b.mixins(e,t.mixins);for(var i in t)if(t.hasOwnProperty(i)&
 // By default, this file is loaded for server-side rendering.
 // It should require your components and any dependencies.
 ;
-var API = 'https://corkboard-services.herokuapp.com/api/v1/projects';
-
-$(document).ready(function() {
-
-    getOpenProjects();
-    getAcceptedProjects();
-    getCompletedProjects();
-});
-
-var submitClose = function() {
-    $('.close-form').on('submit', function(event) {
-        var id = $('input[name=project_id]').val();
-        var token = $('input[name=token]').val();
-        updateProject(id, token);
-    });
-}
-
-var getOpenProjects = function() {
-    var user_div = $('#user')
-    var user = user_div.data("user");
-    $('.open-project').empty();
-    return $.ajax({
-        url: API + `/find_all?requester_id=${user}&status=0`,
-        method: 'GET',
-    }).done(function(projects) {
-        if (projects.length > 0) {
-            projects.forEach(function(project) {
-                $('.open-project').append('<li class="list-group-item"><p><span class="project-label">Service: </span>' + project.service.name + '</p><p><span class="project-label">Description: </span>' + project.description + '</p><p><span class="project-label">Timeline: </span>' + project.timeline + '</p><p><a href="/projects/' + project.id + '" class="btn btn-primary btn-right" role="button">View Details and Bids</a></p></li>')
-            })
-        } else {
-            $('.open-project').append('<li class="list-group-item"><p>You have no open projects</p>')
-        }
-    }).fail(function(error) {
-        console.log(error);
-    })
-};
-
-var getAcceptedProjects = function() {
-    var user_div = $('#user')
-    var user = user_div.data("user");
-    var token_div = $('#token')
-    var token = token_div.data("token");
-    $('.accepted-project').empty();
-    return $.ajax({
-        url: API + `/find_all?requester_id=${user}&status=1`,
-        method: 'GET',
-    }).done(function(projects) {
-        if (projects.length > 0) {
-            projects.forEach(function(project) {
-                $('.accepted-project').append('<li class="list-group-item"><p><span class="project-label">Service: </span>' + project.service.name + '</p><p><span class="project-label">Description: </span>' + project.description + '</p><p><span class="project-label">Timeline: </span>' + project.timeline + '</p><p><form class="close-form"><input type="hidden" name="token" value=' + token + '><input type="hidden" name="project_id" value="' + project.id + '"><span class="accepted-buttons"><input type="submit" value="Mark as Complete" class="btn btn-warning"></form><a href="/projects/' + project.id + '" class="btn btn-primary" role="button">View Details and Bids</a></span></p></li>')
-            })
-            submitClose();
-        } else {
-            $('.accepted-project').append('<li class="list-group-item"><p>You have no accepted projects</p>')
-        }
-    }).fail(function(error) {
-        console.log(error);
-    })
-};
-
-var getCompletedProjects = function() {
-    var user_div = $('#user')
-    var user = user_div.data("user");
-    $('.closed-project').empty();
-    return $.ajax({
-        url: API + `/find_all?requester_id=${user}&status=2`,
-        method: 'GET',
-    }).done(function(projects) {
-        if (projects.length > 0) {
-            projects.forEach(function(project) {
-                $('.closed-project').append('<li class="list-group-item"><p><span class="project-label">Service: </span>' + project.service.name + '</p><p><span class="project-label">Description: </span>' + project.description + '</p><p><span class="project-label">Timeline: </span>' + project.timeline + '</p><p><a href="/projects/' + project.id + '" class="btn btn-primary btn-right" role="button">View Details and Bids</a></p></li>')
-            })
-        } else {
-            $('.closed-project').append('<li class="list-group-item"><p>You have no closed projects</p>')
-        }
-    }).fail(function(error) {
-        console.log(error);
-    })
-};
-
-var updateProject = function(id, token) {
-    return $.ajax({
-        url: API + '/' + id,
-        method: 'PUT',
-        data: { project: { status: 'closed', token: token } },
-    }).done(function() {
-        $('.accepted-project').empty();
-        $('.closed-project').empty();
-        getAcceptedProjects();
-        getCompletedProjects();
-    }).fail(function(error) {
-        alert("Something went wrong. We feel terrible.");
-        console.log(error);
-    })
-};
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -16349,6 +16173,9 @@ var updateProject = function(id, token) {
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+
+
 
 
 

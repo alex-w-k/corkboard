@@ -26,10 +26,11 @@
           <div hidden id="lng"><%= @presenter.location.lng %></div>
           <div hidden id="radius"><%= @presenter.radius %></div>
           <div hidden id="zoom">9</div>
-          <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["google_api_key"] %>&callback=initMap">
-          </script>
         </div>
       </div>
     </div>
   </div>
 </div>
+          <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["google_api_key"] %>&callback=initMap">
+          </script>
+<<%= javascript_include_tag "map.js" %>
