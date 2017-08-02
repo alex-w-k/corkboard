@@ -1,4 +1,4 @@
-var API = 'http://localhost:3000/api/v1/projects';
+// var API = 'http://localhost:3000/api/v1/projects';
 
 $(document).ready(function() {
 
@@ -6,14 +6,6 @@ $(document).ready(function() {
   getAcceptedProjects();
   getCompletedProjects();
 });
-
-var submitClose = function() {
-    $('.close-form').on('submit', function(event){
-      var id = $('input[name=project_id]').val();
-      var token = $('input[name=token]').val();
-      updateProject(id, token);
-  });
-}
 
 var getOpenProjects = function() {
   var user_div = $('#user')
