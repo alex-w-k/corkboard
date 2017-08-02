@@ -3,7 +3,7 @@ App.messages = App.cable.subscriptions.create("MessagesChannel", {
     disconnected: function() {},
     received: function(data) {
         if (data.message.blank == null) {
-            $('#messages').append('<div class="message">' + '<div class="message-user row">' + '<span class="chat-name col-md-6">' + data.user + '</span>' + '<span class="chat-time col-md-6">' + data.created_at.toLocaleTimeString() + '</span>' + '</div>' + '<div class="message-content row">' + '<div class="chat-content">' + data.message + '</div>' + '</div>' + '</div>'), scroll_bottom();
+            $('#messages').append('<div class="message">' + '<div class="message-user row">' + '<span class="chat-name col-md-6">' + data.user + '</span>' + '<span class="chat-time col-md-6">' + data.created_at + '</span>' + '</div>' + '<div class="message-content row">' + '<div class="chat-content">' + data.message + '</div>' + '</div>' + '</div>'), scroll_bottom();
         }
     }
 });
