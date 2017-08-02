@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         searchInputField.addEventListener("keyup", function() {
 
             search = this.value
-            $.getJSON('https://api.myfucking.network/api/search', { query: search },
+            $.getJSON('https://myfucking.network/api/search', { query: search },
                 function(data) {
                     dataList.innerHTML = ''
                     if (data) {
