@@ -25,7 +25,7 @@ var getOpenProjects = function() {
     }).done(function(projects) {
         if (projects.length > 0) {
             projects.forEach(function(project) {
-                $('.open-project').append('<li class="list-group-item"><p><span class="project-label">Service: </span>' + project.service.name + '</p><p><span class="project-label">Description: </span>' + project.description + '</p><p><span class="project-label">Timeline: </span>' + project.timeline + '</p><p><a href="/projects/' + project.id + '" class="btn btn-primary" role="button">View Details and Bids</a></p></li>')
+                $('.open-project').append('<li class="list-group-item"><p><span class="project-label">Service: </span>' + project.service.name + '</p><p><span class="project-label">Description: </span>' + project.description + '</p><p><span class="project-label">Timeline: </span>' + project.timeline + '</p><p><a href="/projects/' + project.id + '" class="btn btn-primary btn-right" role="button">View Details and Bids</a></p></li>')
             })
         } else {
             $('.open-project').append('<li class="list-group-item"><p>You have no open projects</p>')
@@ -68,7 +68,7 @@ var getCompletedProjects = function() {
     }).done(function(projects) {
         if (projects.length > 0) {
             projects.forEach(function(project) {
-                $('.closed-project').append('<li class="list-group-item"><p><span class="project-label">Service: </span>' + project.service.name + '</p><p><span class="project-label">Description: </span>' + project.description + '</p><p><span class="project-label">Timeline: </span>' + project.timeline + '</p><p><a href="/projects/' + project.id + '" class="btn btn-primary" role="button">View Details and Bids</a></p></li>')
+                $('.closed-project').append('<li class="list-group-item"><p><span class="project-label">Service: </span>' + project.service.name + '</p><p><span class="project-label">Description: </span>' + project.description + '</p><p><span class="project-label">Timeline: </span>' + project.timeline + '</p><p><a href="/projects/' + project.id + '" class="btn btn-primary btn-right" role="button">View Details and Bids</a></p></li>')
             })
         } else {
             $('.closed-project').append('<li class="list-group-item"><p>You have no closed projects</p>')

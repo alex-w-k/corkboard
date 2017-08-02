@@ -11,9 +11,12 @@
 		}
     .btn-primary {
 			display: inline;
-			margin-right: 1%;
+			margin-left: 1%;
+		}
+
+		.btn-right {
 			float: right;
-    }
+		}
 
 		.btn-warning {
 			display: inline;
@@ -31,6 +34,5 @@
 			color: black;
 			display: inline;
 			white-space: nowrap;
-			
 		}
 }
