@@ -1,6 +1,7 @@
 var API = 'http://localhost:3000/api/v1/projects';
 
 $(document).ready(function() {
+
   getOpenProjects();
   getAcceptedProjects();
   getCompletedProjects();
@@ -15,6 +16,8 @@ var submitClose = function() {
 }
 
 var getOpenProjects = function() {
+  var user_div = $('#user')
+  var user = user_div.data("user");
   $('.open-project').empty();
   return $.ajax({
     url: API + `/find_all?requester_id=${user}&status=0`,
@@ -33,6 +36,8 @@ var getOpenProjects = function() {
 };
 
 var getAcceptedProjects = function() {
+  var user_div = $('#user')
+  var user = user_div.data("user");
   var token_div = $('#token')
   var token = token_div.data("token");
   $('.accepted-project').empty();
@@ -54,6 +59,8 @@ var getAcceptedProjects = function() {
 };
 
 var getCompletedProjects = function() {
+  var user_div = $('#user')
+  var user = user_div.data("user");
   $('.closed-project').empty();
   return $.ajax({
     url: API + `/find_all?requester_id=${user}&status=2`,
