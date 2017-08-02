@@ -70,6 +70,25 @@
       }
     }
   }
+
+  .chat-sidebar {
+    margin-top: 25px;
+
+    .chat-window {
+
+      .chat-top {
+        border: 1px solid #000;
+        padding: 2px;
+        background-color: bisque;
+        border-bottom: none;
+        border-radius: 5px 5px 0px 0px;
+
+        h4, .pro-name {
+          text-align: center;
+        }
+      }
+    }
+  }
 }
 
 .new-project-bid {
