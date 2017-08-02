@@ -16264,7 +16264,7 @@ var getOpenProjects = function() {
     var user = user_div.data("user");
     $('.open-project').empty();
     return $.ajax({
-        url: `/find_all?requester_id=${user}&status=0`,
+        url: API + `/find_all?requester_id=${user}&status=0`,
         method: 'GET',
     }).done(function(projects) {
         if (projects.length > 0) {
@@ -16286,7 +16286,7 @@ var getAcceptedProjects = function() {
     var token = token_div.data("token");
     $('.accepted-project').empty();
     return $.ajax({
-        url: `/find_all?requester_id=${user}&status=1`,
+        url: API + `/find_all?requester_id=${user}&status=1`,
         method: 'GET',
     }).done(function(projects) {
         if (projects.length > 0) {
@@ -16307,7 +16307,7 @@ var getCompletedProjects = function() {
     var user = user_div.data("user");
     $('.closed-project').empty();
     return $.ajax({
-        url: `/find_all?requester_id=${user}&status=2`,
+        url: API + `/find_all?requester_id=${user}&status=2`,
         method: 'GET',
     }).done(function(projects) {
         if (projects.length > 0) {
@@ -16324,7 +16324,7 @@ var getCompletedProjects = function() {
 
 var updateProject = function(id, token) {
     return $.ajax({
-        url: '/' + id,
+        url: API + '/' + id,
         method: 'PUT',
         data: { project: { status: 'closed', token: token } },
     }).done(function() {
