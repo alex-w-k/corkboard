@@ -2,7 +2,7 @@ function initMap() {
   var location = {
     lat: Number(document.getElementById('lat').textContent),
     lng: Number(document.getElementById('lng').textContent)
-
+  }
   var radius = Number(document.getElementById('radius').textContent) * 1609.34;
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 9,

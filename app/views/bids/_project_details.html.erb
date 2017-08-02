@@ -5,7 +5,7 @@
       </div>
       <div hidden id="lat"><%= @bid.project.latitude %></div>
       <div hidden id="lng"><%= @bid.project.longitude %></div>
-      <div hidden id="radius">"0"</div>
+      <div hidden id="radius">0</div>
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["google_api_key"] %>&callback=initMap">
       </script>
     </div>
