@@ -1,4 +1,6 @@
 class Hire::ProjectController < ApplicationController
+  include Attachments
+
   def new
     @service = Service.find(params[:service])
     @project = Project.new
@@ -6,9 +8,9 @@ class Hire::ProjectController < ApplicationController
 
   def create
     @project = Project.create(project_params)
-    add_attachment if attachment_params
     
     if @project.save
+      add_attachment(@project, :project) if attachment_params(:project)
       flash[:success] = "Project Successfully Submitted"
       redirect_to project_path(@project)
     else 
@@ -20,16 +22,8 @@ class Hire::ProjectController < ApplicationController
   
   private
 
-    def add_attachment
-      @project.attachments.create(upload: attachment_params["0"][:upload])
-    end
-
     def project_params
       requester = {requester_id: current_user.id}
       params.require(:project).permit(:zipcode, :recurring, :description, :timeline, :service_id).merge!(requester)
-    end
-    
-    def attachment_params
-      params.require(:project)[:attachments_attributes]
     end
 end

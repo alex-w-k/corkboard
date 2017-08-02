@@ -14,6 +14,7 @@ class Project < ApplicationRecord
   belongs_to :requester, :class_name => 'User'
   belongs_to :service
   has_many :bids
+  has_many :pros, through: :bids
   has_one :review
   has_many :attachments, as: :attachable
   accepts_nested_attributes_for :attachments

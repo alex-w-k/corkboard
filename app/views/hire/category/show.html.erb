@@ -1,9 +1,11 @@
-<ul class="list-group">
+<div class="container">
+  <ul class="list-group">
     <% @category.services.each do |service| %>
-        <li class="list-group-item-heading">
-            <h4>
-                <%= link_to service.name, new_hire_project_path(service), id: "#{service.slug}" %>
-            </h4>
-        </li>
-        <% end %>
-</ul>
+    <li class="list-group-item-heading">
+      <h4>
+        <%= link_to service.name, new_hire_project_path(service), id: "#{service.slug}" %>
+      </h4>
+    </li>
+    <% end %>
+  </ul>
+</div>
