@@ -1,11 +1,24 @@
-<div class="row bid-bid">
-  <h3>Bid</h3>
-  <%= @bid.id %>
-  <%= @bid.user_id %>
-  <%= @bid.project_id %>
-  <%= @bid.amount %>
-  <%= @bid.comment %>
-  <%= @bid.status %>
-  <%= @bid.created_at %>
-  <%= @bid.updated_at %>
+<<<<<<< HEAD
+<div class="col-xs-12 bid-project bid-bid">
+  <div class="col-sm-4">
+    <p class="comment-p"><span class="bid-comment"><%= @bid.pro.first_name %> says:</span><%= @bid.comment %></p>
+  </div>
+  <div class="col-sm-8">
+    <h3>Bid Details | Status: <%= @bid.status %></h3>
+    <div class="col-sm-6">
+      <p><span class="bid-amount">$<%= @bid.amount %></span></p>
+      <% unless @bid.pro.reviews.empty? %>
+        <p><span class="pro-rating">Latest Pro Rating: <%= @bid.pro.reviews.first.rating %></span></p>
+        <p><span class="pro-rating">Average Pro Rating: <%= Rating.new.avg_rating(@bid.pro) %></span></p>
+      <% else %>
+        <p><span class="pro-rating">This Pro doesn't have any review, yet.</span></p>
+      <% end  %>
+    </div>
+    <div class="col-sm-6">
+      <p><span>Bid ID:</span><%= @bid.id %></p>
+      <p><span>Submitted:</span><%= distance_of_time_in_words(Time.now, @bid.created_at) %> ago</p>
+      <%= render 'bid_action_buttons' %>
+    </div>
+
+  </div>
 </div>
