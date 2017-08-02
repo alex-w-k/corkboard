@@ -13,8 +13,7 @@
             <a class="navbar-brand" href="/">
                 <%= image_tag "corkboard.png" %>
             </a>
-
-            <%= render "shared/navbar_service_search" if logged_in? %>
+            <%= render "shared/navbar_service_search" if logged_in? && !home_page?%>
 
                 <ul class="nav navbar-nav navbar-right">
                     <li>

@@ -37,4 +37,8 @@ module ApplicationHelper
     end
   end
 
+  def home_page?
+    params["controller"] == "home" && params["action"] == "index"
+  end
+
 end
