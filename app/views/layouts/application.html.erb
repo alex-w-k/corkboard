@@ -2,28 +2,28 @@
 <html>
 
 <head>
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-  <title>Corkboard</title>
-  <%= action_cable_meta_tag %>
-  <%= csrf_meta_tags %>
-  <script>var user = <%= current_user.id if current_user %>;</script>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<title>Corkboard</title>
+<%= action_cable_meta_tag %>
+<%= csrf_meta_tags %>
+ <script>var user = <%= current_user ? current_user.id : 0 %>;</script>   
+<%= stylesheet_link_tag    'application', media: 'all' %>
+<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-  <%= render "layouts/navbar" %>
-    <% flash.each do |type, message| %>
-      <% message = [message] if message.class == String %>
-        <%= content_tag :div, message.join('<br/>').html_safe, class: "alert alert-#{type}"%>
-      <%end%>
-  <div class="site-content">
-      <%= yield %>
-  </div>
-  <%= render "layouts/footer" %>
-  <%= javascript_include_tag 'application' %>
+<%= render "layouts/navbar" %>
+<% flash.each do |type, message| %>
+<% message = [message] if message.class == String %>
+<%= content_tag :div, message.join('<br/>').html_safe, class: "alert alert-#{type}"%>
+<%end%>
+<div class="site-content">
+<%= yield %>
+</div>
+<%= render "layouts/footer" %>
+<%= javascript_include_tag 'application' %>
 </body>
 
 </html>
