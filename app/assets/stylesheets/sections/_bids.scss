@@ -26,7 +26,11 @@
       border-bottom: 1px solid #000;
       padding-bottom: 5px;
     }
-
+     #bid-map {
+       #map {
+        height: 120px;
+       }
+     }
     .featured-image {
       padding: 10px;
     }

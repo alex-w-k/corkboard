@@ -20,7 +20,6 @@ function initMap() {
     center: location,
     radius: radius
   });
-  debugger;
   var marker = new google.maps.Marker({
     position: location,
     map: map,
