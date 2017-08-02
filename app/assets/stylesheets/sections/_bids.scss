@@ -1,16 +1,100 @@
-.bid-blocks {
-    a {
-        text-align: inherit;
-    }
-}
+.bid-show {
 
-.bid-block {
-    .button_to {
-        float: left;
-        padding: 10px;
+  .bid-client {
+    margin-bottom: 10px;
+  }
+  .bid-client, .bid-pro {
+    border: 1px solid #000;
+    padding: 0px 10px;
+    text-align: center;
+    border-radius: 5px;
+  }
+
+  .small-profile-image {
+    width: 85px;
+  }
+
+  .bid-project {
+    border: 1px solid #000;
+    padding: 0px 10px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px #888888;
+
+    h3 {
+      margin-top: 10px;
+      border-bottom: 1px solid #000;
+      padding-bottom: 5px;
     }
+
+    .featured-image {
+      padding: 10px;
+    }
+
+    p {
+      text-align: left;
+
+      span {
+        margin: 0px 8px 0px 0px;
+        float: left;
+        font-weight: bold;
+      }
+    }
+
+    &.bid-bid {
+      margin-top: 25px;
+
+      .bid-amount {
+        font-size: 26px;
+        color: green;
+        margin-bottom: 5px;
+      }
+
+      .pro-rating {
+        font-size: 15px;
+      }
+
+      p.comment-p {
+        padding: 5px;
+        border-left: 2px solid #000;
+        border-radius: 10px;
+        margin-top: 15px;
+      }
+
+      .bid-buttons {
+        padding: 5px 0px;
+
+        .button_to {
+          float: right;
+        }
+      }
+    }
+  }
+
+  .chat-sidebar {
+    margin-top: 25px;
+
+    .chat-window {
+
+      .chat-top {
+        border: 1px solid #000;
+        padding: 2px;
+        background-color: bisque;
+        border-bottom: none;
+        border-radius: 5px 5px 0px 0px;
+
+        h4, .pro-name {
+          text-align: center;
+        }
+      }
+    }
+  }
 }
 
 .new-project-bid {
     text-align: center;
+}
+
+.list-style-none {
+  list-style:none;
 }
