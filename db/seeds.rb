@@ -31,6 +31,7 @@ class Seed
     project2 = Project.create!(service_id: 1, zipcode: 80223, description: "I'm going to need more french. I'm still pretty bad.", status: "closed")
     project3 = Project.create!(service_id: 1, zipcode: 80223, description: "Moar french plz.", status: "closed")
     project4 = Project.create!(service_id: 1, zipcode: 80223, description: "CAN YOU MAKE ME FLUENT?! This is the job for you!.", status: "closed")
+    project5 = Project.create(status: "open", zipcode: "80203", recurring: false, description: "I need a new kitchen, ASAP!", timeline: "ASAP", requester_id: 2, service_id: 1)
     Review.create(comment: "Hey! Thanks for teaching pretty god french!", rating: 4.0, user_id: pro.id, project_id: project2.id)
     Review.create(comment: "Your french accent sounds like you're from Atlantic City. Boo.", rating: 2.0, user_id: pro.id, project_id: project3.id)
     Review.create(comment: "These French lessons were adequate.", rating: 3.0, user_id: pro.id, project_id: project4.id)
