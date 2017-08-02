@@ -6,5 +6,5 @@ class OpenProjectPresenter < SimpleDelegator
       distance < self.radius && !self.in?(open_project.pros)
     end
   end
-  
+
 end
