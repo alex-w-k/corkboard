@@ -16,16 +16,6 @@
     <%end%>
   </div>
 
-  <!-- <% if current_user && current_user == @bid.pro  %>
-    <div class="main" id="user_<%=@bid.project.requester.id %>">
-      Chatting with: <%= @bid.project.requester.first_name %>
-    </div>
-  <% elsif current_user && current_user == @bid.project.requester %>
-    <div class="main" id="user_<%= @bid.pro.id %>">
-      Chatting with: <%= @bid.pro.first_name %>
-    </div>
-  <% end %> -->
-
   <%= render partial: 'messages/message_form', locals: {message: @message, bid: @bid}%>
 
   <p class="main" id="user_<%= current_user.id %>">

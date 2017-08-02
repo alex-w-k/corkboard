@@ -1,9 +1,17 @@
 <div class="col-xs-12 bid-project">
   <div class="col-sm-4">
-    <div class="google-map">
-      insert map here.
+    <div id="bid-map">
+      <div id='map'>
+      </div>
+      <div hidden id="lat"><%= @bid.project.latitude %></div>
+      <div hidden id="lng"><%= @bid.project.longitude %></div>
+      <div hidden id="radius">0</div>
+      <div hidden id="zoom">12</div>
+      <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["google_api_key"] %>&callback=initMap">
+      </script>
     </div>
   </div>
+
   <div class="col-sm-8">
     <h3>Project Alias | Status: <%= @bid.project.status %></h3>
     <div class="col-sm-6">

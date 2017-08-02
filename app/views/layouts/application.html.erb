@@ -14,20 +14,20 @@
 </head>
 
 <body>
-  
+
   <%= render "layouts/navbar" %>
   <% flash.each do |type, message| %>
     <% message = [message] if message.class == String %>
     <%= content_tag :div, message.join('<br/>').html_safe, class: "alert alert-#{type}"%>
   <%end%>
-  
+
   <div class="site-content">
     <%= yield %>
   </div>
   <%= render "layouts/footer" %>
 
   <%= javascript_include_tag 'application' %>
-  
+
 </body>
 
 </html>
