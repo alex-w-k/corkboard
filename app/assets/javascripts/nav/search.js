@@ -1,4 +1,4 @@
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', function() {
     const searchInputField = document.getElementById('service_search')
     const dataList = document.getElementById('services_list')
     if (searchInputField) {

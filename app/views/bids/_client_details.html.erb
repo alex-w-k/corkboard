@@ -1,7 +1,9 @@
 <div class="row bid-client">
   <h3>Client Profile</h3>
-  <%= @bid.project.requester.full_name %>
-  <%= @bid.project.requester.zipcode %>
-  <%= @bid.project.requester.phone_number %>
-  <%= @bid.project.requester.email %>
+  <ul class='list-group'>
+  <li class='list-group-item'>Requester: <%= @bid.project.requester.full_name %></li>
+  <li class='list-group-item'>Zipcode: <%= @bid.project.requester.zipcode %></li>
+  <li class='list-group-item'>Phone: <%= @bid.project.requester.phone_number %></li>
+  <li class='list-group-item'>Email: <%= @bid.project.requester.email %></li>
+  </ul>
 </div>

@@ -1,11 +1,11 @@
 <div class="row bid-bid">
   <h3>Bid</h3>
-  <%= @bid.id %>
-  <%= @bid.user_id %>
-  <%= @bid.project_id %>
-  <%= @bid.amount %>
-  <%= @bid.comment %>
-  <%= @bid.status %>
-  <%= @bid.created_at %>
-  <%= @bid.updated_at %>
+
+  <ul class='list-group'>
+  <li class='list-group-item'>Pro Name: <%= @bid.pro.full_name %></li>
+  <li class='list-group-item'>Amount: <%= @bid.amount %></li>
+  <li class='list-group-item'>Comment: <%= @bid.comment %></li>
+  <li class='list-group-item'>Status: <%= @bid.status %></li>
+  <li class='list-group-item'>Created: <%= @bid.created_at%></li>
+  </ul>
 </div>

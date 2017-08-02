@@ -1,13 +1,13 @@
 <div class="row bid-project">
   <h3>Project Details</h3>
-  <%= @bid.project.id %>
-  <%= @bid.project.status %>
-  <%= @bid.project.zipcode %>
-  <%= @bid.project.recurring %>
-  <%= @bid.project.description %>
-  <%= @bid.project.created_at %>
-  <%= @bid.project.updated_at %>
-  <%= @bid.project.timeline %>
-  <%= @bid.project.requester_id %>
-  <%= @bid.project.service_id %>
+  <ul class='list-group'>
+  <li class='list-group-item'>Service: <%= @bid.project.service.name %></li>
+  <li class='list-group-item'>Requester: <%= @bid.project.requester.full_name %></li>
+  <li class='list-group-item'>Status: <%= @bid.project.status %></li>
+  <li class='list-group-item'>Zipcode: <%= @bid.project.zipcode %></li>
+  <li class='list-group-item'>Recurring: <%= @bid.project.recurring %></li>
+  <li class='list-group-item'>Description: <%= @bid.project.description %></li>
+  <li class='list-group-item'>Created: <%= @bid.project.created_at %></li>
+  <li class='list-group-item'>Timeline: <%= @bid.project.timeline %></li>
+  </ul>
 </div>
