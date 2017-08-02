@@ -1,6 +1,6 @@
 var API = 'https://corkboard-services.herokuapp.com/api/v1/projects';
 
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function() {
 
     getOpenProjects();
     getAcceptedProjects();
