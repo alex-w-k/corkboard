@@ -1,4 +1,3 @@
-
 var SearchResults = React.createClass({
   getInitialState: function() {
     return { title: '' };

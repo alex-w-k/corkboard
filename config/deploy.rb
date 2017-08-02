@@ -91,6 +91,17 @@ namespace :deploy do
     end
   end
 
+  desc 'Clobber assets'
+  task :clobber_assets => [:set_rails_env] do
+    on release_roles(fetch(:assets_roles)) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, "assets:clobber"
+        end
+      end
+    end
+  end
+
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart

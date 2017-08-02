@@ -1,4 +1,4 @@
-var API = 'http://localhost:3000/api/v1/projects';
+var API = 'https://myfucking.network/api/v1/projects/';
 
 $(document).ready(function(){
   getOpenProjects();
