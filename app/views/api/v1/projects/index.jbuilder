@@ -11,6 +11,6 @@ json.(@projects) do |project|
       :requester_id,
       :latitude,
       :longitude,
-      :service_id
+      :service
       )
 end
