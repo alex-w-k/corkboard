@@ -16,8 +16,6 @@ gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.3'
 gem 'redis', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
-gem 'turbolinks', '~> 5'
-gem 'twitter-bootstrap-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'omniauth-facebook'
 gem 'figaro'
@@ -33,6 +31,9 @@ gem 'react-rails'
 gem 'aws-sdk', '~> 2.3.0'
 gem 'faraday'
 gem 'faker'
+gem 'jwt'
+gem 'newrelic_rpm'
+gem 'client_side_validations'
 
 group :test do
   gem 'vcr'
@@ -43,7 +44,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'shoulda-callback-matchers', '~> 1.1.1'
   gem 'shoulda-matchers', '~> 3.1'
-
   gem "nyan-cat-formatter"
 end
 

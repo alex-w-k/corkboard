@@ -18,6 +18,7 @@
 
 # Ignore application configuration
 /config/application.yml
+/config/newrelic.yml
 
 #ignore VCR gem cassettes
 /spec/cassettes
@@ -25,4 +26,5 @@
 # Ignore DS Store files
 *.DS_Store
 /public/system
+/coverage/*
 /coverage

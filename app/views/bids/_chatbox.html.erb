@@ -1,6 +1,9 @@
-<div class="row col-md-4">
+<div class="chat-window">
 
-  <h1><%= @bid.project.service.name %></h1>
+  <div class="chat-top">
+    <h4><%= @bid.project.service.name %></h4>
+    <span class="pro-name"><i class="fa fa-thumb-tack" id="user_<%= @bid.pro.id %>" aria-hidden="true"></i> <%= @bid.pro.full_name %></span>
+  </div>
 
   <div class="panel panel-default chatbox">
     <% if @bid.messages.any? %>
@@ -8,11 +11,25 @@
         <%= render partial: 'messages/message', collection: @bid.messages%>
       </div>
     <%else%>
-      <div class="panel-body hidden" id="messages">
+      <div class="panel-body" id="messages">
       </div>
     <%end%>
   </div>
 
+  <!-- <% if current_user && current_user == @bid.pro  %>
+    <div class="main" id="user_<%=@bid.project.requester.id %>">
+      Chatting with: <%= @bid.project.requester.first_name %>
+    </div>
+  <% elsif current_user && current_user == @bid.project.requester %>
+    <div class="main" id="user_<%= @bid.pro.id %>">
+      Chatting with: <%= @bid.pro.first_name %>
+    </div>
+  <% end %> -->
+
   <%= render partial: 'messages/message_form', locals: {message: @message, bid: @bid}%>
+
+  <p class="main" id="user_<%= current_user.id %>">
+    Online as: <%= current_user.first_name %>
+  </p>
 
 </div>

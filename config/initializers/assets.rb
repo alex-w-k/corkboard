@@ -12,5 +12,8 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( telephone/utils.js )
 Rails.application.config.assets.precompile += %w( search.js 
                                                   home/home.js
-                                                  nav/search.js)
+                                                  nav/search.js
+                                                  user_dashboard.js
+                                                  bids/form.js
+                                                  user_dashboard.js)
 

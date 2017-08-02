@@ -1,8 +1,8 @@
 class BidsController < ApplicationController
+  include Attachments
   before_action :set_bid, only: [:show, :update, :destroy]
-  
-  def index
 
+  def index
   end
 
   def show
@@ -11,23 +11,25 @@ class BidsController < ApplicationController
 
   def create
     @bid = Bid.new(bid_params)
-    @bid.pro = Pro.find(current_user.id)
-    @bid.project = Project.find(params[:bid][:project_id])
 
     if @bid.save
-      if params[:bid][:attachments_attributes]
-        @bid.attachments.create(upload: params[:bid][:attachments_attributes]["0"][:upload])
-      end
+      add_attachment(@bid, :bid) if attachment_params(:bid)
       flash["success"] = bid_placed
-      redirect_to pro_dashboard_project_bids_path
+      redirect_to bid_path(@bid)
     else
+      @project = Project.find(bid_params[:project_id])
       flash.now[:danger] = @bid.errors.full_messages
       render '/pro_dashboard/open_projects/show'
     end
   end
 
   def update
-    @bid.update(status: params[:new_status])
+    @bid.update_statuses(params[:new_status])
+    if current_user.pro?
+      redirect_to pro_dashboard_index_path
+    else
+      redirect_to project_path(@bid.project)
+    end
   end
 
   def destroy
@@ -37,7 +39,8 @@ class BidsController < ApplicationController
   private
 
     def bid_params
-      params.require(:bid).permit(:amount, :comment, )
+      pro = {user_id: current_user.id}
+      params.require(:bid).permit(:amount, :comment, :project_id, :new_status).merge(pro)
     end
 
     def set_bid

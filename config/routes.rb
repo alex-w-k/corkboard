@@ -64,4 +64,12 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api do
+    namespace :v1 do
+      namespace :projects do
+        get '/find_all', to: 'find#index'
+        put '/:id', to: 'projects#update'
+      end
+    end
+  end
 end

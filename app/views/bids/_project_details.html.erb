@@ -1,13 +1,20 @@
-<div class="row bid-project">
-  <h3>Project Details</h3>
-  <%= @bid.project.id %>
-  <%= @bid.project.status %>
-  <%= @bid.project.zipcode %>
-  <%= @bid.project.recurring %>
-  <%= @bid.project.description %>
-  <%= @bid.project.created_at %>
-  <%= @bid.project.updated_at %>
-  <%= @bid.project.timeline %>
-  <%= @bid.project.requester_id %>
-  <%= @bid.project.service_id %>
+<<<<<<< HEAD
+<div class="col-xs-12 bid-project">
+  <div class="col-sm-4">
+    <div class="google-map">
+      insert map here.
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <h3>Project Alias | Status: <%= @bid.project.status %></h3>
+    <div class="col-sm-6">
+      <p><span>Project ID:</span> <%= @bid.project.id %></p>
+      <p><span>Estimated Time:</span>  <%= @bid.project.timeline %></p>
+      <p><span>Recurring:</span>  <%= @bid.project.recurring %></p>
+    </div>
+    <div class="col-sm-6">
+      <p><span>Created:</span> <%= distance_of_time_in_words(Time.now, @bid.project.created_at) %> ago</p>
+      <p><span>Service:</span> <%= @bid.project.service.name %></p>
+    </div>
+  </div>
 </div>

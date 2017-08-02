@@ -6,8 +6,8 @@ class MessagesController < ApplicationController
     if message.save
       ActionCable.server.broadcast 'messages',
         message: message.content,
-        user: message.user.first_name
-      head :ok
+        user: message.user.full_name,
+        created_at: message.created_at.strftime("%H:%M")
     else
       redirect_to bids_path
     end

@@ -1,5 +1,7 @@
-<div class="industry-choices">
-  <% @industries.each do |industry| %>
-    <%= link_to industry.name, pro_register_industry_path(industry) %> <br> <br>
-  <% end %>
+<div class="container">
+  <div class="industry-choices">
+    <% @industries.each do |industry| %>
+      <%= link_to industry.name, pro_register_industry_path(industry) %> <br> <br>
+    <% end %>
+  </div>
 </div>
