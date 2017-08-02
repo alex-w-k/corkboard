@@ -3,7 +3,7 @@ var SearchForm = React.createClass({
     var query = document.getElementById('query').value
     var self = this;
     $.ajax({
-      url: 'https://api.myfucking.network/api/v1/records',
+      url: 'https://api.myfucking.network/api/v1/records/',
       data: { query: query },
       success: function(data) {
         self.props.handleSearch(data);
