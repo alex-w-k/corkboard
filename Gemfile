@@ -34,6 +34,7 @@ gem 'faker'
 gem 'jwt'
 gem 'newrelic_rpm'
 gem 'client_side_validations'
+gem 'babel-transpiler'
 
 group :test do
   gem 'vcr'

@@ -38,4 +38,6 @@ In the User's dashboard, users can manage their projects. Projects are rendered 
 
 #### Capistrano
 
-#### React Homepage
+#### React Homepage 
+
+The homepage is built using React in order to bring the dynamic search bar to life. This serach call an external rails service running mongoDB which holds potential result values. Simply begin typing in the search bar for a service you need and results will auto populate below. These results are clickable and will direct you to further directories or, if the result is specific enough, to a form to post the job. Similarlly, the browser tab in the navbar(which appears when signed in), will take you to another React page that allows for clickable single page browsing through all available services.

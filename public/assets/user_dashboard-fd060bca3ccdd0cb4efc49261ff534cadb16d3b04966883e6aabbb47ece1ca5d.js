@@ -1,4 +1,4 @@
-var API = 'https://myfucking.network/api/v1/projects/';
+var API = 'https://corkboard-services.herokuapp.com/api/v1/projects';
 
 $(document).ready(function() {
 
