@@ -18,8 +18,12 @@
 
   <%= render partial: 'messages/message_form', locals: {message: @message, bid: @bid}%>
 
-  <p class="main" id="user_<%= current_user.id %>">
+  <p id="stuff user_<%= current_user.id %>" data-appearing-on="hell">
     Online as: <%= current_user.first_name %>
   </p>
+  <button data-behavior="appear_away">Status</button>
 
+  <p id="other_person" data-appearing-on="hell">
+    Chatting with: <%= @bid.pro.full_name %>
+  </p>
 </div>
