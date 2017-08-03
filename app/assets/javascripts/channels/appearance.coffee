@@ -1,7 +1,6 @@
 App.appearance = App.cable.subscriptions.create "AppearanceChannel",
   connected: ->
     @install()
-    # @appear()
 
   disconnected: ->
     @uninstall()
@@ -10,14 +9,7 @@ App.appearance = App.cable.subscriptions.create "AppearanceChannel",
     @uninstall()
 
   received: (arr) ->
-    debugger
-    # var idString = String(id[0]:id[1])
     $('.online-list').append("<option id=" + arr[0] + ">" + arr[1] + "</option>")
-    # $('.main').addClass("foo")
-    # console.log [ids]
-
-  # appear: ->
-  #   @perform("appear", appearing_on: $(".main").data("appearing-on"))
 
   away: ->
     @perform("away")
