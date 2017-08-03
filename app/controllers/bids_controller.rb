@@ -24,7 +24,8 @@ class BidsController < ApplicationController
   end
 
   def update
-    @bid.update_statuses(params[:new_status])
+    BidHelper.new(@bid, params[:new_status]).update_bid
+    #@bid.update_statuses(params[:new_status])
     if current_user.pro?
       redirect_to pro_dashboard_index_path
     else
