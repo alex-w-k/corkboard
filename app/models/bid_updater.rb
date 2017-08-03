@@ -1,4 +1,4 @@
-class BidHelper
+class BidUpdater
   attr_reader :bid, :bid_params
 
   def initialize(bid, bid_params)
