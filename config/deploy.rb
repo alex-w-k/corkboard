@@ -2,6 +2,7 @@
 lock "3.8.2"
 
 server '104.197.250.20', user: 'deploy', port: 22, roles: %w{web app db}
+server '104.198.18.105', user: 'deploy', port: 22, roles: %w{web app db}
 
 
 set :application, "corkboard"
@@ -111,7 +112,6 @@ namespace :deploy do
 
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
-  after  :finishing,    :generate_500_html
   after  :finishing,    :restart
 end
 

@@ -1,36 +1,42 @@
 <% @type = @presenter.pro %>
 <% @path = pro_index_path %>
 <div class="fluid-container">
-  <div class="row">
-    <div class="col-xs-12 outer">
-      <div class="row">
-        <div class="col-xs-12 col-sm-4 text-center pro-left">
+<div class="row">
+  <div class="col-xs-12 outer">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4 text-center pro-left">
           <h4>These are the services you provide</h4>
           <% @presenter.services.each do |service| %>
-            <%= service.name %><br>
-          <% end %>
-          <h4>And the distance you are willing to travel to perform them</h4>
-          <%= @presenter.radius %> Miles
-          <h2>Create your account</h1>
-          <div class="form-signin">
-            <h4>Account Info</h4>
-            <%= render "shared/user_form" %><br>
-            <%= link_to "Sign Up With Facebook", '/auth/facebook?user_type=pro', class: "facebook-button" %>
-          </div>
-        </div>
+              <%= service.name %><br>
+                  <% end %>
+                      <h4>And the distance you are willing to travel to perform them</h4>
+                      <%= @presenter.radius %> Miles
+                          <h2>Create your account</h1>
+                              <div class="form-signin">
+                                  <h4>Account Info</h4>
+                                  <%= render "shared/user_form" %><br>
+                                      <%= link_to "Sign Up With Facebook", '/auth/facebook?user_type=pro', class: "facebook-button" %>
+                              </div>
+      </div>
 
       <div class="ZipRadiusMapContainer">
-        <div class="col-xs-12 col-sm-8 text-center pro-right">
-          <div id='map'></div>
-          <div hidden id="lat"><%= @presenter.location.lat %></div>
-          <div hidden id="lng"><%= @presenter.location.lng %></div>
-          <div hidden id="radius"><%= @presenter.radius %></div>
-          <div hidden id="zoom">9</div>
-        </div>
+          <div class="col-xs-12 col-sm-8 text-center pro-right">
+              <div id='map'></div>
+              <div hidden id="lat">
+                  <%= @presenter.location.lat %>
+              </div>
+              <div hidden id="lng">
+                  <%= @presenter.location.lng %>
+              </div>
+              <div hidden id="radius">
+                  <%= @presenter.radius %>
+              </div>
+              <div hidden id="zoom">9</div>
+          </div>
       </div>
     </div>
   </div>
 </div>
-          <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["google_api_key"] %>&callback=initMap">
-          </script>
 <%= javascript_include_tag "map.js" %>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["google_api_key"] %>&callback=initMap">
+</script>

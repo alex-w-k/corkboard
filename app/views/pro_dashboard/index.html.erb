@@ -39,12 +39,12 @@
       <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="accepted">
           <ul class="list-group">
-            <% if @pro.accepted_projects.empty? %>
+            <% if @pro.accepted_bid_projects.empty? %>
               <li class="list-group-item">
                 You have no accepted projects.
               </li>
             <% else %>
-              <% @pro.accepted_projects.each do |project| %>
+              <% @pro.accepted_bid_projects.each do |project| %>
               <li class="list-group-item">
                 Owner: <%= project.requester.full_name %><br />
                 Description: <%= project.description %>
