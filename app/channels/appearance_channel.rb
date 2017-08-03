@@ -3,7 +3,7 @@ class AppearanceChannel < ApplicationCable::Channel
   def subscribed
     # current_user.appear
     stream_from "appearance_#{params[:channel]}"
-    self.receive("#{current_user.id}:#{current_user.full_name}")
+    self.receive("#{current_user.id}", "#{current_user.full_name}")
   end
 
   def unsubscribed
@@ -16,8 +16,8 @@ class AppearanceChannel < ApplicationCable::Channel
   #   receive(data)
   # end
 
-  def receive(data)
-    ActionCable.server.broadcast("appearance_#{params[:channel]}", data)
+  def receive(id, name)
+    ActionCable.server.broadcast("appearance_#{params[:channel]}", [id, name])
   end
 
   def away

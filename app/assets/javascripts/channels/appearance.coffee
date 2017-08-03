@@ -9,9 +9,10 @@ App.appearance = App.cable.subscriptions.create "AppearanceChannel",
   rejected: ->
     @uninstall()
 
-  received: (id) ->
+  received: (arr) ->
+    debugger
     # var idString = String(id[0]:id[1])
-    $('.online-list').append("<option>"+ id + "</option>")
+    $('.online-list').append("<option id=" + arr[0] + ">" + arr[1] + "</option>")
     # $('.main').addClass("foo")
     # console.log [ids]
 
