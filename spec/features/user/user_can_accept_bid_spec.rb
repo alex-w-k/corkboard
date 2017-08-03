@@ -16,6 +16,7 @@ RSpec.describe "A user has a project and bids" do
       click_button "Accept"
       expect(current_path).to eq(project_path(bid.project))
       expect(Bid.last.status).to eq("accepted")
+      expect(Bid.last.project.status).to eq("accepted")
     end
 
     it "all other project bid statuses change to rejected" do
