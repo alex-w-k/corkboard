@@ -11,8 +11,8 @@ Rails.application.configure do
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
-  config.action_cable.allowed_request_origins = ["https://35.193.39.38"]
-  config.action_cable.url = 'wss://104.197.9.47'
+  # config.action_cable.allowed_request_origins = ["https://35.193.39.38"]
+  # config.action_cable.url = 'wss://104.197.9.47'
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
