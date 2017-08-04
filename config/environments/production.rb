@@ -11,7 +11,8 @@ Rails.application.configure do
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
-  config.action_cable.allowed_request_origins = ["https://myfucking.network"]
+  config.action_cable.allowed_request_origins = ["https://myfucking.network", "https://alexwk.rocks"]
+  config.action_cable.url = 'wss://104.197.9.47'
 
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
@@ -39,7 +40,6 @@ Rails.application.configure do
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
-  # config.action_cable.url = 'wss://example.com/cable'
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
