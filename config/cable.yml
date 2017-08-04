@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://104.197.9.47:6379/
+  url: redis://35.193.39.38:6379/
   channel_prefix: corkboard_production
