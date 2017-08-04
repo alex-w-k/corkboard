@@ -37,5 +37,9 @@ When a Pro submits a bid for a project, a real-time chat messaging system is ini
 In the User's dashboard, users can manage their projects. Projects are rendered via AJAX calls to an internal API. Accepted projects can be marked as "Complete." This functionality is also provided by AJAX calls to an internal API, secured by an encoded JWS token. Click on a completed project to leave a review for the pro. -- Charlie
 
 #### Capistrano
+Capistrano was used to manage deployments to a Google Cloud Platform Server. Capistrano takes care of pulling from the branch you specify to the server, bundling without Development/Test gems, and running database migrations it will then compile all assets and restart the puma server. The deploy script can be linked to a Travis or Jenkins CI so every successfull test it deploys automatically. It can also be configured to deploy to multiple servers to support scaling. 
 
-#### React Homepage
+
+#### React Homepage 
+
+The homepage is built using React in order to bring the dynamic search bar to life. This serach call an external rails service running mongoDB which holds potential result values. Simply begin typing in the search bar for a service you need and results will auto populate below. These results are clickable and will direct you to further directories or, if the result is specific enough, to a form to post the job. Similarlly, the browser tab in the navbar(which appears when signed in), will take you to another React page that allows for clickable single page browsing through all available services.

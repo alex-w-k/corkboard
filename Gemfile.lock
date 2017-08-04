@@ -352,6 +352,7 @@ DEPENDENCIES
   authy
   awesome_print
   aws-sdk (~> 2.3.0)
+  babel-transpiler
   bcrypt
   bootstrap-sass (~> 3.3.6)
   bootstrap_form
@@ -390,7 +391,7 @@ DEPENDENCIES
   rack_session_access
   rails (~> 5.0.3)
   react-rails
-  redis (~> 3.0)
+  redis
   rspec-rails
   sass-rails (~> 5.0)
   selenium-webdriver

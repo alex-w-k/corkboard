@@ -2,6 +2,7 @@
 lock "3.8.2"
 
 server '104.197.250.20', user: 'deploy', port: 22, roles: %w{web app db}
+server '104.198.18.105', user: 'deploy', port: 22, roles: %w{web app db}
 
 
 set :application, "corkboard"
@@ -38,7 +39,7 @@ set :puma_worker_timeout, nil
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml", "config/application.yml", "config/secrets.yml", "config/newrelic.yml"
+append :linked_files, "config/database.yml", "config/application.yml", "config/secrets.yml", "config/newrelic.yml", "config/cable.yml"
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
@@ -99,6 +100,13 @@ namespace :deploy do
           execute :rake, "assets:clobber"
         end
       end
+    end
+  end
+
+  task :generate_500_html do
+    on roles(:web) do |host|
+      public_500_html = File.join(release_path, "public/500.html")
+      execute :curl, "-k", "https://#{host.hostname}/500", "> #{public_500_html}"
     end
   end
 
