@@ -1,4 +1,4 @@
-var API = 'https://myfucking.network/api/v1/projects/';
+var API = '/api/v1/projects/';
 
 document.addEventListener("DOMContentLoaded", function() {
 
