@@ -5,7 +5,9 @@
     <div class="col-md-4">
       <h2>Open Projects</h2>
       <ul class="list-group open-project">
+        <% @user.projects.each do |project| %>
         <li class="list-group-item">
+          <% link_to project_path(@project) %>
         </li>
       </ul>
     </div>
