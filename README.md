@@ -1,6 +1,6 @@
 ## Consider It Done
 
-![alt text](screen_shots/CorkBoardSS1.png)
+![alt text](screen_shots/CorkBoardSS3.png)
 
 Corkboard was a contribution to the cloney-island project in which we were tasked with recreating a modern website in two stages. The first being a two week sprint where the foundation is laid by [team one](git@github.com:NicholasJacques/corkboard.git). This current iteration is the result of the second sprint where our team took over the unfamiliar code base and expanded functionality. Some of those features include:
 
