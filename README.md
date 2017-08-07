@@ -1,53 +1,53 @@
 ## Consider It Done
 
+Live production site available [here](https://corkboard-services.herokuapp.com/)
+
 ![alt text](screen_shots/CorkBoardSS3.png)
 
-Corkboard was a contribution to the cloney-island project in which we were tasked with recreating a modern website in two stages. The first being a two week sprint where the foundation is laid by [team one](git@github.com:NicholasJacques/corkboard.git). This current iteration is the result of the second sprint where our team took over the unfamiliar code base and expanded functionality. Some of those features include:
+Corkboard was a contribution to the cloney-island project in which our team was tasked with recreating a modern website in two stages. The first being a two week sprint where the foundation is laid by [team one](git@github.com:NicholasJacques/corkboard.git). This current iteration is the result of the second sprint where our team took over the unfamiliar code base and expanded functionality. Some of those features include:
 
 The inspiration for this project was [Thumbtack](https://www.thumbtack.com/).
 
-Our stack includes:
-- React
-- JQuery
-- JavaScript
-- Ruby
-- Rails 5.0.4
-- Redis
-- AWS Bucket
-- MongoDB
-- PostgreSQL
+### The Stack
+* React
+* JQuery
+* JavaScript
+* Ruby
+* Rails 5.0.4
+* Redis
+* AWS Bucket
+* MongoDB
+* PostgreSQL
 
-## To Try the project yourself:
-In Terminal
-- Clone this repo into that directory
-- `cd corkboard`
-- Run `bundle`
-- Finally, run `rake db:setup to setup and seed your database`
+#### To Run Locally
+* Clone down this repo  
+* `cd corkboard`
+* Run `bundle`
+* Run `rake db:setup`
+* Rrun `rails s`.
+* Visit `localhost:3000` and start exploring corkboard
+* Type `ctrl-c` to stop the server and return to the command line.
 
-### RSpec test suite and Checking Coverage with SimpleCov
+### Typical Flow
+From the homepage a user may begin by typing a needed service into the searchbar. A query like "plumbing", "electrical", or "driver" will bring up search results that can be followed to create an event. User can also click the icons below to navigate lists of services. Onece a service is chosen users can fill out a form to create a post. In order to fufill this request one has to sign in or sign up. We offer OAuth through facebook or a typical username/email login. From there a user will be taken to a dashboard where the can see all open, accepted and past bid projects with action options on those projects. If clicked, a project will show all active bids on that project and if those are clicked will take a user to the bids page:
 
-Start by running our test suite.
+![alt text](screen_shots/CorkBoardSS1.png)
 
-  * Enter `rspec` on the command line to run the test suite.
-  * Next, enter `open coverage/index.html` on the command line to see test coverage.
+From here users can converse with the professional who extended the bid via the chatbox to the lower right(these happen in real time and are served by ActionCable and Redis). From here bids can be accepted and withdrawn. Once a project is closed a user has the ability to rate professionals on a 5-star scale.
 
-### Running the server locally
+Professionals can also sign up using the signup link, but choose an alternate route. From there they are asked to further narrow down and specifiy their services and their work radius from a particular zipcode. This is then displayed on a map during signup:
 
-  * To start up the server from within the project, run `rails s`.
-  * Then, visit your browser and start exploring!
-  * Type `ctrl-c` to stop the server and return to the command line.
+![alt text](screen_shots/CorkBoardSS2.png)
 
-### Features
+Once logged in, a pro dashboard allows for the viewing of all open, acceted and closed bids. If a pro clicks "find projects" from the dashboard they are taken to a list where they will see only jobs related to their offered service within their prescribed radius. They can bid directly from this page and a modal will pop up allowing them to write a short message to the prospective employer. 
+
+### Highlighted Features and Technologies
 
 #### Action Cable
-When a Professional submits a bid for a project, a real-time chat messaging system is initialized on the bid. Messaging uses Rails' built-in ActionCable module in conjunction with a Redis server in order to enable a chat channel scoped to the specific bid. To use, login as a Pro, find a project, create a bid and chat away.
+When a Professional submits a bid for a project, a real-time chat messaging system is initialized on the bid. Messaging uses Rails' built-in ActionCable module in conjunction with a Redis server in order to enable a chat channel scoped to the specific bid
 
 #### Asynchronous JavaScript
 In the User's dashboard, users can manage their projects. Projects are rendered via AJAX calls to an internal API. Accepted projects can be marked as "Complete." This functionality is also provided by AJAX calls to an internal API, secured by an encoded JWS token. Click on a completed project to leave a review for the pro.
 
-#### Capistrano
-Capistrano was used to manage deployments to a Google Cloud Platform Server. Capistrano takes care of pulling from the branch you specify to the server, bundling without Development/Test gems, and running database migrations it will then compile all assets and restart the puma server. The deploy script can be linked to a Travis or Jenkins CI so every successfull test it deploys automatically. It can also be configured to deploy to multiple servers to support scaling. 
-
-
-#### React Homepage 
-The homepage and browser page are built using React. The serach bar on the landing page call an external Rails application running MongoDB which holds all potential result values. When you begin typing in the search bar for a service clickable results will auto populate in the space below. When clicked you will be directed to further specified results or to a form to create a job post. The external service is updated via a Rails Active Job and also secured using JavaScript Web Tokens. 
+#### React Homepage and Browser
+The homepage and browser pages are built using React. The serach bar on the landing page call an [external Rails application](https://github.com/Benjaminpjacobs/corkboard-micro) running MongoDB which holds all potential result values. When you begin typing in the search bar for a service clickable results will auto populate in the space below. When clicked you will be directed to further specified results or to a form to create a job post. The external service is updated via a Rails Active Job and also secured using JavaScript Web Tokens. 
