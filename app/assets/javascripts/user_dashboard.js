@@ -88,8 +88,5 @@ var updateProject = function(id, token) {
         $('.closed-project').empty();
         getAcceptedProjects();
         getCompletedProjects();
-    }).fail(function(error) {
-        alert("Something went wrong. We feel terrible.");
-        console.log(error);
     })
 };
