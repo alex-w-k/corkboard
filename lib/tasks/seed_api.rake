@@ -12,7 +12,7 @@ namespace :api do
       industry.search_service_id = JSON.parse(response.body, symbolize_names: true)[:_id][:$oid]
       industry.save
 
-      puts "Seeded Industry #{industry}"
+      puts "Seeded Industry #{industry.name}"
     end
     
     Category.all.each do |category|
@@ -28,7 +28,7 @@ namespace :api do
       category.search_service_id = JSON.parse(response.body, symbolize_names: true)[:_id][:$oid]
       category.save
 
-      puts "Seeded Category #{category}"
+      puts "Seeded Category #{category.name}"
     end
 
     Service.all.each do |service|
@@ -42,7 +42,7 @@ namespace :api do
       service.search_service_id = JSON.parse(response.body, symbolize_names: true)[:_id][:$oid]
       service.save
 
-      puts "Seeded Service #{service}"
+      puts "Seeded Service #{service.name}"
     end
   end
 
@@ -54,7 +54,7 @@ namespace :api do
         object: "Industry"
       })
 
-      puts "Deleted Industry #{industry}"
+      puts "Deleted Industry #{industry.name}"
     end
 
     Category.all.each do |category|
@@ -63,7 +63,7 @@ namespace :api do
         object: "Category"
       })
 
-      puts "Deleted Category #{category}"
+      puts "Deleted Category #{category.name}"
     end
 
     Service.all.each do |service|
@@ -72,7 +72,7 @@ namespace :api do
         object: "Service"
       })
 
-      puts "Deleted Service #{service}"
+      puts "Deleted Service #{service.name}"
     end
   end
 end

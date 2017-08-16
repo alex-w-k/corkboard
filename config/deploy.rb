@@ -65,7 +65,7 @@ namespace :puma do
   before :start, :make_dirs
 end
 
-namespace :postgres do
+namespace :db do
   desc 'Reset postgres db'
   task :reset do
     invoke 'puma:stop'
