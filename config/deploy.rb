@@ -72,7 +72,7 @@ namespace :postgres do
     on primary :db do
       within current_path do
         with rails_env: fetch(:stage) do
-          execute :rake, 'db:reset'
+          execute :rake, 'db:reset DISABLE_DATABASE_ENVIRONMENT_CHECK=1'
         end
       end
     end
