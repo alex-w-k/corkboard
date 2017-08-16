@@ -65,6 +65,21 @@ namespace :puma do
   before :start, :make_dirs
 end
 
+namespace :postgres do
+  desc 'Reset postgres db'
+  task :reset do
+    invoke 'puma:stop'
+    on primary :db do
+      within current_path do
+        with rails_env: fetch(:stage) do
+          execute :rake, 'db:reset'
+        end
+      end
+    end
+    invoke 'puma:start'
+  end
+end
+
 namespace :deploy do
 
   desc 'Initial Deploy'
