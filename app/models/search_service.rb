@@ -16,7 +16,8 @@ class SearchService
     @conn.put "record", {token: JsonWebToken.encode(post_params)}
   end
   
-  def delete(id)
+  def delete(post_params)
+    binding.pry
     @conn.delete "record", {token: JsonWebToken.encode(post_params)}
   end
 end

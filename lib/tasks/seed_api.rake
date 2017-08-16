@@ -11,7 +11,8 @@ namespace :api do
       })
       industry.search_service_id = JSON.parse(response.body, symbolize_names: true)[:_id][:$oid]
       industry.save
-      
+
+      puts "Seeded Industry #{industry}"
     end
     
     Category.all.each do |category|
@@ -26,6 +27,8 @@ namespace :api do
       })
       category.search_service_id = JSON.parse(response.body, symbolize_names: true)[:_id][:$oid]
       category.save
+
+      puts "Seeded Category #{category}"
     end
 
     Service.all.each do |service|
@@ -38,6 +41,38 @@ namespace :api do
       })
       service.search_service_id = JSON.parse(response.body, symbolize_names: true)[:_id][:$oid]
       service.save
+
+      puts "Seeded Service #{service}"
+    end
+  end
+
+  task :delete => :environment do
+    conn = SearchService.new
+    Industry.all.each do |industry|
+      conn.delete({ 
+        local_id: industry.id,
+        object: "Industry"
+      })
+
+      puts "Deleted Industry #{industry}"
+    end
+
+    Category.all.each do |category|
+      conn.delete({
+        local_id: category.id,
+        object: "Category"
+      })
+
+      puts "Deleted Category #{category}"
+    end
+
+    Service.all.each do |service|
+      conn.delete({
+        local_id: service.id,
+        object: "Service"
+      })
+
+      puts "Deleted Service #{service}"
     end
   end
 end
