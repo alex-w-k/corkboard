@@ -2,9 +2,8 @@
 lock "3.8.2"
 
 server '104.197.250.20', user: 'deploy', port: 22, roles: %w{web app db}
-server '104.198.18.105', user: 'deploy', port: 22, roles: %w{web app db}
+server '35.197.49.32', user: 'deploy', port: 22, roles: %w{web app db}
 server '35.185.71.139', user: 'deploy', port: 22, roles: %w{web app db}
-
 
 
 set :application, "corkboard"
