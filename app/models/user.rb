@@ -57,4 +57,7 @@ class User < ApplicationRecord
     requested_projects
   end
 
+  def appear(data = {})
+  end
+
 end
