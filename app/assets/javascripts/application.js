@@ -17,6 +17,9 @@
 //= require react
 //= require react_ujs
 //= require components
-//= require_tree .
+//= require ./components
+//= require bootstrap
+//= require cable
+//= require server_rendering
 
 //= require_tree ./channels

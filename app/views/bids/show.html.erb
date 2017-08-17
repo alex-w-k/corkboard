@@ -1,47 +1,50 @@
 <div class="container bid-show">
-  <div class="row">
-    <div class="col-xs-12 col-sm-3 bid-profiles">
-      <%= render "profile_details"%>
+    <div class="row">
+        <div class="col-xs-12 col-sm-3 bid-profiles">
+            <%= render "profile_details"%>
+        </div>
+        <div class="col-xs-12 col-sm-9">
+            <%= render 'project_details' %>
+                <%= render 'bid_details' %>
+        </div>
     </div>
-    <div class="col-xs-12 col-sm-9">
-      <%= render 'project_details' %>
-      <%= render 'bid_details' %>
+    <div class="row">
+        <div class="col-xs-12 col-sm-3 chat-sidebar">
+            <%= render 'chatbox' %>
+        </div>
+        <div class="col-xs-12 col-sm-9 gallery">
+            <div class="col-sm-4">
+                <%= image_tag("project/art.jpeg", class: "img-responsive img-thumbnail") %>
+            </div>
+            <div class="col-sm-4">
+                <%= image_tag("project/bartender.jpeg", class: "img-responsive img-thumbnail") %>
+            </div>
+            <div class="col-sm-4">
+                <%= image_tag("project/camera.jpg", class: "img-responsive img-thumbnail") %>
+            </div>
+            <div class="col-sm-4">
+                <%= image_tag("project/catering.jpeg", class: "img-responsive img-thumbnail") %>
+            </div>
+            <div class="col-sm-4">
+                <%= image_tag("project/dog.jpeg", class: "img-responsive img-thumbnail") %>
+            </div>
+            <div class="col-sm-4">
+                <%= image_tag("project/french.jpeg", class: "img-responsive img-thumbnail") %>
+            </div>
+            <div class="col-sm-4">
+                <%= image_tag("project/groom.jpeg", class: "img-responsive img-thumbnail") %>
+            </div>
+            <div class="col-sm-4">
+                <%= image_tag("project/house-painter.jpeg", class: "img-responsive img-thumbnail") %>
+            </div>
+            <div class="col-sm-4">
+                <%= image_tag("project/plumber.jpeg", class: "img-responsive img-thumbnail") %>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-3 chat-sidebar">
-      <%= render 'chatbox' %>
-    </div>
-    <div class="col-xs-12 col-sm-9 gallery">
-      <div class="col-sm-4">
-        <%= image_tag("project/art.jpeg", class: "img-responsive img-thumbnail") %>
-      </div>
-      <div class="col-sm-4">
-        <%= image_tag("project/bartender.jpeg", class: "img-responsive img-thumbnail") %>
-      </div>
-      <div class="col-sm-4">
-        <%= image_tag("project/camera.jpg", class: "img-responsive img-thumbnail") %>
-      </div>
-      <div class="col-sm-4">
-        <%= image_tag("project/catering.jpeg", class: "img-responsive img-thumbnail") %>
-      </div>
-      <div class="col-sm-4">
-        <%= image_tag("project/dog.jpeg", class: "img-responsive img-thumbnail") %>
-      </div>
-      <div class="col-sm-4">
-        <%= image_tag("project/french.jpeg", class: "img-responsive img-thumbnail") %>
-      </div>
-      <div class="col-sm-4">
-        <%= image_tag("project/groom.jpeg", class: "img-responsive img-thumbnail") %>
-      </div>
-      <div class="col-sm-4">
-        <%= image_tag("project/house-painter.jpeg", class: "img-responsive img-thumbnail") %>
-      </div>
-      <div class="col-sm-4">
-        <%= image_tag("project/plumber.jpeg", class: "img-responsive img-thumbnail") %>
-      </div>
-    </div>
-  </div>
 </div>
 
-<%= javascript_include_tag "map.js" %>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["google_api_key"] %>&callback=initMap">
+    </script>
+<%=javascript_include_tag "map.js" %>
+

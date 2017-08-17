@@ -1,6 +1,7 @@
-var API = 'http://localhost:3000/api/v1/projects';
+var API = 'https://corkboard-services.herokuapp.com/api/v1/projects';
+// var API = 'http://localhost:3000/api/v1/projects';
 
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function() {
 
     getOpenProjects();
     getAcceptedProjects();
@@ -79,19 +80,14 @@ var getCompletedProjects = function() {
 };
 
 var updateProject = function(id, token) {
-  return $.ajax({
-    url: API + '/' + id,
-    method: 'PUT',
-    data: {project: {status: 'closed', token: token}},
-  }).done(function() {
-    $('.accepted-project').empty();
-    $('.closed-project').empty();
-    getAcceptedProjects();
-    getCompletedProjects();
-  }).fail(function(error) {
-    alert("Something went wrong. We feel terrible.");
-    console.log(error);
-  })
+    return $.ajax({
+        url: API + '/' + id,
+        method: 'PUT',
+        data: { project: { status: 'closed', token: token } },
+    }).done(function() {
+        $('.accepted-project').empty();
+        $('.closed-project').empty();
+        getAcceptedProjects();
+        getCompletedProjects();
+    })
 };
-
-
