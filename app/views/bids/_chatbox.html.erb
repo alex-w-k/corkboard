@@ -2,7 +2,6 @@
 
   <div class="chat-top">
     <h4><%= @bid.project.service.name %></h4>
-    <span class="pro-name"><i class="fa fa-thumb-tack" id="user_<%= @bid.pro.id %>" aria-hidden="true"></i> <%= @bid.pro.full_name %></span>
   </div>
 
   <div class="panel panel-default chatbox">
@@ -18,12 +17,16 @@
 
   <%= render partial: 'messages/message_form', locals: {message: @message, bid: @bid}%>
 
-  <p id="stuff user_<%= current_user.id %>" data-appearing-on="hell">
-    Online as: <%= current_user.first_name %>
-  </p>
-  <button data-behavior="appear_away">Status</button>
+  <% if current_user.pro? %>
+    <p>
+      <i class="fa fa-circle" id="user_<%= @bid.project.requester.id %>" aria-hidden="true"></i>
+      <%= @bid.project.requester.full_name %>
+    </p>
+  <% else %>
+    <p>
+      <i class="fa fa-circle" id="user_<%= @bid.pro.id %>" aria-hidden="true"></i>
+      <%= @bid.pro.full_name %>
+    </p>
+  <% end  %>
 
-  <p id="other_person" data-appearing-on="hell">
-    Chatting with: <%= @bid.pro.full_name %>
-  </p>
 </div>

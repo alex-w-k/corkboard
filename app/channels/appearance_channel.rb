@@ -15,6 +15,7 @@ class AppearanceChannel < ApplicationCable::Channel
 
   def away
     ActionCable.server.broadcast("appearance_#{params[:channel]}", appearing_on: "offline")
+    self.receive("#{current_user.id}", "#{current_user.full_name}")
   end
 
 end
