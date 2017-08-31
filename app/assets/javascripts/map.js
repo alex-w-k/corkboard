@@ -1,4 +1,4 @@
-function initMap() {
+window.initMap = function() {
   var location = {
     lat: Number(document.getElementById('lat').textContent),
     lng: Number(document.getElementById('lng').textContent)
