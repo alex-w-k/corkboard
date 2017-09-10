@@ -1,4 +1,3 @@
-
 var HomeIcons = React.createClass({
   render: function() {
     return(

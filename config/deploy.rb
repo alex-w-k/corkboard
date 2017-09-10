@@ -2,13 +2,15 @@
 lock "3.8.2"
 
 server '104.197.250.20', user: 'deploy', port: 22, roles: %w{web app db}
+server '35.197.49.32', user: 'deploy', port: 22, roles: %w{web app db}
+server '35.185.71.139', user: 'deploy', port: 22, roles: %w{web app db}
 
 
 set :application, "corkboard"
 set :repo_url, "git@github.com:Benjaminpjacobs/corkboard.git"
 set :use_sudo, true
 
-set :branch, 'development'
+set :branch, 'new_relic'
 
 # Default branch is :setup-capistrano
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -38,7 +40,7 @@ set :puma_worker_timeout, nil
 # set :pty, true
 
 # Default value for :linked_files is []
-append :linked_files, "config/database.yml", "config/application.yml", "config/secrets.yml", "config/newrelic.yml"
+append :linked_files, "config/database.yml", "config/application.yml", "config/secrets.yml", "config/newrelic.yml", "config/cable.yml"
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
@@ -63,6 +65,23 @@ namespace :puma do
   before :start, :make_dirs
 end
 
+namespace :db do
+  desc 'Reset postgres db'
+  task :reset do
+    invoke 'puma:stop'
+    on primary :db do
+      within current_path do
+        with rails_env: fetch(:stage) do
+          execute :rake, 'api:delete'
+          execute :rake, 'db:reset DISABLE_DATABASE_ENVIRONMENT_CHECK=1'
+          execute :rake, 'api:seed'
+        end
+      end
+    end
+    invoke 'puma:start'
+  end
+end
+
 namespace :deploy do
 
   desc 'Initial Deploy'
@@ -80,14 +99,46 @@ namespace :deploy do
     end
   end
 
-  desc "reload the database with seed data"
-  task :seed do
-    run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=production"
+  task :seedapi do
+    puts "\n=== Seeding Database ===\n"
+    on primary :db do
+      within current_path do
+        with rails_env: fetch(:stage) do
+          execute :rake, 'api:seed'
+        end
+      end
+    end
+  end
+
+  desc 'Clobber assets'
+  task :clobber_assets => [:set_rails_env] do
+    on release_roles(fetch(:assets_roles)) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, "assets:clobber"
+        end
+      end
+    end
+  end
+
+  task :generate_500_html do
+    on roles(:web) do |host|
+      public_500_html = File.join(release_path, "public/500.html")
+      execute :curl, "-k", "https://#{host.hostname}/500", "> #{public_500_html}"
+    end
   end
 
   after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
   after  :finishing,    :restart
+end
+
+namespace :rake do
+  desc "Run a task on a remote server."
+  # run like: cap staging rake:invoke task=a_certain_task
+  task :invoke do
+    run("cd #{deploy_to}/current; /usr/bin/env rake #{ENV['task']} RAILS_ENV=#{rails_env}")
+  end
 end
 
 # ps aux | grep puma    # Get puma pid

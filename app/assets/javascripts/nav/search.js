@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         searchInputField.addEventListener("keyup", function() {
 
             search = this.value
-            $.getJSON('https://corkboard-services.herokuapp.com/api/search', { query: search },
+            $.getJSON('https://corkboard.alexwk.rocks/api/search', { query: search },
                 function(data) {
                     dataList.innerHTML = ''
                     if (data) {
