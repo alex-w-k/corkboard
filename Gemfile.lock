@@ -255,7 +255,7 @@ GEM
       execjs
       railties (>= 3.2)
       tilt
-    redis (3.3.3)
+    redis (3.3.5)
     regexp_parser (0.4.4)
     rspec (3.6.0)
       rspec-core (~> 3.6.0)
