@@ -26,7 +26,7 @@ gem 'twilio-ruby', '~>5.0.0'
 gem 'authy'
 gem 'passenger'
 gem 'geokit'
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", "~> 5.2.1"
 gem 'react-rails'
 gem 'aws-sdk', '~> 2.3.0'
 gem 'faraday'
