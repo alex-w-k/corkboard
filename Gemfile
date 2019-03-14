@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bootstrap_form'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'coffee-rails', '~> 4.2'
 gem 'font-awesome-sass'
 gem 'jbuilder', '~> 2.5'
