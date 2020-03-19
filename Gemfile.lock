@@ -156,7 +156,7 @@ GEM
       thor (>= 0.14, < 2.0)
     js_regex (1.2.3)
       regexp_parser (>= 0.3.6, <= 0.5.0)
-    json (2.1.0)
+    json (2.3.0)
     jwt (1.5.6)
     launchy (2.4.3)
       addressable (~> 2.3)
