@@ -219,7 +219,7 @@ GEM
       slop (~> 3.4)
     public_suffix (3.0.0)
     puma (3.11.0)
-    rack (2.0.4)
+    rack (2.1.4)
     rack-test (0.6.3)
       rack (>= 1.0)
     rack_session_access (0.1.1)
